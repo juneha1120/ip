@@ -1,0 +1,14 @@
+juno
+todo read book
+deadline read book /by Monday
+deadline read book
+event read book /from 1pm /to 1pm
+event read book /from
+event read book /to
+list
+mark 1
+unmark 1
+mark 4
+unmark 4
+bbye
+bye

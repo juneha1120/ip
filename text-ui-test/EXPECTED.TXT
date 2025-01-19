@@ -1,7 +1,76 @@
-Hello from
- ____        _        
-|  _ \ _   _| | _____ 
-| | | | | | | |/ / _ \
-| |_| | |_| |   <  __/
-|____/ \__,_|_|\_\___|
+____________________________________________________________
+     _
+    | |_   _ _____  ____
+ _  | | | | |  _  \/ _  \
+| |_| | |_| | | | | |_| |
+ \____|\____|_| |_|_____/
 
+ Hello! I'm Juno.
+ What can I do for you?
+
+ Call my name if you need help.
+____________________________________________________________
+____________________________________________________________
+ You called? Here's what I can do :
+  1. bye (or exit) : exits the chatbot.
+  2. juno (or help) : shows available commands.
+  3. todo + (task description) : adds task without any date/time to task list
+  4. deadline + (task description) + /by (date/time) : adds task due specific date/time to task list
+  5. event + (task description) + /from (date/time) + /to (date/time) : adds task from and to specific date/time to task list
+  6. list (or tasks) : shows list of added tasks.
+  7. mark + (task number) : marks specific task number as done
+  8. unmark + (task number) : unmarks specific task number
+____________________________________________________________
+____________________________________________________________
+ Got it. I've added this task :
+  [T][ ] read book
+ Now you have 1 tasks in the list.
+____________________________________________________________
+____________________________________________________________
+ Got it. I've added this task :
+  [D][ ] read book (by : Monday)
+ Now you have 2 tasks in the list.
+____________________________________________________________
+____________________________________________________________
+ Looks like you did not follow :
+  deadline + (description) + /by (date/time)
+____________________________________________________________
+____________________________________________________________
+ Got it. I've added this task :
+  [E][ ] read book (from : 1pm to : 1pm)
+ Now you have 3 tasks in the list.
+____________________________________________________________
+____________________________________________________________
+ Looks like you did not follow :
+  event + (description) + /from (date/time) + /to (date/time)
+____________________________________________________________
+____________________________________________________________
+ Looks like you did not follow :
+  event + (description) + /from (date/time) + /to (date/time)
+____________________________________________________________
+____________________________________________________________
+ Here's what you have :
+  1. [T][ ] read book
+  2. [D][ ] read book (by : Monday)
+  3. [E][ ] read book (from : 1pm to : 1pm)
+____________________________________________________________
+____________________________________________________________
+ Nice! I've marked this task as done :
+ [T][X] read book
+____________________________________________________________
+____________________________________________________________
+ Ok, I've marked this task as not done yet :
+ [T][ ] read book
+____________________________________________________________
+____________________________________________________________
+ I don't seem to find that task.
+____________________________________________________________
+____________________________________________________________
+ I don't seem to find that task.
+____________________________________________________________
+____________________________________________________________
+ bbye
+____________________________________________________________
+____________________________________________________________
+ Bye. Hope to see you again soon!
+____________________________________________________________
