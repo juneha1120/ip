@@ -13,7 +13,8 @@ public class Juno {
 
             if (input.equalsIgnoreCase("bye")) {ui.showExitMessage(); break;}
             else if (input.equalsIgnoreCase("help") || input.equalsIgnoreCase("juno")) ui.showHelp();
-            else ui.echoInput(input);
+            else if (input.equalsIgnoreCase("list") || input.equalsIgnoreCase("tasks")) ui.showTasks();
+            else ui.addTask(input);
         }
 
         scanner.close();
