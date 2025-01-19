@@ -14,10 +14,12 @@ public class Juno {
 
             if (command[0].equalsIgnoreCase("bye") || command[0].equalsIgnoreCase("exit")) {ui.showExitMessage(); break;}
             else if (command[0].equalsIgnoreCase("juno") || command[0].equalsIgnoreCase("help")) ui.showHelp();
+            else if (command[0].equalsIgnoreCase("todo") && command.length > 1) ui.addTask("todo", command[1]);
+            else if (command[0].equalsIgnoreCase("deadline") && command.length > 1) ui.addTask("deadline", command[1]);
+            else if (command[0].equalsIgnoreCase("event") && command.length > 1) ui.addTask("event", command[1]);
             else if (command[0].equalsIgnoreCase("list") || command[0].equalsIgnoreCase("tasks")) ui.showTasks();
             else if (command[0].equalsIgnoreCase("mark") && command.length > 1) ui.markTask(command[1]);
             else if (command[0].equalsIgnoreCase("unmark") && command.length > 1) ui.unmarkTask(command[1]);
-            else if (command[0].equalsIgnoreCase("add") && command.length > 1) ui.addTask(command[1]);
             else ui.echoInput(input);
         }
 
