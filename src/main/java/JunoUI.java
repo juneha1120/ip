@@ -132,6 +132,12 @@ public class JunoUI {
     // Print greeting message
     public void showGreetingMessage() {
         System.out.println("____________________________________________________________");
+        System.out.println("     _");
+        System.out.println("    | |_   _ _____  ____");
+        System.out.println(" _  | | | | |  _  \\/ _  \\");
+        System.out.println("| |_| | |_| | | | | |_| |");
+        System.out.println(" \\____|\\____|_| |_|_____/");
+        System.out.println();
         System.out.println(" Hello! I'm Juno.");
         System.out.println(" What can I do for you?");
         System.out.println();
