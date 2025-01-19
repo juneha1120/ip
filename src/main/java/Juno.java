@@ -6,19 +6,14 @@ public class Juno {
         Scanner scanner = new Scanner(System.in);
         String input;
 
-        ui.greet();
+        ui.showGreetingMessage();
         while (true) {
             // Read user input
             input = scanner.nextLine();
 
-            // Exit if user input is "bye" (case-insensitive)
-            if (input.equalsIgnoreCase("bye")) {
-                ui.exit();
-                break;
-            }
-
-            // Echo user input
-            ui.echoInput(input);
+            if (input.equalsIgnoreCase("bye")) {ui.showExitMessage(); break;}
+            else if (input.equalsIgnoreCase("help") || input.equalsIgnoreCase("juno")) ui.showHelp();
+            else ui.echoInput(input);
         }
 
         scanner.close();
