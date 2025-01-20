@@ -3,7 +3,7 @@ import enums.JunoType;
 import static enums.JunoType.*;
 
 public class JunoTasks {
-    private final Map<Integer, JunoTask> taskList;
+    private Map<Integer, JunoTask> taskList;
     private int taskNum;
 
     public JunoTasks() {
@@ -46,11 +46,23 @@ public class JunoTasks {
         catch (NumberFormatException e) { throw new JunoException(DELETE, true); }
         if (this.taskList.containsKey(currNum)) {
             curr = this.taskList.remove(currNum);
-            this.taskNum--;
+            this.renumberTasks();
         } else {
             throw new JunoException(DELETE, true);
         }
         return curr;
+    }
+
+    public void renumberTasks() {
+        Map<Integer, JunoTask> newTaskList = new LinkedHashMap<>();
+        int newTaskNum = 0;
+
+        for (Map.Entry<Integer, JunoTask> entry : this.taskList.entrySet()) {
+            newTaskList.put(++newTaskNum, entry.getValue());
+        }
+
+        this.taskList = newTaskList;
+        this.taskNum = newTaskNum;
     }
 
     public JunoTask markTask(String command) throws JunoException {
