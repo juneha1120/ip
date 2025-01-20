@@ -14,17 +14,18 @@ public class JunoUI {
     // Initialise lists of commands
     public void initCommands() {
         // Add commands and their descriptions
-        commands.put("1. bye (or exit)", "exits the chatbot.");
-        commands.put("2. juno (or help)", "shows available commands.");
-        commands.put("3. todo + (description)",
-                 "\n     adds task without any date/time to task list");
-        commands.put("4. deadline + (description) + /by(date/time)",
-                 "\n     adds task due specific date/time to task list");
-        commands.put("5. event + (description) + /from(date/time) + /to(date/time)",
-                 "\n     adds task from and to specific date/time to task list");
-        commands.put("6. list (or tasks)", "shows list of added tasks.");
-        commands.put("7. mark + (task number)", "marks specific task number as done");
-        commands.put("8. unmark + (task number)", "unmarks specific task number");
+        commands.put("# bye", "exits the chatbot.");
+        commands.put("# juno", "shows available commands.");
+        commands.put("# todo <description>",
+                 "\n     adds task without any date/time to task list.");
+        commands.put("# deadline <description> /by <date/time>",
+                 "\n     adds task due specific date/time to task list.");
+        commands.put("# event <description> /from <start> /to <end>",
+                 "\n     adds task from and to specific date/time to task list.");
+        commands.put("# list", "shows list of added tasks.");
+        commands.put("# mark <task number>", "marks specified task as done.");
+        commands.put("# unmark <task number>", "unmarks specified task number.");
+        commands.put("# delete <task number>", "delete specified task.");
     }
 
     // Add task to tasks
@@ -34,6 +35,21 @@ public class JunoUI {
             JunoTask curr = this.tasks.makeTask(type, description);
             this.tasks.addTask(curr);
             System.out.println(" Got it. I've added this task :");
+            System.out.println("  " + curr.toString());
+            System.out.println(" Now you have " + this.tasks.getTaskNum() + " tasks in the list.");
+        } catch (JunoException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("_________________________________________________________________");
+        }
+    }
+
+    // Add task to tasks
+    public void deleteTask(String command) {
+        try {
+            System.out.println("_________________________________________________________________");
+            JunoTask curr = this.tasks.deleteTask(command);
+            System.out.println(" Noted. I've removed this task :");
             System.out.println("  " + curr.toString());
             System.out.println(" Now you have " + this.tasks.getTaskNum() + " tasks in the list.");
         } catch (JunoException e) {

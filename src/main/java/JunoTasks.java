@@ -39,6 +39,20 @@ public class JunoTasks {
         return curr;
     }
 
+    public JunoTask deleteTask(String command) throws JunoException {
+        JunoTask curr;
+        int currNum;
+        try { currNum = Integer.parseInt(command); }
+        catch (NumberFormatException e) { throw new JunoException(REMOVE, true); }
+        if (this.taskList.containsKey(currNum)) {
+            curr = this.taskList.remove(currNum);
+            this.taskNum--;
+        } else {
+            throw new JunoException(REMOVE, true);
+        }
+        return curr;
+    }
+
     public JunoTask markTask(String command) throws JunoException {
         JunoTask curr;
         int currNum;
@@ -70,6 +84,7 @@ public class JunoTasks {
     public void showTasks() throws JunoException {
         if (this.taskNum == 0) throw new JunoException(LIST, true);
         System.out.println(" Here's what you have :");
-        this.taskList.forEach((taskNum, task) -> System.out.println("  " + taskNum + ". " + task.toString()));
+        this.taskList.forEach((taskNum, task) ->
+                                System.out.println("  " + taskNum + ". " + task.toString()));
     }
 }
