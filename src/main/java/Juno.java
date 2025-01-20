@@ -1,26 +1,29 @@
 import java.util.*;
+import static enums.JunoType.*;
 
 public class Juno {
     public static void main(String[] args) {
         JunoUI ui = new JunoUI();
+        ui.showGreetingMessage();
+
         Scanner scanner = new Scanner(System.in);
         String input;
-
-        ui.showGreetingMessage();
         while (true) {
             // Read user input
             input = scanner.nextLine().trim();
             String[] command = input.split(" ", 2);
+            if (command.length < 2) command = new String[] {command[0], ""};
 
+            // Main Logic
             if (command[0].equalsIgnoreCase("bye") || command[0].equalsIgnoreCase("exit")) {ui.showExitMessage(); break;}
             else if (command[0].equalsIgnoreCase("juno") || command[0].equalsIgnoreCase("help")) ui.showHelp();
-            else if (command[0].equalsIgnoreCase("todo") && command.length > 1) ui.addTask("todo", command[1]);
-            else if (command[0].equalsIgnoreCase("deadline") && command.length > 1) ui.addTask("deadline", command[1]);
-            else if (command[0].equalsIgnoreCase("event") && command.length > 1) ui.addTask("event", command[1]);
+            else if (command[0].equalsIgnoreCase("todo")) ui.addTask(TODO, command[1]);
+            else if (command[0].equalsIgnoreCase("deadline")) ui.addTask(DEADLINE, command[1]);
+            else if (command[0].equalsIgnoreCase("event")) ui.addTask(EVENT, command[1]);
             else if (command[0].equalsIgnoreCase("list") || command[0].equalsIgnoreCase("tasks")) ui.showTasks();
-            else if (command[0].equalsIgnoreCase("mark") && command.length > 1) ui.markTask(command[1]);
-            else if (command[0].equalsIgnoreCase("unmark") && command.length > 1) ui.unmarkTask(command[1]);
-            else ui.echoInput(input);
+            else if (command[0].equalsIgnoreCase("mark")) ui.markTask(command[1]);
+            else if (command[0].equalsIgnoreCase("unmark")) ui.unmarkTask(command[1]);
+            else ui.showAgainMessage();
         }
 
         scanner.close();
