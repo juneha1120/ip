@@ -12,17 +12,18 @@ _________________________________________________________________
 _________________________________________________________________
 _________________________________________________________________
  You called? Here's what I can do :
-  1. bye (or exit) : exits the chatbot.
-  2. juno (or help) : shows available commands.
-  3. todo + (description) : 
-     adds task without any date/time to task list
-  4. deadline + (description) + /by(date/time) : 
-     adds task due specific date/time to task list
-  5. event + (description) + /from(date/time) + /to(date/time) : 
-     adds task from and to specific date/time to task list
-  6. list (or tasks) : shows list of added tasks.
-  7. mark + (task number) : marks specific task number as done
-  8. unmark + (task number) : unmarks specific task number
+  # bye : exits the chatbot.
+  # juno : shows available commands.
+  # todo <description> : 
+     adds task without any date/time to task list.
+  # deadline <description> /by <date/time> : 
+     adds task due specific date/time to task list.
+  # event <description> /from <start> /to <end> : 
+     adds task from and to specific date/time to task list.
+  # list : shows list of added tasks.
+  # mark <task number> : marks specified task as done.
+  # unmark <task number> : unmarks specified task number.
+  # delete <task number> : delete specified task.
 _________________________________________________________________
 _________________________________________________________________
  Looks like you have no tasks in your list now!
@@ -39,8 +40,8 @@ _________________________________________________________________
  Could you provide the details for your deadline?
 _________________________________________________________________
 _________________________________________________________________
- Please follow 
- deadline + (description) + /by(date/time).
+ Please follow this format : 
+ deadline <description> /by <date/time>.
 _________________________________________________________________
 _________________________________________________________________
  Got it. I've added this task :
@@ -51,12 +52,12 @@ _________________________________________________________________
  Could you provide the details for your event?
 _________________________________________________________________
 _________________________________________________________________
- Please follow 
- event + (description) + /from(date/time) + /to(date/time).
+ Please follow this format : 
+ event <description> /from <start> /to <end>.
 _________________________________________________________________
 _________________________________________________________________
- Please follow 
- event + (description) + /from(date/time) + /to(date/time).
+ Please follow this format : 
+ event <description> /from <start> /to <end>.
 _________________________________________________________________
 _________________________________________________________________
  Got it. I've added this task :
@@ -82,6 +83,27 @@ _________________________________________________________________
 _________________________________________________________________
 _________________________________________________________________
  I don't seem to find the task.
+_________________________________________________________________
+_________________________________________________________________
+ Noted. I've removed this task :
+  [T][ ] read book
+ Now you have 2 tasks in the list.
+_________________________________________________________________
+_________________________________________________________________
+ Noted. I've removed this task :
+  [D][ ] read book (by : Monday)
+ Now you have 1 tasks in the list.
+_________________________________________________________________
+_________________________________________________________________
+ Noted. I've removed this task :
+  [E][ ] read book (from : 1pm to : 1pm)
+ Now you have 0 tasks in the list.
+_________________________________________________________________
+_________________________________________________________________
+ I don't seem to find the task.
+_________________________________________________________________
+_________________________________________________________________
+ Looks like you have no tasks in your list now!
 _________________________________________________________________
 _________________________________________________________________
  I'm sorry. Could you try again?
