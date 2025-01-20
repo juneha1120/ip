@@ -1,10 +1,14 @@
 juno
+list
+todo
 todo read book
-deadline read book /by Monday
+deadline
 deadline read book
-event read book /from 1pm /to 1pm
+deadline read book /by Monday
+event
 event read book /from
 event read book /to
+event read book /from 1pm /to 1pm
 list
 mark 1
 unmark 1
