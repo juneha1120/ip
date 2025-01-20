@@ -65,7 +65,7 @@ public class JunoUI {
             System.out.println("_________________________________________________________________");
             JunoTask curr = this.tasks.markTask(command);
             System.out.println(" Nice! I've marked this task as done :");
-            System.out.println(" " + curr.toString());
+            System.out.println("  " + curr.toString());
         } catch (JunoException e) {
             System.out.println(e.getMessage());
         } finally {
@@ -79,7 +79,7 @@ public class JunoUI {
             System.out.println("_________________________________________________________________");
             JunoTask curr = this.tasks.unmarkTask(command);
             System.out.println(" Ok, I've marked this task as not done yet :");
-            System.out.println(" " + curr.toString());
+            System.out.println("  " + curr.toString());
         } catch (JunoException e) {
             System.out.println(e.getMessage());
         } finally {

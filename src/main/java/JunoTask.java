@@ -7,6 +7,10 @@ public class JunoTask {
         this.isDone = false;
     }
 
+    public boolean isDone() {
+        return this.isDone;
+    }
+
     public void mark() {
         this.isDone = true;
     }

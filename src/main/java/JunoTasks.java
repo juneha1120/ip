@@ -22,16 +22,16 @@ public class JunoTasks {
     public JunoTask makeTask(JunoType type, String description) throws JunoException {
         JunoTask curr;
         if (type.equals(TODO)) {
-            if (description.isEmpty()) throw new JunoException(TODO, true);
+            if (description.isEmpty()) throw new JunoException(TODO, true, true);
             curr = new JunoTodo(description);
         } else if (type.equals(DEADLINE)) {
-            if (description.isEmpty()) throw new JunoException(DEADLINE, false);
-            else if (!description.contains("/by")) throw new JunoException(DEADLINE, true);
+            if (description.isEmpty()) throw new JunoException(DEADLINE, false, true);
+            else if (!description.contains("/by")) throw new JunoException(DEADLINE, true, true);
             String[] desc = description.split("/by", 2);
             curr = new JunoDeadline(desc[0].trim(), desc[1].trim());
         } else {
-            if (description.isEmpty()) throw new JunoException(EVENT, false);
-            else if (!description.contains("/from") || !description.contains("/to") ) throw new JunoException(EVENT, true);
+            if (description.isEmpty()) throw new JunoException(EVENT, false, true);
+            else if (!description.contains("/from") || !description.contains("/to") ) throw new JunoException(EVENT, true, true);
             String[] desc = description.split("/from", 2);
             String[] fromTo = desc[1].split("/to", 2);
             curr = new JunoEvent(desc[0].trim(), fromTo[0].trim(), fromTo[1].trim());
@@ -43,12 +43,12 @@ public class JunoTasks {
         JunoTask curr;
         int currNum;
         try { currNum = Integer.parseInt(command); }
-        catch (NumberFormatException e) { throw new JunoException(DELETE, true); }
+        catch (NumberFormatException e) { throw new JunoException(DELETE, true, true); }
         if (this.taskList.containsKey(currNum)) {
             curr = this.taskList.remove(currNum);
             this.renumberTasks();
         } else {
-            throw new JunoException(DELETE, true);
+            throw new JunoException(DELETE, true, true);
         }
         return curr;
     }
@@ -66,35 +66,39 @@ public class JunoTasks {
     }
 
     public JunoTask markTask(String command) throws JunoException {
-        JunoTask curr;
         int currNum;
-        try { currNum = Integer.parseInt(command); }
-        catch (NumberFormatException e) { throw new JunoException(MARK, true); }
-        if (this.taskList.containsKey(currNum)) {
-            curr = this.taskList.get(taskNum);
-            curr.mark();
-        } else {
-            throw new JunoException(MARK, true);
+        try {
+            currNum = Integer.parseInt(command);
+        } catch (NumberFormatException e) {
+            throw new JunoException(MARK, true, false);
         }
+
+        JunoTask curr = this.taskList.get(currNum);
+        if (curr == null) throw new JunoException(MARK, true, false);
+        else if (curr.isDone()) throw new JunoException(MARK, true, true);
+
+        curr.mark();
         return curr;
     }
 
     public JunoTask unmarkTask(String command) throws JunoException {
-        JunoTask curr;
         int currNum;
-        try { currNum = Integer.parseInt(command); }
-        catch (NumberFormatException e) { throw new JunoException(UNMARK, true); }
-        if (this.taskList.containsKey(currNum)) {
-            curr = this.taskList.get(taskNum);
-            curr.unmark();
-        } else {
-            throw new JunoException(UNMARK, true);
+        try {
+            currNum = Integer.parseInt(command);
+        } catch (NumberFormatException e) {
+            throw new JunoException(UNMARK, true, true);
         }
+
+        JunoTask curr = this.taskList.get(currNum);
+        if (curr == null) throw new JunoException(UNMARK, true, true);
+        else if (!curr.isDone()) throw new JunoException(UNMARK, true, false);
+
+        curr.unmark();
         return curr;
     }
 
     public void showTasks() throws JunoException {
-        if (this.taskNum == 0) throw new JunoException(LIST, true);
+        if (this.taskNum == 0) throw new JunoException(LIST, true, true);
         System.out.println(" Here's what you have :");
         this.taskList.forEach((taskNum, task) ->
                                 System.out.println("  " + taskNum + ". " + task.toString()));
