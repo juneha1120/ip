@@ -10,12 +10,12 @@ public class JunoException extends Exception {
             case TODO -> " Could you provide the details for your todo?";
             case DEADLINE ->
                     !containsDesc ? " Could you provide the details for your deadline?"
-                                 : " Please follow \n deadline + (description) + /by(date/time).";
+                                 : " Please follow this format : \n deadline <description> /by <date/time>.";
             case EVENT ->
                     !containsDesc ? " Could you provide the details for your event?"
-                                 : " Please follow \n event + (description) + /from(date/time) + /to(date/time).";
+                                 : " Please follow this format : \n event <description> /from <start> /to <end>.";
             case LIST -> " Looks like you have no tasks in your list now!";
-            case MARK, UNMARK -> " I don't seem to find the task.";
+            case MARK, UNMARK, DELETE -> " I don't seem to find the task.";
         };
     }
 }

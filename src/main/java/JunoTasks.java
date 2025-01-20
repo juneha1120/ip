@@ -43,12 +43,12 @@ public class JunoTasks {
         JunoTask curr;
         int currNum;
         try { currNum = Integer.parseInt(command); }
-        catch (NumberFormatException e) { throw new JunoException(REMOVE, true); }
+        catch (NumberFormatException e) { throw new JunoException(DELETE, true); }
         if (this.taskList.containsKey(currNum)) {
             curr = this.taskList.remove(currNum);
             this.taskNum--;
         } else {
-            throw new JunoException(REMOVE, true);
+            throw new JunoException(DELETE, true);
         }
         return curr;
     }
