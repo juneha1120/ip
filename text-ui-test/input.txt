@@ -11,11 +11,13 @@ event read book /to
 event read book /from 1pm /to 1pm
 list
 mark 1
+mark 1
+unmark 1
 unmark 1
 mark 4
 unmark 4
 delete 2
-delete 4
+delete 1
 list
 delete 1
 delete 2
