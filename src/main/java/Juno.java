@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.Scanner;
+
 import static enums.JunoType.*;
 
 public class Juno {
@@ -12,19 +13,32 @@ public class Juno {
             // Read user input
             input = scanner.nextLine().trim();
             String[] command = input.split(" ", 2);
-            if (command.length < 2) command = new String[] {command[0], ""};
+            if (command.length < 2) {
+                command = new String[] {command[0], ""};
+            }
 
             // Main Logic
-            if (command[0].equalsIgnoreCase("bye")) {ui.showExitMessage(); break;}
-            else if (command[0].equalsIgnoreCase("juno")) ui.showHelp();
-            else if (command[0].equalsIgnoreCase("todo")) ui.addTask(TODO, command[1]);
-            else if (command[0].equalsIgnoreCase("deadline")) ui.addTask(DEADLINE, command[1]);
-            else if (command[0].equalsIgnoreCase("event")) ui.addTask(EVENT, command[1]);
-            else if (command[0].equalsIgnoreCase("list")) ui.showTasks();
-            else if (command[0].equalsIgnoreCase("mark")) ui.markTask(command[1]);
-            else if (command[0].equalsIgnoreCase("unmark")) ui.unmarkTask(command[1]);
-            else if (command[0].equalsIgnoreCase("delete")) ui.deleteTask(command[1]);
-            else ui.showAgainMessage();
+            if (command[0].equalsIgnoreCase("bye")) {
+                ui.showExitMessage(); break;
+            } else if (command[0].equalsIgnoreCase("juno")) {
+                ui.showHelp();
+            } else if (command[0].equalsIgnoreCase("todo")) {
+                ui.addTask(TODO, command[1]);
+            } else if (command[0].equalsIgnoreCase("deadline")) {
+                ui.addTask(DEADLINE, command[1]);
+            } else if (command[0].equalsIgnoreCase("event")) {
+                ui.addTask(EVENT, command[1]);
+            } else if (command[0].equalsIgnoreCase("list")) {
+                ui.showTasks();
+            } else if (command[0].equalsIgnoreCase("mark")) {
+                ui.markTask(command[1]);
+            } else if (command[0].equalsIgnoreCase("unmark")) {
+                ui.unmarkTask(command[1]);
+            } else if (command[0].equalsIgnoreCase("delete")) {
+                ui.deleteTask(command[1]);
+            } else {
+                ui.showAgainMessage();
+            }
         }
 
         scanner.close();

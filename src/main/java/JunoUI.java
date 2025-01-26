@@ -1,4 +1,6 @@
-import java.util.*;
+import java.util.Map;
+import java.util.LinkedHashMap;
+
 import enums.JunoType;
 
 public class JunoUI {
@@ -17,11 +19,11 @@ public class JunoUI {
         commands.put("# bye", "exits the chatbot.");
         commands.put("# juno", "shows available commands.");
         commands.put("# todo <description>",
-                 "\n     adds task without any date/time to task list.");
+                "\n     adds task without any date/time to task list.");
         commands.put("# deadline <description> /by <date/time>",
-                 "\n     adds task due specific date/time to task list.");
+                "\n     adds task due specific date/time to task list.");
         commands.put("# event <description> /from <start> /to <end>",
-                 "\n     adds task from and to specific date/time to task list.");
+                "\n     adds task from and to specific date/time to task list.");
         commands.put("# list", "shows list of added tasks.");
         commands.put("# mark <task number>", "marks specified task as done.");
         commands.put("# unmark <task number>", "unmarks specified task number.");
