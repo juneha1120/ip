@@ -1,7 +1,8 @@
+import java.io.IOException;
 import java.util.Map;
 import java.util.LinkedHashMap;
 
-import enums.JunoType;
+import enums.JunoTaskType;
 
 public class JunoUI {
     private final Map<String, String> commands;
@@ -31,7 +32,7 @@ public class JunoUI {
     }
 
     // Add task to tasks
-    public void addTask(JunoType type, String description) {
+    public void addTask(JunoTaskType type, String description) {
         try {
             System.out.println("_________________________________________________________________");
             JunoTask curr = this.tasks.makeTask(type, description);
@@ -39,7 +40,7 @@ public class JunoUI {
             System.out.println(" Got it. I've added this task :");
             System.out.println("  " + curr.toString());
             System.out.println(" Now you have " + this.tasks.getTaskNum() + " tasks in the list.");
-        } catch (JunoException e) {
+        } catch (JunoException | IOException e) {
             System.out.println(e.getMessage());
         } finally {
             System.out.println("_________________________________________________________________");
@@ -54,7 +55,7 @@ public class JunoUI {
             System.out.println(" Noted. I've removed this task :");
             System.out.println("  " + curr.toString());
             System.out.println(" Now you have " + this.tasks.getTaskNum() + " tasks in the list.");
-        } catch (JunoException e) {
+        } catch (JunoException | IOException e) {
             System.out.println(e.getMessage());
         } finally {
             System.out.println("_________________________________________________________________");
@@ -68,7 +69,7 @@ public class JunoUI {
             JunoTask curr = this.tasks.markTask(command);
             System.out.println(" Nice! I've marked this task as done :");
             System.out.println("  " + curr.toString());
-        } catch (JunoException e) {
+        } catch (JunoException | IOException e) {
             System.out.println(e.getMessage());
         } finally {
             System.out.println("_________________________________________________________________");
@@ -82,7 +83,7 @@ public class JunoUI {
             JunoTask curr = this.tasks.unmarkTask(command);
             System.out.println(" Ok, I've marked this task as not done yet :");
             System.out.println("  " + curr.toString());
-        } catch (JunoException e) {
+        } catch (JunoException | IOException e) {
             System.out.println(e.getMessage());
         } finally {
             System.out.println("_________________________________________________________________");
@@ -94,7 +95,25 @@ public class JunoUI {
         try {
             System.out.println("_________________________________________________________________");
             this.tasks.showTasks();
+            System.out.println(" You have " + this.tasks.getTaskNum() + " tasks in the list.");
         } catch (JunoException e){
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("_________________________________________________________________");
+        }
+    }
+
+    // Load tasks
+    public void loadTasks() {
+        try {
+            System.out.println(" I'm retrieving your saved task list from last time...");
+            this.tasks.loadTasks();
+            System.out.println();
+            this.tasks.showTasks();
+            System.out.println(" You have " + this.tasks.getTaskNum() + " tasks in the list.");
+        } catch (IOException e) {
+            System.out.println("  Error loading tasks : " + e.getMessage());
+        } catch (JunoException e) {
             System.out.println(e.getMessage());
         } finally {
             System.out.println("_________________________________________________________________");
@@ -128,7 +147,8 @@ public class JunoUI {
     public void showHelp() {
         System.out.println("_________________________________________________________________");
         System.out.println(" You called? Here's what I can do :");
-        commands.forEach((command, description) -> System.out.println("  " + command + " : " + description));
+        commands.forEach((command, description)
+                -> System.out.println("  " + command + " : " + description));
         System.out.println("_________________________________________________________________");
     }
 

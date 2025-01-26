@@ -1,11 +1,12 @@
 import java.util.Scanner;
 
-import static enums.JunoType.*;
+import static enums.JunoTaskType.*;
 
 public class Juno {
     public static void main(String[] args) {
         JunoUI ui = new JunoUI();
         ui.showGreetingMessage();
+        ui.loadTasks();
 
         Scanner scanner = new Scanner(System.in);
         String input;
