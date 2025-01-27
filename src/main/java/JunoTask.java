@@ -1,3 +1,6 @@
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import static enums.JunoErrorType.INVALID_FORMAT_ERROR;
 import static enums.JunoErrorType.INVALID_TYPE_ERROR;
 
@@ -54,11 +57,21 @@ public abstract class JunoTask {
                 return new JunoTodo(description, isDone);
             case "D" :
                 String by = parts[3];
-                return new JunoDeadline(description, isDone, by);
+                if (by.contains("T")) {
+                    return new JunoDeadline(description, isDone, LocalDateTime.parse(by));
+                } else {
+                    return new JunoDeadline(description, isDone, LocalDate.parse(by));
+                }
             case "E" :
                 String from = parts[3];
                 String to = parts[4];
-                return new JunoEvent(description, isDone, from, to);
+                if (from.contains("T")) {
+                    return new JunoEvent(description, isDone, LocalDateTime.parse(from),
+                            LocalDateTime.parse(to));
+                } else {
+                    return new JunoEvent(description, isDone, LocalDate.parse(from),
+                            LocalDate.parse(to));
+                }
             default :
                 throw new JunoException(INVALID_TYPE_ERROR, line);
         }

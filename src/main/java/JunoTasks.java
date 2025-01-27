@@ -4,9 +4,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.LinkedHashMap;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import enums.JunoTaskType;
 
@@ -37,7 +43,7 @@ public class JunoTasks {
         return this.makeTask(type, description, false);
     }
 
-    public JunoTask makeTask(JunoTaskType type, String description, boolean isDone) throws JunoException {
+    public JunoTask makeTask(JunoTaskType type, String description, boolean isDone) throws JunoException, DateTimeParseException {
         JunoTask curr;
         if (type.equals(TODO)) {
             if (description.isEmpty()) {
@@ -51,7 +57,22 @@ public class JunoTasks {
                 throw new JunoException(DEADLINE_ERROR, true);
             }
             String[] desc = description.split("/by", 2);
-            curr = new JunoDeadline(desc[0].trim(), isDone, desc[1].trim());
+            DateTimeFormatter inputFormatter;
+            if (desc[1].trim().contains(" ")) {
+                inputFormatter = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
+                try {
+                    curr = new JunoDeadline(desc[0].trim(), isDone, LocalDateTime.parse(desc[1].trim(), inputFormatter));
+                } catch (DateTimeParseException e) {
+                    throw new JunoException(DEADLINE_ERROR, true);
+                }
+            } else {
+                inputFormatter = DateTimeFormatter.ofPattern("d/M/yyyy");
+                try {
+                    curr = new JunoDeadline(desc[0].trim(), isDone, LocalDate.parse(desc[1].trim(), inputFormatter));
+                } catch (DateTimeParseException e) {
+                    throw new JunoException(DEADLINE_ERROR, true);
+                }
+            }
         } else {
             if (description.isEmpty()) {
                 throw new JunoException(EVENT_ERROR, false);
@@ -60,7 +81,24 @@ public class JunoTasks {
             }
             String[] desc = description.split("/from", 2);
             String[] fromTo = desc[1].split("/to", 2);
-            curr = new JunoEvent(desc[0].trim(), isDone, fromTo[0].trim(), fromTo[1].trim());
+            DateTimeFormatter inputFormatter;
+            if (fromTo[0].trim().contains(" ")) {
+                inputFormatter = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
+                try {
+                    curr = new JunoEvent(desc[0].trim(), isDone, LocalDateTime.parse(fromTo[0].trim(), inputFormatter),
+                            LocalDateTime.parse(fromTo[1].trim(), inputFormatter));
+                } catch (DateTimeParseException e) {
+                    throw new JunoException(EVENT_ERROR, true);
+                }
+            } else {
+                inputFormatter = DateTimeFormatter.ofPattern("d/M/yyyy");
+                try {
+                    curr = new JunoEvent(desc[0].trim(), isDone, LocalDate.parse(fromTo[0].trim(), inputFormatter),
+                            LocalDate.parse(fromTo[1].trim(), inputFormatter));
+                } catch (DateTimeParseException e) {
+                    throw new JunoException(EVENT_ERROR, true);
+                }
+            }
         }
 
         return curr;
@@ -138,14 +176,34 @@ public class JunoTasks {
         return curr;
     }
 
-    public void showTasks() throws JunoException {
+    public Map<Integer, JunoTask> getTasks() throws JunoException {
         if (this.taskNum == 0) {
             throw new JunoException(LIST_ERROR);
         }
 
-        System.out.println(" Here's what you have :");
-        this.taskList.forEach((taskNum, task) ->
-                System.out.println("  " + taskNum + ". " + task.toString()));
+        return this.taskList;
+    }
+
+    public List<JunoTask> getTasksOnDate(LocalDate date) throws JunoException {
+        List<JunoTask> tasksOnDate = new ArrayList<>();
+
+        for (JunoTask task : this.taskList.values()) {
+            if (task instanceof JunoDeadline deadline) {
+                if (deadline.getByDate().equals(date)) {
+                    tasksOnDate.add(task);
+                }
+            } else if (task instanceof JunoEvent event) {
+                if (event.getFromDate().equals(date) || event.getToDate().equals(date)) {
+                    tasksOnDate.add(task);
+                }
+            }
+        }
+
+        if (tasksOnDate.isEmpty()) {
+            throw new JunoException(LIST_WITH_DATE_ERROR);
+        }
+
+        return tasksOnDate;
     }
 
     public void saveTasks() throws IOException {

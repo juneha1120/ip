@@ -1,15 +1,16 @@
 juno
 list
-todo
 todo read book
-deadline
 deadline read book
 deadline read book /by Monday
-event
+deadline read book /by 1/1/1000
+deadline read book /by 1/1/1000 0100
 event read book /from
-event read book /to
 event read book /from 1pm /to 1pm
+event read book /from 1/1/1000 /to 2/1/1000
+event read book /from 1/1/1000 0100 /to 2/1/1000 2300
 list
+list 1/1/1
 mark 1
 mark 1
 unmark 1
@@ -18,9 +19,6 @@ mark 4
 unmark 4
 delete 2
 delete 1
-list
-delete 1
-delete 2
 list
 bbye
 bye

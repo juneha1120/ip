@@ -30,7 +30,11 @@ public class Juno {
             } else if (command[0].equalsIgnoreCase("event")) {
                 ui.addTask(EVENT, command[1]);
             } else if (command[0].equalsIgnoreCase("list")) {
-                ui.showTasks();
+                if (!command[1].isEmpty()) {
+                    ui.showTasksOnDate(command[1]);
+                } else {
+                    ui.showTasks();
+                }
             } else if (command[0].equalsIgnoreCase("mark")) {
                 ui.markTask(command[1]);
             } else if (command[0].equalsIgnoreCase("unmark")) {

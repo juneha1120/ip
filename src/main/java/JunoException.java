@@ -21,6 +21,7 @@ public class JunoException extends Exception {
         return switch (type) {
             case TODO_ERROR -> " Could you provide the details for your todo?";
             case LIST_ERROR -> " Looks like you have no tasks in your list now!";
+            case LIST_WITH_DATE_ERROR -> " Looks like you have no tasks on the date!";
             default -> "";
         };
     }
@@ -28,9 +29,12 @@ public class JunoException extends Exception {
     public static String getErrorMessage(JunoErrorType type, boolean containsDesc) {
         return switch (type) {
             case DEADLINE_ERROR -> !containsDesc ? " Could you provide the details for your deadline?"
-                    : " Please follow this format : \n deadline <description> /by <date/time>.";
+                    : " Please follow this format : " +
+                    "\n deadline <description> /by <d/M/yyyy (HHmm)>.";
             case EVENT_ERROR -> !containsDesc ? " Could you provide the details for your event?"
-                    : " Please follow this format : \n event <description> /from <start> /to <end>.";
+                    : " Please follow this format : " +
+                    "\n event <description> /from <d/M/yyyy (HHmm)> " +
+                    "\n                     /to <d/M/yyyy (HHmm)>.";
             default -> "";
         };
     }
