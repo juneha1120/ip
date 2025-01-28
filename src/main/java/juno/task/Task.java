@@ -1,21 +1,21 @@
 package juno.task;
 
-public abstract class Task {
-    protected String description;
+public class Task {
+    protected String taskName;
     protected boolean isDone;
 
-    public Task(String description) {
-        this.description = description;
+    public Task(String taskName) {
+        this.taskName = taskName;
         this.isDone = false;
     }
 
-    public Task(String description, boolean isDone) {
-        this.description = description;
+    public Task(String taskName, boolean isDone) {
+        this.taskName = taskName;
         this.isDone = isDone;
     }
 
-    public String getDescription() {
-        return this.description;
+    public String getTaskName() {
+        return this.taskName;
     }
 
     public boolean isDone() {
@@ -34,10 +34,12 @@ public abstract class Task {
         return this.isDone ? "X" : " ";
     }
 
-    public abstract String toFileFormat();
+    public String toFileFormat() {
+        return "";
+    }
 
     @Override
     public String toString() {
-        return "[" + this.getStatusIcon() + "] " + this.getDescription();
+        return "[" + this.getStatusIcon() + "] " + this.getTaskName();
     }
 }

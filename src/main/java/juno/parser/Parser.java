@@ -65,11 +65,11 @@ public class Parser {
         }
     }
 
-    private boolean isTimeArgument(String argument) {
+    protected boolean isTimeArgument(String argument) {
         return argument.trim().contains(" ");
     }
 
-    private Command prepareAddCommand(TaskType taskType, String arguments) throws JunoException {
+    protected Command prepareAddCommand(TaskType taskType, String arguments) throws JunoException {
         switch (taskType) {
             case TODO :
                 if (arguments.isEmpty()) {
@@ -166,7 +166,7 @@ public class Parser {
         }
     }
 
-    private Command prepareShowWithDateCommand(String arguments) throws JunoException {
+    protected Command prepareShowWithDateCommand(String arguments) throws JunoException {
         DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("d/M/yyyy");
         try {
             LocalDate date = LocalDate.parse(arguments.trim(), inputFormatter);
@@ -176,7 +176,7 @@ public class Parser {
         }
     }
 
-    private Command prepareMarkCommand(String arguments) throws JunoException {
+    protected Command prepareMarkCommand(String arguments) throws JunoException {
         int taskNum;
         try {
             taskNum = Integer.parseInt(arguments);
@@ -186,7 +186,7 @@ public class Parser {
         }
     }
 
-    private Command prepareUnmarkCommand(String arguments) throws JunoException {
+    protected Command prepareUnmarkCommand(String arguments) throws JunoException {
         int taskNum;
         try {
             taskNum = Integer.parseInt(arguments);
@@ -196,7 +196,7 @@ public class Parser {
         }
     }
 
-    private Command prepareDeleteCommand(String arguments) throws JunoException {
+    protected Command prepareDeleteCommand(String arguments) throws JunoException {
         int taskNum;
         try {
             taskNum = Integer.parseInt(arguments);
