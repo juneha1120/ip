@@ -29,18 +29,18 @@ public class ShowTasksWithDateCommand extends Command {
         this.date = date;
     }
 
-    public TaskList getTasksOnDate(TaskList taskList, LocalDate date) throws JunoException {
+    public TaskList getTasksOnDate(TaskList taskList) throws JunoException {
         Map<Integer, Task> taskListOriginal = taskList.getTaskList();
         Map<Integer, Task> taskListOnDate = new LinkedHashMap<>();
         int taskCount = 0;
 
         for (Task task : taskListOriginal.values()) {
             if (task instanceof Deadline deadline) {
-                if (deadline.getByDate().equals(date)) {
+                if (deadline.getByDate().equals(this.date)) {
                     taskListOnDate.put(++taskCount, task);
                 }
             } else if (task instanceof Event event) {
-                if (event.getFromDate().equals(date) || event.getToDate().equals(date)) {
+                if (event.getFromDate().equals(this.date) || event.getToDate().equals(this.date)) {
                     taskListOnDate.put(++taskCount, task);
                 }
             }
@@ -55,7 +55,7 @@ public class ShowTasksWithDateCommand extends Command {
 
     @Override
     public void execute(TaskList taskList, Storage storage, Ui ui) throws JunoException {
-        TaskList taskListOnDate = this.getTasksOnDate(taskList, this.date);
+        TaskList taskListOnDate = this.getTasksOnDate(taskList);
         ui.showTasksWithDate(taskListOnDate, this.date);
     }
 }

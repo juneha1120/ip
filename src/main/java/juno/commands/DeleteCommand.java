@@ -1,7 +1,6 @@
 package juno.commands;
 
 import juno.exceptions.JunoException;
-
 import juno.task.Task;
 import juno.task.TaskList;
 
@@ -24,13 +23,13 @@ public class DeleteCommand extends Command {
         this.taskNum = taskNum;
     }
 
-    public Task deleteTask(TaskList taskList, int taskNum) throws JunoException {
+    public Task deleteTask(TaskList taskList) throws JunoException {
         Task deletedTask;
-        if (taskList.getTaskList().containsKey(taskNum)) {
-            deletedTask = taskList.getTaskList().remove(taskNum);
+        if (taskList.getTaskList().containsKey(this.taskNum)) {
+            deletedTask = taskList.getTaskList().remove(this.taskNum);
             this.renumberTasks(taskList);
         } else {
-            throw new JunoException(DELETE_ERROR, true, taskNum);
+            throw new JunoException(DELETE_ERROR, true, this.taskNum);
         }
 
         return deletedTask;
@@ -50,7 +49,7 @@ public class DeleteCommand extends Command {
 
     @Override
     public void execute(TaskList taskList, Storage storage, Ui ui) throws JunoException {
-        Task deletedTask = this.deleteTask(taskList, this.taskNum);
+        Task deletedTask = this.deleteTask(taskList);
         storage.saveTasks(taskList);
         ui.showDelete(deletedTask, taskList.getTaskCount());
     }
