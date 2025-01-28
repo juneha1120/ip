@@ -115,6 +115,14 @@ public class Ui {
                         date.format(DateTimeFormatter.ofPattern("MMM d yyyy")));
     }
 
+    public void showFind(TaskList taskList, String keyword) {
+        this.showToUser(
+                MESSAGE_FIND_START);
+        this.showToUser(taskList.getStringTaskList());
+        this.showToUser(
+                "You have " + taskList.getTaskCount() + " tasks with keyword : " + keyword);
+    }
+
     public void showMark(Task task) {
         this.showToUser(
                 MESSAGE_MARK_START,

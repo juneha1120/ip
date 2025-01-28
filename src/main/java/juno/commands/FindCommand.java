@@ -1,17 +1,13 @@
 package juno.commands;
 
-import static juno.enums.ErrorType.LIST_WITH_DATE_ERROR;
 import static juno.enums.ErrorType.LIST_WITH_KEYWORD_ERROR;
 import static juno.enums.ErrorType.NO_KEYWORD_ERROR;
 
-import java.time.LocalDate;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import juno.exceptions.JunoException;
 import juno.storage.Storage;
-import juno.task.Deadline;
-import juno.task.Event;
 import juno.task.Task;
 import juno.task.TaskList;
 import juno.ui.Ui;
@@ -51,6 +47,6 @@ public class FindCommand extends Command {
     @Override
     public void execute(TaskList taskList, Storage storage, Ui ui) throws JunoException {
         TaskList taskListWithKeyword = this.getTasksWithKeyword(taskList);
-        ui.findWithKeyword(taskListWithKeyword, this.keyword);
+        ui.showFind(taskListWithKeyword, this.keyword);
     }
 }
