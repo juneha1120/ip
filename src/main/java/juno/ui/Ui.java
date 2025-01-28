@@ -1,15 +1,15 @@
-package ui;
+package juno.ui;
 
-import task.Task;
-import task.TaskList;
+import juno.task.Task;
+import juno.task.TaskList;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-import static command.CommandList.commandDescriptionList;
+import static juno.commands.CommandList.commandDescriptionList;
 
-import static juno.Messages.*;
+import static juno.main.Messages.*;
 
 public class Ui {
     public static final String DIVIDER = "========================================================================";
