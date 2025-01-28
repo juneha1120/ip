@@ -1,4 +1,4 @@
-package enums;
+package juno.enums;
 
 public enum ErrorType {
     CREATE_FILE_ERROR, DATE_ERROR, DEADLINE_ERROR, DELETE_ERROR,
