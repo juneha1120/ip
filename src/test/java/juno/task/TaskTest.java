@@ -8,6 +8,7 @@ public class TaskTest {
         try {
             new Task(null);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 }

@@ -1,11 +1,12 @@
 package juno.ui;
 
-import juno.task.Deadline;
-import juno.task.TaskList;
-import org.junit.jupiter.api.Test;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
+import org.junit.jupiter.api.Test;
+
+import juno.task.Deadline;
+import juno.task.TaskList;
 
 public class UiTest {
     @Test
@@ -13,6 +14,7 @@ public class UiTest {
         try {
             new Ui().shouldIgnore(null);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -21,6 +23,7 @@ public class UiTest {
         try {
             new Ui().showToUser(null, null);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -29,6 +32,7 @@ public class UiTest {
         try {
             new Ui().showLoadingMessage(null);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -37,6 +41,7 @@ public class UiTest {
         try {
             new Ui().showAdd(null, 1);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -45,6 +50,7 @@ public class UiTest {
         try {
             new Ui().showTasks(null);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -54,6 +60,7 @@ public class UiTest {
             LocalDate exampleDate = LocalDate.parse("1/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
             new Ui().showTasksWithDate(null, exampleDate);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -65,6 +72,7 @@ public class UiTest {
         try {
             new Ui().showTasksWithDate(exampleTaskList, null);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -73,6 +81,7 @@ public class UiTest {
         try {
             new Ui().showMark(null);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -81,6 +90,7 @@ public class UiTest {
         try {
             new Ui().showUnmark(null);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -89,6 +99,7 @@ public class UiTest {
         try {
             new Ui().showDelete(null, 1);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -97,6 +108,7 @@ public class UiTest {
         try {
             new Ui().showError(null);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 }

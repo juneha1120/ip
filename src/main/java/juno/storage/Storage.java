@@ -22,14 +22,33 @@ import juno.task.Task;
 import juno.task.TaskList;
 import juno.task.Todo;
 
+/**
+ * The {@code Storage} class is responsible for managing task data storage. It provides methods
+ * for saving tasks to a file and loading tasks from a file. It ensures that tasks are properly
+ * serialized and deserialized into a format that can be written to or read from the file system.
+ */
 public class Storage {
     public static final String EXAMPLE = "./data/juno.txt";
     private final String filePath;
 
+    /**
+     * Constructs a {@code Storage} object that manages the file at the specified file path.
+     *
+     * @param filePath The path to the file where tasks will be stored.
+     */
     public Storage(String filePath) {
         this.filePath = filePath;
     }
 
+    /**
+     * Converts a line of text from the file into a {@link Task} object.
+     * The line must be in the format "type | status | description | ...".
+     * This method handles different types of tasks including {@link Todo}, {@link Deadline}, and {@link Event}.
+     *
+     * @param line The line of text from the file to be parsed.
+     * @return A {@link Task} object created from the parsed line.
+     * @throws JunoException If the line is in an invalid format or the task type is unknown.
+     */
     public static Task fromFileFormat(String line) throws JunoException {
         String[] parts = line.split(" \\| ");
         if (line.isEmpty()) {
@@ -67,6 +86,14 @@ public class Storage {
         }
     }
 
+    /**
+     * Saves the tasks from a {@link TaskList} to a file.
+     * The tasks are serialized into a format that can be saved to the file.
+     * Each task is written as a line in the format "type | status | description | ...".
+     *
+     * @param taskList The {@link TaskList} containing the tasks to be saved.
+     * @throws JunoException If an error occurs while creating the file or writing to it.
+     */
     public void saveTasks(TaskList taskList) throws JunoException {
         StringBuilder data = new StringBuilder();
         for (Map.Entry<Integer, Task> entry : taskList.getTaskList().entrySet()) {
@@ -82,6 +109,14 @@ public class Storage {
         }
     }
 
+    /**
+     * Loads tasks from a file and returns them as a {@link TaskList}.
+     * Each line in the file is parsed into a {@link Task} object.
+     * If the file doesn't exist, a new file is created.
+     *
+     * @return A {@link TaskList} containing the tasks loaded from the file.
+     * @throws JunoException If an error occurs while reading the file or if the file format is invalid.
+     */
     public TaskList loadTasks() throws JunoException {
         Map<Integer, Task> loadedTaskList = new LinkedHashMap<>();
         int loadedTaskCount = 0;

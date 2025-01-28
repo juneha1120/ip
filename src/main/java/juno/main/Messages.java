@@ -1,5 +1,12 @@
 package juno.main;
 
+/**
+ * This class contains constant message strings used throughout the Juno chatbot application.
+ * <p>
+ * These messages are used to display various status updates, errors, and prompts to the user during
+ * the interaction with the chatbot. Each constant represents a different user-facing message that the
+ * chatbot can display in different scenarios.
+ */
 public class Messages {
     public static final String MESSAGE_HELLO = "Hello! I'm Juno. What can I do for you?";
     public static final String MESSAGE_LOAD = "I'm retrieving your saved task list from last time...";

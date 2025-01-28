@@ -2,26 +2,67 @@ package juno.exceptions;
 
 import juno.enums.ErrorType;
 
+/**
+ * Represents a custom exception class for the Juno chatbot.
+ * <p>
+ * The {@code JunoException} class extends {@link Exception} and provides specific error messages based on the type of
+ * error encountered in the chatbot's operation. These error messages are determined by the {@link ErrorType} provided
+ * when throwing the exception.
+ */
 public class JunoException extends Exception {
+    /**
+     * Constructs a {@code JunoException} with the specified error type.
+     *
+     * @param type the error type that defines the message for the exception.
+     */
     public JunoException(ErrorType type) {
         super(getErrorMessage(type));
     }
 
+    /**
+     * Constructs a {@code JunoException} with the specified error type and a flag for including description.
+     *
+     * @param type the error type that defines the message for the exception.
+     * @param containsDesc a flag indicating whether the description should be included in the message.
+     */
     public JunoException(ErrorType type, boolean containsDesc) {
         super(getErrorMessage(type, containsDesc));
     }
 
+    /**
+     * Constructs a {@code JunoException} with the specified error type, task completion status, and task number.
+     *
+     * @param type the error type that defines the message for the exception.
+     * @param isDone the completion status of the task.
+     * @param taskNum the task number related to the error.
+     */
     public JunoException(ErrorType type, boolean isDone, int taskNum) {
         super(getErrorMessage(type, isDone, taskNum));
     }
 
+    /**
+     * Constructs a {@code JunoException} with the specified error type and line of input.
+     *
+     * @param type the error type that defines the message for the exception.
+     * @param line the line of input that caused the error.
+     */
     public JunoException(ErrorType type, String line) {
         super(getErrorMessage(type, line));
     }
 
+    /**
+     * Default constructor for {@code JunoException}.
+     */
     public JunoException() {
+
     }
 
+    /**
+     * Retrieves the error message for the given error type.
+     *
+     * @param type the error type to retrieve the corresponding error message.
+     * @return the error message associated with the specified error type.
+     */
     public static String getErrorMessage(ErrorType type) {
         return switch (type) {
         case TODO_ERROR -> "Could you provide the details for your todo?";
@@ -34,6 +75,13 @@ public class JunoException extends Exception {
         default -> ""; };
     }
 
+    /**
+     * Retrieves the error message for the given error type and description flag.
+     *
+     * @param type the error type to retrieve the corresponding error message.
+     * @param containsDesc flag to indicate whether description is included in the message.
+     * @return the error message associated with the specified error type and description flag.
+     */
     public static String getErrorMessage(ErrorType type, boolean containsDesc) {
         return switch (type) {
         case DEADLINE_ERROR -> !containsDesc ? "Could you provide the details for your deadline?"
@@ -45,6 +93,14 @@ public class JunoException extends Exception {
         default -> ""; };
     }
 
+    /**
+     * Retrieves the error message for the given error type, task completion status, and task number.
+     *
+     * @param type the error type to retrieve the corresponding error message.
+     * @param isDone the completion status of the task.
+     * @param taskNum the task number related to the error.
+     * @return the error message associated with the specified error type, task status, and task number.
+     */
     public static String getErrorMessage(ErrorType type, boolean isDone, int taskNum) {
         return switch (type) {
         case MARK_ERROR -> isDone ? "The task is already marked as done!"
@@ -55,6 +111,13 @@ public class JunoException extends Exception {
         default -> ""; };
     }
 
+    /**
+     * Retrieves the error message for the given error type and input line.
+     *
+     * @param type the error type to retrieve the corresponding error message.
+     * @param line the line of input that caused the error.
+     * @return the error message associated with the specified error type and input line.
+     */
     public static String getErrorMessage(ErrorType type, String line) {
         return switch (type) {
         case DELETE_ERROR -> "I don't seem to find this task : " + line;
