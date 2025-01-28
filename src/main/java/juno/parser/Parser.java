@@ -50,6 +50,8 @@ public class Parser {
                 return new ShowTasksCommand();
             case ShowTasksWithDateCommand.COMMAND_WORD :
                 return prepareShowWithDateCommand(arguments);
+            case FindCommand.COMMAND_WORD:
+                return prepareFindCommand(arguments);
             case MarkCommand.COMMAND_WORD :
                 return prepareMarkCommand(arguments);
             case UnmarkCommand.COMMAND_WORD :
@@ -173,6 +175,14 @@ public class Parser {
             return new ShowTasksWithDateCommand(date);
         } catch (DateTimeParseException e) {
             throw new JunoException(DATE_ERROR);
+        }
+    }
+
+    protected Command prepareFindCommand(String arguments) throws JunoException {
+        try {
+            return new FindCommand(arguments);
+        } catch (NumberFormatException e) {
+            throw new JunoException(MARK_ERROR, arguments);
         }
     }
 
