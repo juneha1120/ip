@@ -1,10 +1,10 @@
-package task;
+package juno.task;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import static command.Command.EXAMPLE_PREFIX;
+import static juno.commands.Command.EXAMPLE_PREFIX;
 
 public class Deadline extends Task {
     public static final String COMMAND_WORD = "deadline";

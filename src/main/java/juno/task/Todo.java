@@ -1,6 +1,6 @@
-package task;
+package juno.task;
 
-import static command.Command.EXAMPLE_PREFIX;
+import static juno.commands.Command.EXAMPLE_PREFIX;
 
 public class Todo extends Task {
     public static final String COMMAND_WORD = "todo";
