@@ -1,15 +1,15 @@
-package command;
+package juno.command;
 
-import exceptions.JunoException;
+import juno.exceptions.JunoException;
 
-import task.Task;
-import task.TaskList;
+import juno.task.Task;
+import juno.task.TaskList;
 
-import storage.Storage;
+import juno.storage.Storage;
 
-import ui.Ui;
+import juno.ui.Ui;
 
-import static enums.ErrorType.MARK_ERROR;
+import static juno.enums.ErrorType.MARK_ERROR;
 
 public class MarkCommand extends Command {
     public static final String COMMAND_WORD = "mark";

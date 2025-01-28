@@ -1,22 +1,22 @@
-package command;
+package juno.command;
 
-import exceptions.JunoException;
+import juno.exceptions.JunoException;
 
-import task.Task;
-import task.TaskList;
-import task.Deadline;
-import task.Event;
+import juno.task.Task;
+import juno.task.TaskList;
+import juno.task.Deadline;
+import juno.task.Event;
 
-import storage.Storage;
+import juno.storage.Storage;
 
-import ui.Ui;
+import juno.ui.Ui;
 
 import java.time.LocalDate;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static enums.ErrorType.LIST_WITH_DATE_ERROR;
+import static juno.enums.ErrorType.LIST_WITH_DATE_ERROR;
 
 public class ShowTasksWithDateCommand extends Command {
     public static final String COMMAND_WORD = "show tasks on";

@@ -1,12 +1,12 @@
-package command;
+package juno.command;
 
-import exceptions.JunoException;
+import juno.exceptions.JunoException;
 
-import task.TaskList;
+import juno.task.TaskList;
 
-import storage.Storage;
+import juno.storage.Storage;
 
-import ui.Ui;
+import juno.ui.Ui;
 
 public abstract class Command {
     public static final String EXAMPLE_PREFIX = " ".repeat(7) + "For example, ";

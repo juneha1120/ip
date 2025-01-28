@@ -1,8 +1,8 @@
-package command;
+package juno.command;
 
-import task.Todo;
-import task.Deadline;
-import task.Event;
+import juno.task.Todo;
+import juno.task.Deadline;
+import juno.task.Event;
 
 public class CommandList {
     public static final String LINE_PREFIX = " # ";

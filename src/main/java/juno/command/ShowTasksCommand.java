@@ -1,10 +1,10 @@
-package command;
+package juno.command;
 
-import task.TaskList;
+import juno.task.TaskList;
 
-import storage.Storage;
+import juno.storage.Storage;
 
-import ui.Ui;
+import juno.ui.Ui;
 
 public class ShowTasksCommand extends Command {
     public static final String COMMAND_WORD = "show tasks";

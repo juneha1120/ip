@@ -1,13 +1,13 @@
-package command;
+package juno.command;
 
-import task.TaskList;
+import juno.task.TaskList;
 
-import storage.Storage;
+import juno.storage.Storage;
 
-import ui.Ui;
+import juno.ui.Ui;
 
 public class HelpCommand extends Command {
-    public static final String COMMAND_WORD = "juno";
+    public static final String COMMAND_WORD = "main";
     public static final String COMMAND_DESCRIPTION = COMMAND_WORD + " : shows list of available commands.\n"
             + " ".repeat(COMMAND_WORD.length()) + EXAMPLE_PREFIX + COMMAND_WORD;
 
