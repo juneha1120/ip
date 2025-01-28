@@ -1,15 +1,12 @@
 package juno.commands;
 
-import juno.exceptions.JunoException;
+import static juno.enums.ErrorType.MARK_ERROR;
 
+import juno.exceptions.JunoException;
+import juno.storage.Storage;
 import juno.task.Task;
 import juno.task.TaskList;
-
-import juno.storage.Storage;
-
 import juno.ui.Ui;
-
-import static juno.enums.ErrorType.MARK_ERROR;
 
 public class MarkCommand extends Command {
     public static final String COMMAND_WORD = "mark";
@@ -22,7 +19,7 @@ public class MarkCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList taskList, Storage storage, Ui ui) throws JunoException{
+    public void execute(TaskList taskList, Storage storage, Ui ui) throws JunoException {
         Task curr = taskList.getTaskList().get(taskNum);
         if (curr == null) {
             throw new JunoException(MARK_ERROR, false, taskNum);

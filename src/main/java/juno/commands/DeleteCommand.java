@@ -1,17 +1,15 @@
 package juno.commands;
 
-import juno.exceptions.JunoException;
-import juno.task.Task;
-import juno.task.TaskList;
-
-import juno.storage.Storage;
-
-import juno.ui.Ui;
+import static juno.enums.ErrorType.DELETE_ERROR;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static juno.enums.ErrorType.DELETE_ERROR;
+import juno.exceptions.JunoException;
+import juno.storage.Storage;
+import juno.task.Task;
+import juno.task.TaskList;
+import juno.ui.Ui;
 
 public class DeleteCommand extends Command {
     public static final String COMMAND_WORD = "delete";

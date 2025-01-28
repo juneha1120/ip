@@ -1,12 +1,9 @@
 package juno.commands;
 
 import juno.exceptions.JunoException;
-
+import juno.storage.Storage;
 import juno.task.Task;
 import juno.task.TaskList;
-
-import juno.storage.Storage;
-
 import juno.ui.Ui;
 
 public class AddCommand extends Command {
