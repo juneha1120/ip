@@ -1,4 +1,4 @@
-package juno.command;
+package juno.commands;
 
 import juno.exceptions.JunoException;
 
