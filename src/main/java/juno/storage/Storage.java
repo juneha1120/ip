@@ -18,6 +18,7 @@ import static juno.enums.ErrorType.*;
 
 public class Storage {
     private final String filePath;
+    public static final String EXAMPLE = "./data/juno.txt";
 
     public Storage(String filePath) {
         this.filePath = filePath;
