@@ -1,6 +1,4 @@
-package exceptions;
-
-import enums.ErrorType;
+package juno.exceptions;
 
 public class JunoTestException extends JunoException {
 
