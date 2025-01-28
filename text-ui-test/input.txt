@@ -69,6 +69,17 @@
     show tasks on 1/1/1000
 
 ##########################################################
+# testing find command
+##########################################################
+
+    # should catch no keyword error
+    find
+    # should catch no such task error
+    find play
+    # should show list of 5 tasks with read
+    find read
+
+##########################################################
 # testing mark command
 ##########################################################
 

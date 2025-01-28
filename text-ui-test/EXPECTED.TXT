@@ -39,6 +39,9 @@
   # show tasks on : shows list of tasks on specified date.
                     For example, show tasks on 01/01/1000
  
+  # find : shows list of tasks with specified keyword.
+           For example, find study CS2103T
+ 
   # mark : marks specified task as done.
            For example, mark 3
  
@@ -109,6 +112,21 @@
   3. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
   4. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 23:00pm)
  You have 4 tasks on Jan 1 1000
+========================================================================
+========================================================================
+ Please specify the keyword you want to search.
+========================================================================
+========================================================================
+ Looks like you have no matching tasks.
+========================================================================
+========================================================================
+ Here are the matching tasks in your list :
+  1. [T][ ] read book
+  2. [D][ ] read book (by Jan 1 1000)
+  3. [D][ ] read book (by Jan 1 1000 1:00am)
+  4. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
+  5. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 23:00pm)
+ You have 5 tasks with keyword : read
 ========================================================================
 ========================================================================
  Nice! I've marked this task as done :
