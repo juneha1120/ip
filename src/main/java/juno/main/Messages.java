@@ -1,7 +1,7 @@
 package juno.main;
 
 public class Messages {
-    public static final String MESSAGE_HELLO= "Hello! I'm Juno. What can I do for you?";
+    public static final String MESSAGE_HELLO = "Hello! I'm Juno. What can I do for you?";
     public static final String MESSAGE_LOAD = "I'm retrieving your saved task list from last time...";
     public static final String MESSAGE_BYE = "Bye.. Hope to see you again soon!";
     public static final String MESSAGE_CALL = "Call my name if you need help.";
