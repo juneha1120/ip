@@ -1,24 +1,114 @@
-juno
-list
-todo read book
-deadline read book
-deadline read book /by Monday
-deadline read book /by 1/1/1000
-deadline read book /by 1/1/1000 0100
-event read book /from
-event read book /from 1pm /to 1pm
-event read book /from 1/1/1000 /to 2/1/1000
-event read book /from 1/1/1000 0100 /to 2/1/1000 2300
-list
-list 1/1/1
-mark 1
-mark 1
-unmark 1
-unmark 1
-mark 4
-unmark 4
-delete 2
-delete 1
-list
-bbye
-bye
+##########################################################
+# testing invalid command
+##########################################################
+
+    # should recognise invalid command
+    bbye
+
+##########################################################
+# testing help command
+##########################################################
+
+    # should show all available commands
+    juno
+
+##########################################################
+# testing show tasks command
+##########################################################
+
+    # should show empty task list
+    show tasks
+
+##########################################################
+# testing add todo task command
+##########################################################
+
+    # should add a todo named read book
+    todo read book
+
+##########################################################
+# testing add deadline task command
+##########################################################
+
+    # should catch invalid format
+    deadline read book
+    # should catch invalid format
+    deadline read book /by Monday
+    # should add a deadline by Jan 1 1000
+    deadline read book /by 1/1/1000
+    # should add a deadline by Jan 1 1000 01:00am
+    deadline read book /by 1/1/1000 01:00
+
+##########################################################
+# testing add event task command
+##########################################################
+
+    # should catch invalid format
+    event read book /from
+    # should catch invalid format
+    event read book /from 1pm /to 1pm
+    # should add an event from Jan 1 1000 to Jan 2 1000
+    event read book /from 1/1/1000 /to 2/1/1000
+    # should add an event from Jan 1 1000 01:00am to Jan 2 1000 11:00pm
+    event read book /from 1/1/1000 01:00 /to 2/1/1000 23:00
+
+##########################################################
+# testing show tasks command
+##########################################################
+
+    # should show list of 5 tasks
+    show tasks
+
+##########################################################
+# testing show tasks with date command
+##########################################################
+
+    # should catch invalid format
+    show tasks on
+    # should show list of 4 tasks on Jan 1 1000
+    show tasks on 1/1/1000
+
+##########################################################
+# testing mark command
+##########################################################
+
+    # should mark and show marked task
+    mark 1
+    # should catch marking again error
+    mark 1
+    # should catch no such task error
+    mark 5
+
+##########################################################
+# testing unmark command
+##########################################################
+
+    # should unmark and show unmarked task
+    unmark 1
+    # should catch unmarking again error
+    unmark 1
+    # should catch no such task error
+    unmark 5
+
+##########################################################
+# testing delete command
+##########################################################
+
+    # should delete and show deleted task
+    delete 1
+    # should catch no such task error
+    delete
+
+##########################################################
+# testing show tasks command
+##########################################################
+
+    # should show list of 4 tasks
+    show tasks
+
+##########################################################
+# testing exit command
+##########################################################
+
+    # should exit properly
+    bye
