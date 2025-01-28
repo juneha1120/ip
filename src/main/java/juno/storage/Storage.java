@@ -1,8 +1,8 @@
-package storage;
+package juno.storage;
 
-import exceptions.JunoException;
+import juno.exceptions.JunoException;
 
-import task.*;
+import juno.task.*;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,7 +14,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import static enums.ErrorType.*;
+import static juno.enums.ErrorType.*;
 
 public class Storage {
     private final String filePath;
