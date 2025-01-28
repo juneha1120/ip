@@ -1,23 +1,23 @@
-package parser;
+package juno.parser;
 
-import command.*;
+import juno.commands.*;
 
-import exceptions.JunoException;
+import juno.exceptions.JunoException;
 
-import exceptions.JunoTestException;
-import task.Todo;
-import task.Deadline;
-import task.Event;
+import juno.exceptions.JunoTestException;
+import juno.task.Todo;
+import juno.task.Deadline;
+import juno.task.Event;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
-import enums.TaskType;
+import juno.enums.TaskType;
 
-import static enums.ErrorType.*;
-import static enums.TaskType.*;
+import static juno.enums.ErrorType.*;
+import static juno.enums.TaskType.*;
 
 public class Parser {
     public Command parse(String fullCommand) throws JunoException {
