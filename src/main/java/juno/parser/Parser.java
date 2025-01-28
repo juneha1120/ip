@@ -21,6 +21,7 @@ import juno.commands.AddCommand;
 import juno.commands.Command;
 import juno.commands.DeleteCommand;
 import juno.commands.ExitCommand;
+import juno.commands.FindCommand;
 import juno.commands.HelpCommand;
 import juno.commands.MarkCommand;
 import juno.commands.ShowTasksCommand;
@@ -70,32 +71,21 @@ public class Parser {
         }
 
         // Return corresponding Command based on the command word
-        switch (commandWord) {
-        case HelpCommand.COMMAND_WORD:
-            return new HelpCommand();
-        case Todo.COMMAND_WORD:
-            return prepareAddCommand(TODO, arguments);
-        case Deadline.COMMAND_WORD:
-            return prepareAddCommand(DEADLINE, arguments);
-        case Event.COMMAND_WORD:
-            return prepareAddCommand(EVENT, arguments);
-        case ShowTasksCommand.COMMAND_WORD:
-            return new ShowTasksCommand();
-        case ShowTasksWithDateCommand.COMMAND_WORD:
-            return prepareShowWithDateCommand(arguments);
-        case MarkCommand.COMMAND_WORD:
-            return prepareMarkCommand(arguments);
-        case UnmarkCommand.COMMAND_WORD:
-            return prepareUnmarkCommand(arguments);
-        case DeleteCommand.COMMAND_WORD:
-            return prepareDeleteCommand(arguments);
-        case ExitCommand.COMMAND_WORD:
-            return new ExitCommand();
-        case TestCommand.COMMAND_WORD, TestCommand.COMMAND_LINE, TestCommand.EMPTY_LINE:
-            throw new JunoTestException();
-        default:
-            return new TryAgainCommand();
-        }
+        return switch (commandWord) {
+        case HelpCommand.COMMAND_WORD -> new HelpCommand();
+        case Todo.COMMAND_WORD -> prepareAddCommand(TODO, arguments);
+        case Deadline.COMMAND_WORD -> prepareAddCommand(DEADLINE, arguments);
+        case Event.COMMAND_WORD -> prepareAddCommand(EVENT, arguments);
+        case ShowTasksCommand.COMMAND_WORD -> new ShowTasksCommand();
+        case ShowTasksWithDateCommand.COMMAND_WORD -> prepareShowWithDateCommand(arguments);
+        case FindCommand.COMMAND_WORD -> new FindCommand(arguments);
+        case MarkCommand.COMMAND_WORD -> prepareMarkCommand(arguments);
+        case UnmarkCommand.COMMAND_WORD -> prepareUnmarkCommand(arguments);
+        case DeleteCommand.COMMAND_WORD -> prepareDeleteCommand(arguments);
+        case ExitCommand.COMMAND_WORD -> new ExitCommand();
+        case TestCommand.COMMAND_WORD, TestCommand.COMMAND_LINE, TestCommand.EMPTY_LINE ->
+                throw new JunoTestException();
+        default -> new TryAgainCommand(); };
     }
 
     /**

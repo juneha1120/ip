@@ -71,7 +71,9 @@ public class JunoException extends Exception {
         case DATE_ERROR -> "Please follow this format : show tasks on <d/M/yyyy>.";
         case CREATE_FILE_ERROR -> "I can't seem to create save files.";
         case READ_FILE_ERROR -> "I can't seem to read saved files.";
-        case LIST_WITH_DATE_ERROR -> "Looks like you have nothing on the date!";
+        case LIST_WITH_DATE_ERROR -> "Looks like you have no tasks on the date!";
+        case LIST_WITH_KEYWORD_ERROR -> "Looks like you have no matching tasks.";
+        case NO_KEYWORD_ERROR -> "Please specify the keyword you want to search.";
         default -> ""; };
     }
 

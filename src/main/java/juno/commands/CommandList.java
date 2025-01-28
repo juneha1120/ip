@@ -13,6 +13,7 @@ import juno.task.Todo;
 public class CommandList {
     public static final String LINE_PREFIX = " # ";
     public static final String EMPTY_DIVIDER = "";
+
     public static final String[] COMMAND_DESCRIPTION_LIST = {
         LINE_PREFIX + HelpCommand.COMMAND_DESCRIPTION,
         EMPTY_DIVIDER,
@@ -25,6 +26,8 @@ public class CommandList {
         LINE_PREFIX + ShowTasksCommand.COMMAND_DESCRIPTION,
         EMPTY_DIVIDER,
         LINE_PREFIX + ShowTasksWithDateCommand.COMMAND_DESCRIPTION,
+        EMPTY_DIVIDER,
+        LINE_PREFIX + FindCommand.COMMAND_DESCRIPTION,
         EMPTY_DIVIDER,
         LINE_PREFIX + MarkCommand.COMMAND_DESCRIPTION,
         EMPTY_DIVIDER,

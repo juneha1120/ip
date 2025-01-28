@@ -5,6 +5,7 @@ import static juno.main.Messages.MESSAGE_ADD_START;
 import static juno.main.Messages.MESSAGE_BYE;
 import static juno.main.Messages.MESSAGE_CALL;
 import static juno.main.Messages.MESSAGE_DELETE_START;
+import static juno.main.Messages.MESSAGE_FIND_START;
 import static juno.main.Messages.MESSAGE_HELLO;
 import static juno.main.Messages.MESSAGE_HELP;
 import static juno.main.Messages.MESSAGE_LOAD;
@@ -182,6 +183,21 @@ public class Ui {
         this.showToUser("You have " + taskList.getTaskCount() + " tasks on "
                 + date.format(DateTimeFormatter.ofPattern("MMM d yyyy")));
     }
+
+    /**
+     * Displays the list of tasks that contains a specific keyword
+     *
+     * @param taskList The current list of tasks.
+     * @param keyword The specific keyword to filter tasks by.
+     */
+    public void showFind(TaskList taskList, String keyword) {
+        this.showToUser(
+                MESSAGE_FIND_START);
+        this.showToUser(taskList.getStringTaskList());
+        this.showToUser(
+                "You have " + taskList.getTaskCount() + " tasks with keyword : " + keyword);
+    }
+
 
     /**
      * Displays a message indicating that a task has been marked as completed.
