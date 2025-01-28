@@ -1,11 +1,10 @@
 package juno.commands;
 
-import juno.exceptions.JunoException;
+import org.junit.jupiter.api.Test;
+
 import juno.storage.Storage;
 import juno.task.TaskList;
-import juno.task.Todo;
 import juno.ui.Ui;
-import org.junit.jupiter.api.Test;
 
 public class ShowTasksCommandTest {
     @Test
@@ -14,6 +13,7 @@ public class ShowTasksCommandTest {
             TaskList nullTaskList = null;
             new ShowTasksCommand().execute(nullTaskList, new Storage(Storage.EXAMPLE), new Ui());
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 }

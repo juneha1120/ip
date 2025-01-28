@@ -1,12 +1,12 @@
 package juno.commands;
 
+import org.junit.jupiter.api.Test;
+
 import juno.exceptions.JunoException;
 import juno.storage.Storage;
 import juno.task.Task;
-
 import juno.task.TaskList;
 import juno.ui.Ui;
-import org.junit.jupiter.api.Test;
 
 public class AddCommandTest {
     @Test
@@ -15,6 +15,7 @@ public class AddCommandTest {
             Task invalidTask = null;
             new AddCommand(invalidTask).execute(new TaskList(), new Storage(Storage.EXAMPLE), new Ui());
         } catch (NullPointerException | JunoException ignored) {
+            // Ignored
         }
     }
 }
