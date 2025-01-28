@@ -1,11 +1,12 @@
 package juno.parser;
 
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+
+import org.junit.jupiter.api.Test;
+
 import juno.commands.TryAgainCommand;
 import juno.enums.TaskType;
 import juno.exceptions.JunoException;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 
 public class ParserTest {
     @Test
@@ -14,6 +15,7 @@ public class ParserTest {
             String nullString = null;
             new Parser().parse(nullString);
         } catch (JunoException | NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -23,6 +25,7 @@ public class ParserTest {
         try {
             assertInstanceOf(TryAgainCommand.class, new Parser().parse(nonExistingStringCommand));
         } catch (JunoException ignored) {
+            // Ignored
         }
     }
 
@@ -32,6 +35,7 @@ public class ParserTest {
             String nullString = null;
             new Parser().isTimeArgument(nullString);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -41,6 +45,7 @@ public class ParserTest {
             String exampleString = "Task 1";
             new Parser().prepareAddCommand(null, exampleString);
         } catch (JunoException | NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -49,6 +54,7 @@ public class ParserTest {
         try {
             new Parser().prepareAddCommand(TaskType.TODO, "");
         } catch (JunoException ignored) {
+            // Ignored
         }
     }
 
@@ -58,6 +64,7 @@ public class ParserTest {
             String invalidString = "invalid";
             new Parser().prepareShowWithDateCommand(invalidString);
         } catch (JunoException ignored) {
+            // Ignored
         }
     }
 
@@ -67,6 +74,7 @@ public class ParserTest {
             String invalidString = "invalid";
             new Parser().prepareMarkCommand(invalidString);
         } catch (JunoException ignored) {
+            // Ignored
         }
     }
 
@@ -76,6 +84,7 @@ public class ParserTest {
             String invalidString = "invalid";
             new Parser().prepareUnmarkCommand(invalidString);
         } catch (JunoException ignored) {
+            // Ignored
         }
     }
 
@@ -85,6 +94,7 @@ public class ParserTest {
             String invalidString = "invalid";
             new Parser().prepareDeleteCommand(invalidString);
         } catch (JunoException ignored) {
+            // Ignored
         }
     }
 }

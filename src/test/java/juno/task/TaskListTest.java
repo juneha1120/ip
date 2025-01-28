@@ -1,8 +1,8 @@
 package juno.task;
 
-import org.junit.jupiter.api.Test;
-
 import java.util.Map;
+
+import org.junit.jupiter.api.Test;
 
 public class TaskListTest {
     @Test
@@ -11,6 +11,7 @@ public class TaskListTest {
             Map<Integer, Task> nullTaskList = null;
             new TaskList(nullTaskList);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -20,6 +21,7 @@ public class TaskListTest {
             Task nullTask = null;
             new TaskList().addToTaskList(nullTask);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -29,6 +31,7 @@ public class TaskListTest {
             Map<Integer, Task> nullTaskList = null;
             new TaskList().setTaskList(nullTaskList);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -38,6 +41,7 @@ public class TaskListTest {
             Map<Integer, Task> nullTaskList = null;
             new TaskList(nullTaskList).getStringTaskList();
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 }

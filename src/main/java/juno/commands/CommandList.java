@@ -4,6 +4,12 @@ import juno.task.Deadline;
 import juno.task.Event;
 import juno.task.Todo;
 
+/**
+ * A utility class that contains descriptions for various commands in  Juno.
+ * <p>
+ * The {@code CommandList} class serves as a centralized location for the descriptions of available commands.
+ * It provides an array of command descriptions that can be used in the help system.
+ */
 public class CommandList {
     public static final String LINE_PREFIX = " # ";
     public static final String EMPTY_DIVIDER = "";

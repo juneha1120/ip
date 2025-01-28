@@ -10,6 +10,7 @@ public class JunoTest {
             Juno invalidJuno = new Juno(invalidFilePath);
             invalidJuno.run();
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 }

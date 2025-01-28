@@ -1,11 +1,11 @@
 package juno.task;
 
-import org.junit.jupiter.api.Test;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+
+import org.junit.jupiter.api.Test;
 
 public class EventTest {
     @Test
@@ -24,6 +24,7 @@ public class EventTest {
             LocalDate exampleTo = LocalDate.parse("2/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
             new Event("Deadline 1", (LocalDateTime) null, exampleTo);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -34,6 +35,7 @@ public class EventTest {
             LocalDate exampleTo = LocalDate.parse("2/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
             new Event("Deadline 1", invalidFrom, exampleTo);
         } catch (DateTimeParseException ignored) {
+            // Ignored
         }
     }
 
@@ -43,6 +45,7 @@ public class EventTest {
             LocalDate exampleFrom = LocalDate.parse("2/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
             new Event("Deadline 1", exampleFrom, (LocalDateTime) null);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -53,6 +56,7 @@ public class EventTest {
             LocalDate invalidTo = LocalDate.parse("1/13/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
             new Event("Deadline 1", exampleFrom, invalidTo);
         } catch (DateTimeParseException ignored) {
+            // Ignored
         }
     }
 }

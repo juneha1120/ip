@@ -1,9 +1,10 @@
 package juno.storage;
 
+import org.junit.jupiter.api.Test;
+
 import juno.exceptions.JunoException;
 import juno.task.TaskList;
 import juno.task.Todo;
-import org.junit.jupiter.api.Test;
 
 public class StorageTest {
     @Test
@@ -12,6 +13,7 @@ public class StorageTest {
             String invalidString = "invalid";
             Storage.fromFileFormat(invalidString);
         } catch (JunoException ignored) {
+            // Ignored
         }
     }
 
@@ -21,6 +23,7 @@ public class StorageTest {
             TaskList nullTaskList = null;
             new Storage(Storage.EXAMPLE).saveTasks(nullTaskList);
         } catch (JunoException | NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -32,6 +35,7 @@ public class StorageTest {
             String invalidFilePath = "111111111";
             new Storage(invalidFilePath).saveTasks(exampleTaskList);
         } catch (JunoException | NullPointerException ignored) {
+            // Ignored
         }
     }
 
@@ -41,6 +45,7 @@ public class StorageTest {
             String invalidFilePath = "111111111";
             new Storage(invalidFilePath).loadTasks();
         } catch (JunoException | NullPointerException ignored) {
+            // Ignored
         }
     }
 }

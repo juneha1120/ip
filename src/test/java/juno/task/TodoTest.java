@@ -8,6 +8,7 @@ public class TodoTest {
         try {
             new Todo(null);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 }

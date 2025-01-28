@@ -35,7 +35,21 @@ import juno.task.Deadline;
 import juno.task.Event;
 import juno.task.Todo;
 
+/**
+ * The {@code Parser} class is responsible for interpreting the user's input commands and converting them
+ * into executable {@link Command} objects. It supports various task-related commands such as adding,
+ * marking, and deleting tasks. It also handles parsing commands with date or time-related arguments.
+ */
 public class Parser {
+    /**
+     * Parses a full user command into a corresponding {@link Command} object.
+     * It splits the command and its arguments, processes the command type,
+     * and prepares the appropriate action.
+     *
+     * @param fullCommand The full user command entered.
+     * @return A corresponding {@link Command} object to be executed.
+     * @throws JunoException If there is an error in parsing the command or its arguments.
+     */
     public Command parse(String fullCommand) throws JunoException {
         String[] command = fullCommand.split(" ", 2);
         if (command.length < 2) {
@@ -44,6 +58,8 @@ public class Parser {
 
         String commandWord = command[0];
         String arguments = command[1];
+
+        // Handle special "show" command with specific date arguments
         if (commandWord.equals("show")) {
             if (arguments.contains("on")) {
                 commandWord = ShowTasksWithDateCommand.COMMAND_WORD;
@@ -53,26 +69,56 @@ public class Parser {
             }
         }
 
-        return switch (commandWord) {
-        case HelpCommand.COMMAND_WORD -> new HelpCommand();
-        case Todo.COMMAND_WORD -> prepareAddCommand(TODO, arguments);
-        case Deadline.COMMAND_WORD -> prepareAddCommand(DEADLINE, arguments);
-        case Event.COMMAND_WORD -> prepareAddCommand(EVENT, arguments);
-        case ShowTasksCommand.COMMAND_WORD -> new ShowTasksCommand();
-        case ShowTasksWithDateCommand.COMMAND_WORD -> prepareShowWithDateCommand(arguments);
-        case MarkCommand.COMMAND_WORD -> prepareMarkCommand(arguments);
-        case UnmarkCommand.COMMAND_WORD -> prepareUnmarkCommand(arguments);
-        case DeleteCommand.COMMAND_WORD -> prepareDeleteCommand(arguments);
-        case ExitCommand.COMMAND_WORD -> new ExitCommand();
-        case TestCommand.COMMAND_WORD, TestCommand.COMMAND_LINE, TestCommand.EMPTY_LINE ->
-                throw new JunoTestException();
-        default -> new TryAgainCommand(); };
+        // Return corresponding Command based on the command word
+        switch (commandWord) {
+        case HelpCommand.COMMAND_WORD:
+            return new HelpCommand();
+        case Todo.COMMAND_WORD:
+            return prepareAddCommand(TODO, arguments);
+        case Deadline.COMMAND_WORD:
+            return prepareAddCommand(DEADLINE, arguments);
+        case Event.COMMAND_WORD:
+            return prepareAddCommand(EVENT, arguments);
+        case ShowTasksCommand.COMMAND_WORD:
+            return new ShowTasksCommand();
+        case ShowTasksWithDateCommand.COMMAND_WORD:
+            return prepareShowWithDateCommand(arguments);
+        case MarkCommand.COMMAND_WORD:
+            return prepareMarkCommand(arguments);
+        case UnmarkCommand.COMMAND_WORD:
+            return prepareUnmarkCommand(arguments);
+        case DeleteCommand.COMMAND_WORD:
+            return prepareDeleteCommand(arguments);
+        case ExitCommand.COMMAND_WORD:
+            return new ExitCommand();
+        case TestCommand.COMMAND_WORD, TestCommand.COMMAND_LINE, TestCommand.EMPTY_LINE:
+            throw new JunoTestException();
+        default:
+            return new TryAgainCommand();
+        }
     }
 
+    /**
+     * Checks if the given argument contains time information.
+     * This is used to differentiate between date-only and date-time arguments.
+     *
+     * @param argument The argument to check.
+     * @return {@code true} if the argument contains time information, {@code false} otherwise.
+     */
     protected boolean isTimeArgument(String argument) {
         return argument.trim().contains(" ");
     }
 
+    /**
+     * Prepares an {@link AddCommand} based on the task type and the provided arguments.
+     * It creates the appropriate task type ({@link Todo}, {@link Deadline}, or {@link Event})
+     * and constructs an {@link AddCommand} to be executed.
+     *
+     * @param taskType The type of task to add (e.g., TODO, DEADLINE, or EVENT).
+     * @param arguments The arguments associated with the task (e.g., description, date/time).
+     * @return The {@link AddCommand} to be executed.
+     * @throws JunoException If there is an error in parsing the arguments or creating the task.
+     */
     protected Command prepareAddCommand(TaskType taskType, String arguments) throws JunoException {
         switch (taskType) {
         case TODO:
@@ -171,6 +217,13 @@ public class Parser {
         }
     }
 
+    /**
+     * Prepares a {@link ShowTasksWithDateCommand} with a date argument parsed from the user input.
+     *
+     * @param arguments The arguments provided by the user, expected to be a date string in the format "d/M/yyyy".
+     * @return A {@link ShowTasksWithDateCommand} object for displaying tasks on the specified date.
+     * @throws JunoException If the date format is invalid.
+     */
     protected Command prepareShowWithDateCommand(String arguments) throws JunoException {
         DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("d/M/yyyy");
         try {
@@ -181,6 +234,13 @@ public class Parser {
         }
     }
 
+    /**
+     * Prepares a {@link MarkCommand} to mark a task as done, based on the provided task number.
+     *
+     * @param arguments The arguments provided by the user, expected to be a valid task number.
+     * @return A {@link MarkCommand} object for marking the task as done.
+     * @throws JunoException If the task number is invalid or not a valid integer.
+     */
     protected Command prepareMarkCommand(String arguments) throws JunoException {
         int taskNum;
         try {
@@ -191,6 +251,13 @@ public class Parser {
         }
     }
 
+    /**
+     * Prepares an {@link UnmarkCommand} to unmark a task as not done, based on the provided task number.
+     *
+     * @param arguments The arguments provided by the user, expected to be a valid task number.
+     * @return An {@link UnmarkCommand} object for unmarking the task.
+     * @throws JunoException If the task number is invalid or not a valid integer.
+     */
     protected Command prepareUnmarkCommand(String arguments) throws JunoException {
         int taskNum;
         try {
@@ -201,6 +268,13 @@ public class Parser {
         }
     }
 
+    /**
+     * Prepares a {@link DeleteCommand} to delete a task, based on the provided task number.
+     *
+     * @param arguments The arguments provided by the user, expected to be a valid task number.
+     * @return A {@link DeleteCommand} object for deleting the task.
+     * @throws JunoException If the task number is invalid or not a valid integer.
+     */
     protected Command prepareDeleteCommand(String arguments) throws JunoException {
         int taskNum;
         try {
