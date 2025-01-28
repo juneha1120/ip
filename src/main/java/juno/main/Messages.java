@@ -1,4 +1,4 @@
-package juno;
+package juno.main;
 
 public class Messages {
     public static final String MESSAGE_HELLO= "Hello! I'm Juno. What can I do for you?";

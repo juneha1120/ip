@@ -1,18 +1,18 @@
-package juno;
+package juno.main;
 
-import command.Command;
-import command.ExitCommand;
+import juno.commands.Command;
+import juno.commands.ExitCommand;
 
-import exceptions.JunoException;
-import exceptions.JunoTestException;
+import juno.exceptions.JunoException;
+import juno.exceptions.JunoTestException;
 
-import parser.Parser;
+import juno.parser.Parser;
 
-import task.TaskList;
+import juno.task.TaskList;
 
-import storage.Storage;
+import juno.storage.Storage;
 
-import ui.Ui;
+import juno.ui.Ui;
 
 public class Juno {
     private final Parser parser;
