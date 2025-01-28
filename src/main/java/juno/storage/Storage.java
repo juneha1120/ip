@@ -1,8 +1,9 @@
 package juno.storage;
 
-import juno.exceptions.JunoException;
-
-import juno.task.*;
+import static juno.enums.ErrorType.CREATE_FILE_ERROR;
+import static juno.enums.ErrorType.INVALID_FORMAT_ERROR;
+import static juno.enums.ErrorType.INVALID_TYPE_ERROR;
+import static juno.enums.ErrorType.READ_FILE_ERROR;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,11 +15,16 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import static juno.enums.ErrorType.*;
+import juno.exceptions.JunoException;
+import juno.task.Deadline;
+import juno.task.Event;
+import juno.task.Task;
+import juno.task.TaskList;
+import juno.task.Todo;
 
 public class Storage {
-    private final String filePath;
     public static final String EXAMPLE = "./data/juno.txt";
+    private final String filePath;
 
     public Storage(String filePath) {
         this.filePath = filePath;
@@ -37,27 +43,27 @@ public class Storage {
         String description = parts[2];
 
         switch (type) {
-            case "T" :
-                return new Todo(description, isDone);
-            case "D" :
-                String by = parts[3];
-                if (by.contains("T")) {
-                    return new Deadline(description, isDone, LocalDateTime.parse(by));
-                } else {
-                    return new Deadline(description, isDone, LocalDate.parse(by));
-                }
-            case "E" :
-                String from = parts[3];
-                String to = parts[4];
-                if (from.contains("T")) {
-                    return new Event(description, isDone, LocalDateTime.parse(from),
-                            LocalDateTime.parse(to));
-                } else {
-                    return new Event(description, isDone, LocalDate.parse(from),
-                            LocalDate.parse(to));
-                }
-            default :
-                throw new JunoException(INVALID_TYPE_ERROR, line);
+        case "T":
+            return new Todo(description, isDone);
+        case "D":
+            String by = parts[3];
+            if (by.contains("T")) {
+                return new Deadline(description, isDone, LocalDateTime.parse(by));
+            } else {
+                return new Deadline(description, isDone, LocalDate.parse(by));
+            }
+        case "E":
+            String from = parts[3];
+            String to = parts[4];
+            if (from.contains("T")) {
+                return new Event(description, isDone, LocalDateTime.parse(from),
+                        LocalDateTime.parse(to));
+            } else {
+                return new Event(description, isDone, LocalDate.parse(from),
+                        LocalDate.parse(to));
+            }
+        default:
+            throw new JunoException(INVALID_TYPE_ERROR, line);
         }
     }
 

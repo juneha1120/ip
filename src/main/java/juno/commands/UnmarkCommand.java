@@ -1,15 +1,12 @@
 package juno.commands;
 
-import juno.exceptions.JunoException;
+import static juno.enums.ErrorType.UNMARK_ERROR;
 
+import juno.exceptions.JunoException;
+import juno.storage.Storage;
 import juno.task.Task;
 import juno.task.TaskList;
-
-import juno.storage.Storage;
-
 import juno.ui.Ui;
-
-import static juno.enums.ErrorType.UNMARK_ERROR;
 
 public class UnmarkCommand extends Command {
     public static final String COMMAND_WORD = "unmark";

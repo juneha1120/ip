@@ -1,16 +1,17 @@
 package juno.commands;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+
 import juno.exceptions.JunoException;
 import juno.storage.Storage;
 import juno.task.Task;
 import juno.task.TaskList;
 import juno.task.Todo;
 import juno.ui.Ui;
-import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DeleteCommandTest {
     @Test
@@ -19,6 +20,7 @@ public class DeleteCommandTest {
             TaskList emptyTaskList = new TaskList();
             new DeleteCommand(1).deleteTask(emptyTaskList);
         } catch (JunoException ignored) {
+            // Ignored
         }
     }
 
@@ -30,6 +32,7 @@ public class DeleteCommandTest {
             int invalidTaskNum = -1;
             new DeleteCommand(invalidTaskNum).deleteTask(exampleTaskList);
         } catch (JunoException ignored) {
+            // Ignored
         }
     }
 
@@ -58,6 +61,7 @@ public class DeleteCommandTest {
             int invalidTaskNum = -1;
             new DeleteCommand(invalidTaskNum).execute(exampleTaskList, new Storage(Storage.EXAMPLE), new Ui());
         } catch (JunoException ignored) {
+            // Ignored
         }
     }
 }

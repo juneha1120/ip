@@ -1,14 +1,11 @@
 package juno.ui;
 
 import juno.task.Deadline;
-import juno.task.Task;
 import juno.task.TaskList;
-import juno.task.Todo;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 
 public class UiTest {
     @Test

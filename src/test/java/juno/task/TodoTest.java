@@ -7,7 +7,7 @@ public class TodoTest {
     public void todo_nullTaskName_throwsException() {
         try {
             new Todo(null);
-        } catch (NullPointerException ignored){
+        } catch (NullPointerException ignored) {
         }
     }
 }

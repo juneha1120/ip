@@ -1,14 +1,15 @@
 package juno.commands;
 
-import juno.task.Todo;
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.Test;
+
+import juno.task.Todo;
 
 public class ExitCommandTest {
     @Test
-    public void isExit_ExitCommand_returnsTrue() {
+    public void isExit_exitCommand_returnsTrue() {
         Command exitCommand = new ExitCommand();
         assertTrue(ExitCommand.isExit(exitCommand));
     }

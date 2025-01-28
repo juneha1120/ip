@@ -7,7 +7,7 @@ public class TaskTest {
     public void task_nullTaskName_throwsException() {
         try {
             new Task(null);
-        } catch (NullPointerException ignored){
+        } catch (NullPointerException ignored) {
         }
     }
 }

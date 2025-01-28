@@ -14,7 +14,7 @@ public class EventTest {
             LocalDate exampleFrom = LocalDate.parse("1/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
             LocalDate exampleTo = LocalDate.parse("2/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
             new Event(null, exampleFrom, exampleTo);
-        } catch (NullPointerException ignored){
+        } catch (NullPointerException ignored) {
         }
     }
 
@@ -23,7 +23,7 @@ public class EventTest {
         try {
             LocalDate exampleTo = LocalDate.parse("2/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
             new Event("Deadline 1", (LocalDateTime) null, exampleTo);
-        } catch (NullPointerException ignored){
+        } catch (NullPointerException ignored) {
         }
     }
 
@@ -33,7 +33,7 @@ public class EventTest {
             LocalDate invalidFrom = LocalDate.parse("1/13/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
             LocalDate exampleTo = LocalDate.parse("2/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
             new Event("Deadline 1", invalidFrom, exampleTo);
-        } catch (DateTimeParseException ignored){
+        } catch (DateTimeParseException ignored) {
         }
     }
 
@@ -42,7 +42,7 @@ public class EventTest {
         try {
             LocalDate exampleFrom = LocalDate.parse("2/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
             new Event("Deadline 1", exampleFrom, (LocalDateTime) null);
-        } catch (NullPointerException ignored){
+        } catch (NullPointerException ignored) {
         }
     }
 
@@ -52,7 +52,7 @@ public class EventTest {
             LocalDate exampleFrom = LocalDate.parse("1/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
             LocalDate invalidTo = LocalDate.parse("1/13/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
             new Event("Deadline 1", exampleFrom, invalidTo);
-        } catch (DateTimeParseException ignored){
+        } catch (DateTimeParseException ignored) {
         }
     }
 }

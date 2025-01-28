@@ -1,11 +1,12 @@
 package juno.commands;
 
+import org.junit.jupiter.api.Test;
+
 import juno.exceptions.JunoException;
 import juno.storage.Storage;
 import juno.task.TaskList;
 import juno.task.Todo;
 import juno.ui.Ui;
-import org.junit.jupiter.api.Test;
 
 public class MarkCommandTest {
     @Test
@@ -16,6 +17,7 @@ public class MarkCommandTest {
             int invalidTaskNum = -1;
             new MarkCommand(invalidTaskNum).execute(exampleTaskList, new Storage(Storage.EXAMPLE), new Ui());
         } catch (JunoException ignored) {
+            // Ignored
         }
     }
 }
