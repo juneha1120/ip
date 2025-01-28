@@ -1,5 +1,5 @@
 package enums;
 
-public enum JunoTaskType {
+public enum TaskType {
     TODO, DEADLINE, EVENT
 }
