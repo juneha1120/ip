@@ -12,7 +12,8 @@ import chillguy.task.Deadline;
 import chillguy.task.Event;
 import chillguy.task.Task;
 import chillguy.task.TaskList;
-import chillguy.ui.Ui;
+import chillguy.ui.GraphicalUi;
+import chillguy.ui.TextUi;
 
 /**
  * Represents a command to show a list of tasks on a specified date.
@@ -20,7 +21,7 @@ import chillguy.ui.Ui;
  * The {@code ShowTasksWithDateCommand} class is responsible for filtering tasks based on the specified date.
  * It checks both {@link Deadline} and {@link Event} tasks in the {@link TaskList} and retrieves those that
  * match the given date. If no tasks are found for the date, a {@link ChillGuyException} is thrown.
- * After retrieving the tasks for the specified date, the task list is displayed through the {@link Ui}.
+ * After retrieving the tasks for the specified date, the task list is displayed through the {@link TextUi}.
  */
 public class ShowTasksWithDateCommand extends Command {
     public static final String COMMAND_WORD = "show tasks on";
@@ -76,12 +77,26 @@ public class ShowTasksWithDateCommand extends Command {
      *
      * @param taskList the list of tasks to be searched through.
      * @param storage the storage system (unused in this command).
-     * @param ui the user interface to display the filtered task list.
+     * @param textUi the user interface to display the filtered task list.
      * @throws ChillGuyException if no tasks are found for the specified date.
      */
     @Override
-    public void execute(TaskList taskList, Storage storage, Ui ui) throws ChillGuyException {
+    public void execute(TaskList taskList, Storage storage, TextUi textUi) throws ChillGuyException {
         TaskList taskListOnDate = this.getTasksOnDate(taskList);
-        ui.showTasksWithDate(taskListOnDate, this.date);
+        textUi.showTasksWithDate(taskListOnDate, this.date);
+    }
+
+    /**
+     * Executes the show tasks on date command by filtering and displaying the tasks for the specified date.
+     *
+     * @param taskList the list of tasks to be searched through.
+     * @param storage the storage system (unused in this command).
+     * @param graphicalUi the user interface to return the filtered task list.
+     * @throws ChillGuyException if no tasks are found for the specified date.
+     */
+    @Override
+    public void execute(TaskList taskList, Storage storage, GraphicalUi graphicalUi) throws ChillGuyException {
+        TaskList taskListOnDate = this.getTasksOnDate(taskList);
+        graphicalUi.appendTasksWithDate(taskListOnDate, this.date);
     }
 }

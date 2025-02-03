@@ -9,7 +9,8 @@ import chillguy.exceptions.ChillGuyException;
 import chillguy.storage.Storage;
 import chillguy.task.Task;
 import chillguy.task.TaskList;
-import chillguy.ui.Ui;
+import chillguy.ui.GraphicalUi;
+import chillguy.ui.TextUi;
 
 /**
  * Represents a command to delete a specified task from the task list.
@@ -17,7 +18,7 @@ import chillguy.ui.Ui;
  * The {@code DeleteCommand} class is responsible for removing a task from the {@link TaskList} based on its
  * index and then renumbering the remaining tasks to ensure correct indexing. If the task index is invalid, a
  * {@link ChillGuyException} is thrown. After successfully deleting the task, the updated task list is saved to
- * {@link Storage}, and a confirmation message is shown through the {@link Ui}.
+ * {@link Storage}, and a confirmation message is shown through the {@link TextUi}.
  */
 public class DeleteCommand extends Command {
     public static final String COMMAND_WORD = "delete";
@@ -77,17 +78,33 @@ public class DeleteCommand extends Command {
 
     /**
      * Executes the delete command by deleting the specified task from the {@link TaskList},
-     * saving the updated task list to the {@link Storage}, and displaying the result through the {@link Ui}.
+     * saving the updated task list to the {@link Storage}, and displaying the result through the {@link TextUi}.
      *
      * @param taskList the list of tasks to be modified.
      * @param storage the storage system to save the updated task list.
-     * @param ui the user interface to display the deletion confirmation.
+     * @param textUi the user interface to display the deletion confirmation.
      * @throws ChillGuyException if an error occurs while deleting the task or saving the task list.
      */
     @Override
-    public void execute(TaskList taskList, Storage storage, Ui ui) throws ChillGuyException {
+    public void execute(TaskList taskList, Storage storage, TextUi textUi) throws ChillGuyException {
         Task deletedTask = this.deleteTask(taskList);
         storage.saveTasks(taskList);
-        ui.showDelete(deletedTask, taskList.getTaskCount());
+        textUi.showDelete(deletedTask, taskList.getTaskCount());
+    }
+
+    /**
+     * Executes the delete command by deleting the specified task from the {@link TaskList},
+     * saving the updated task list to the {@link Storage}, and displaying the result through the {@link GraphicalUi}.
+     *
+     * @param taskList the list of tasks to be modified.
+     * @param storage the storage system to save the updated task list.
+     * @param graphicalUi the user interface to return the deletion confirmation.
+     * @throws ChillGuyException if an error occurs while deleting the task or saving the task list.
+     */
+    @Override
+    public void execute(TaskList taskList, Storage storage, GraphicalUi graphicalUi) throws ChillGuyException {
+        Task deletedTask = this.deleteTask(taskList);
+        storage.saveTasks(taskList);
+        graphicalUi.appendDelete(deletedTask, taskList.getTaskCount());
     }
 }
