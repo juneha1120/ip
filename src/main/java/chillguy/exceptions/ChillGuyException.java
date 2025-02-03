@@ -1,7 +1,7 @@
 package chillguy.exceptions;
 
 import chillguy.enums.ErrorType;
-import chillguy.ui.Ui;
+import chillguy.ui.TextUi;
 
 /**
  * Represents a custom exception class for the ChillGuy chatbot.
@@ -89,11 +89,11 @@ public class ChillGuyException extends Exception {
         return switch (type) {
         case DEADLINE_ERROR -> !containsDesc ? "We chill, but could you provide the details for your deadline?"
                 : "We chill, but could you follow this format? :\n"
-                  + Ui.LINE_PREFIX + Ui.LINE_PREFIX
+                  + TextUi.LINE_PREFIX + TextUi.LINE_PREFIX
                   + "deadline <description> /by <d/M/yyyy (HHmm)>.";
         case EVENT_ERROR -> !containsDesc ? "We chill, but could you provide the details for your event?"
                 : "We chill, but could you follow this format? :\n"
-                  + Ui.LINE_PREFIX + Ui.LINE_PREFIX
+                  + TextUi.LINE_PREFIX + TextUi.LINE_PREFIX
                   + "event <description> /from <d/M/yyyy (HHmm)> /to <d/M/yyyy (HHmm)>.";
         default -> ""; };
     }
@@ -128,9 +128,9 @@ public class ChillGuyException extends Exception {
         case DELETE_ERROR -> "We chill, but I don't seem to find this task : " + line;
         case LOAD_ERROR -> "We chill, but I couldn't understand this line : " + line;
         case INVALID_FORMAT_ERROR -> "We chill, but the format is invalid for this line : " + line
-                + "\n" + Ui.LINE_PREFIX + "I will skip it for now and move on...";
+                + "\n" + TextUi.LINE_PREFIX + "I will skip it for now and move on...";
         case INVALID_TYPE_ERROR -> "We chill, but I don't seem to understand the type here : " + line
-                + "\n" + Ui.LINE_PREFIX + "I will skip it for now and move on...";
+                + "\n" + TextUi.LINE_PREFIX + "I will skip it for now and move on...";
         case MARK_ERROR, UNMARK_ERROR -> "We chill, but I don't seem to find the task : " + line;
         default -> ""; };
     }

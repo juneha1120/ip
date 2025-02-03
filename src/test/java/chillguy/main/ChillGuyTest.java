@@ -8,7 +8,7 @@ public class ChillGuyTest {
         try {
             String invalidFilePath = "111111111";
             ChillGuy invalidChillGuy = new ChillGuy(invalidFilePath);
-            invalidChillGuy.run();
+            invalidChillGuy.runWithTUi();
         } catch (NullPointerException ignored) {
             // Ignored
         }

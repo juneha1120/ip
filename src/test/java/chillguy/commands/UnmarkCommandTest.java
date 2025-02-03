@@ -6,7 +6,7 @@ import chillguy.exceptions.ChillGuyException;
 import chillguy.storage.Storage;
 import chillguy.task.TaskList;
 import chillguy.task.Todo;
-import chillguy.ui.Ui;
+import chillguy.ui.TextUi;
 
 public class UnmarkCommandTest {
     @Test
@@ -15,7 +15,7 @@ public class UnmarkCommandTest {
             TaskList exampleTaskList = new TaskList();
             exampleTaskList.addToTaskList(new Todo("Task 1"));
             int invalidTaskNum = -1;
-            new UnmarkCommand(invalidTaskNum).execute(exampleTaskList, new Storage(Storage.EXAMPLE), new Ui());
+            new UnmarkCommand(invalidTaskNum).execute(exampleTaskList, new Storage(Storage.EXAMPLE), new TextUi());
         } catch (ChillGuyException ignored) {
             // Ignored
         }

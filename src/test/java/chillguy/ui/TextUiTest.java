@@ -8,11 +8,11 @@ import org.junit.jupiter.api.Test;
 import chillguy.task.Deadline;
 import chillguy.task.TaskList;
 
-public class UiTest {
+public class TextUiTest {
     @Test
     public void shouldIgnore_nullString_throwsException() {
         try {
-            new Ui().shouldIgnore(null);
+            new TextUi().shouldIgnore(null);
         } catch (NullPointerException ignored) {
             // Ignored
         }
@@ -21,7 +21,7 @@ public class UiTest {
     @Test
     public void showToUser_nullStrings_throwsException() {
         try {
-            new Ui().showToUser(null, null);
+            new TextUi().showToUser(null, null);
         } catch (NullPointerException ignored) {
             // Ignored
         }
@@ -30,7 +30,7 @@ public class UiTest {
     @Test
     public void showLoadingMessage_nullTaskList_throwsException() {
         try {
-            new Ui().showLoadingMessage(null);
+            new TextUi().showLoadingMessage(null);
         } catch (NullPointerException ignored) {
             // Ignored
         }
@@ -39,7 +39,7 @@ public class UiTest {
     @Test
     public void showAdd_nullTask_throwsException() {
         try {
-            new Ui().showAdd(null, 1);
+            new TextUi().showAdd(null, 1);
         } catch (NullPointerException ignored) {
             // Ignored
         }
@@ -48,7 +48,7 @@ public class UiTest {
     @Test
     public void showTasks_nullTaskList_throwsException() {
         try {
-            new Ui().showTasks(null);
+            new TextUi().showTasks(null);
         } catch (NullPointerException ignored) {
             // Ignored
         }
@@ -58,7 +58,7 @@ public class UiTest {
     public void showTasksWithDate_nullTaskList_throwsException() {
         try {
             LocalDate exampleDate = LocalDate.parse("1/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
-            new Ui().showTasksWithDate(null, exampleDate);
+            new TextUi().showTasksWithDate(null, exampleDate);
         } catch (NullPointerException ignored) {
             // Ignored
         }
@@ -70,7 +70,7 @@ public class UiTest {
         LocalDate exampleDate = LocalDate.parse("1/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
         exampleTaskList.addToTaskList(new Deadline("Task 1", exampleDate));
         try {
-            new Ui().showTasksWithDate(exampleTaskList, null);
+            new TextUi().showTasksWithDate(exampleTaskList, null);
         } catch (NullPointerException ignored) {
             // Ignored
         }
@@ -79,7 +79,7 @@ public class UiTest {
     @Test
     public void showMark_nullTask_throwsException() {
         try {
-            new Ui().showMark(null);
+            new TextUi().showMark(null);
         } catch (NullPointerException ignored) {
             // Ignored
         }
@@ -88,7 +88,7 @@ public class UiTest {
     @Test
     public void showUnmark_nullTask_throwsException() {
         try {
-            new Ui().showUnmark(null);
+            new TextUi().showUnmark(null);
         } catch (NullPointerException ignored) {
             // Ignored
         }
@@ -97,7 +97,7 @@ public class UiTest {
     @Test
     public void showDelete_nullTask_throwsException() {
         try {
-            new Ui().showDelete(null, 1);
+            new TextUi().showDelete(null, 1);
         } catch (NullPointerException ignored) {
             // Ignored
         }
@@ -106,7 +106,7 @@ public class UiTest {
     @Test
     public void showError_nullString_throwsException() {
         try {
-            new Ui().showError(null);
+            new TextUi().showError(null);
         } catch (NullPointerException ignored) {
             // Ignored
         }
