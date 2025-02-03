@@ -12,9 +12,9 @@ import chillguy.ui.Ui;
  * Represents a command to mark a specified task as done.
  * <p>
  * The {@code MarkCommand} class is responsible for changing the status of a task to "done" based on its index in the
- * {@link TaskList}. If the task does not exist or is already marked as done, a {@link ChillGuyException} will be thrown.
- * After marking the task, the task list is saved to {@link Storage} and the updated task is displayed through the
- * {@link Ui}.
+ * {@link TaskList}. If the task does not exist or is already marked as done, a {@link ChillGuyException} will be
+ * thrown. After marking the task, the task list is saved to {@link Storage} and the updated task is displayed through
+ * the {@link Ui}.
  */
 public class MarkCommand extends Command {
     public static final String COMMAND_WORD = "mark";
