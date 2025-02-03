@@ -10,7 +10,7 @@
 ##########################################################
 
     # should show all available commands
-    juno
+    chill guy
 
 ##########################################################
 # testing show tasks command
