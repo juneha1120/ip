@@ -10,7 +10,8 @@ import chillguy.exceptions.ChillGuyException;
 import chillguy.storage.Storage;
 import chillguy.task.Task;
 import chillguy.task.TaskList;
-import chillguy.ui.Ui;
+import chillguy.ui.GraphicalUi;
+import chillguy.ui.TextUi;
 
 /**
  * The {@code FindCommand} class handles the execution of the "find" command,
@@ -70,12 +71,26 @@ public class FindCommand extends Command {
      *
      * @param taskList The list of tasks to search through.
      * @param storage The storage object for reading and writing task data.
-     * @param ui The UI object for displaying the result to the user.
+     * @param textUi The UI object for displaying the result to the user.
      * @throws ChillGuyException If there is an error during the find operation.
      */
     @Override
-    public void execute(TaskList taskList, Storage storage, Ui ui) throws ChillGuyException {
+    public void execute(TaskList taskList, Storage storage, TextUi textUi) throws ChillGuyException {
         TaskList taskListWithKeyword = this.getTasksWithKeyword(taskList);
-        ui.showFind(taskListWithKeyword, this.keyword);
+        textUi.showFind(taskListWithKeyword, this.keyword);
+    }
+
+    /**
+     * Executes the find command, displaying the tasks that contain the specified keyword.
+     *
+     * @param taskList The list of tasks to search through.
+     * @param storage The storage object for reading and writing task data.
+     * @param graphicalUi The UI object for returning the result to the user.
+     * @throws ChillGuyException If there is an error during the find operation.
+     */
+    @Override
+    public void execute(TaskList taskList, Storage storage, GraphicalUi graphicalUi) throws ChillGuyException {
+        TaskList taskListWithKeyword = this.getTasksWithKeyword(taskList);
+        graphicalUi.appendFind(taskListWithKeyword, this.keyword);
     }
 }

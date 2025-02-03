@@ -6,7 +6,7 @@ import chillguy.exceptions.ChillGuyException;
 import chillguy.storage.Storage;
 import chillguy.task.TaskList;
 import chillguy.task.Todo;
-import chillguy.ui.Ui;
+import chillguy.ui.TextUi;
 
 public class MarkCommandTest {
     @Test
@@ -15,7 +15,7 @@ public class MarkCommandTest {
             TaskList exampleTaskList = new TaskList();
             exampleTaskList.addToTaskList(new Todo("Task 1"));
             int invalidTaskNum = -1;
-            new MarkCommand(invalidTaskNum).execute(exampleTaskList, new Storage(Storage.EXAMPLE), new Ui());
+            new MarkCommand(invalidTaskNum).execute(exampleTaskList, new Storage(Storage.EXAMPLE), new TextUi());
         } catch (ChillGuyException ignored) {
             // Ignored
         }

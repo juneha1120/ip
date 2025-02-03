@@ -35,6 +35,6 @@ public class CommandList {
         EMPTY_DIVIDER,
         LINE_PREFIX + DeleteCommand.COMMAND_DESCRIPTION,
         EMPTY_DIVIDER,
-        LINE_PREFIX + ExitCommand.COMMAND_DESCRIPTION
+        ExitCommand.getCommandDescription()
     };
 }

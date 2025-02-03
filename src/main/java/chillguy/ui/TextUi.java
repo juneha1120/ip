@@ -28,14 +28,14 @@ import chillguy.task.Task;
 import chillguy.task.TaskList;
 
 /**
- * The {@code Ui} class handles user interactions for the ChillGuy application.
+ * The {@code TextUi} class handles user interactions for the ChillGuy application.
  * It provides methods for displaying messages, task lists, and other relevant
  * information to the user.
  * <p>
  * It also provides functionality for reading user input and controlling the flow
  * of the user interface.
  */
-public class Ui {
+public class TextUi {
     public static final String DIVIDER = "========================================================================";
     public static final String EMPTY_DIVIDER = "";
     public static final String LINE_PREFIX = " ";
@@ -67,9 +67,9 @@ public class Ui {
     private final Scanner scanner;
 
     /**
-     * Constructs a {@code Ui} object that handles user input and output.
+     * Constructs a {@code TextUi} object that handles user input and output.
      */
-    public Ui() {
+    public TextUi() {
         this.scanner = new Scanner(System.in);
     }
 

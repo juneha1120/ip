@@ -2,7 +2,8 @@ package chillguy.commands;
 
 import chillguy.storage.Storage;
 import chillguy.task.TaskList;
-import chillguy.ui.Ui;
+import chillguy.ui.GraphicalUi;
+import chillguy.ui.TextUi;
 
 /**
  * Represents a test command that serves as a placeholder for test comments.
@@ -21,9 +22,20 @@ public class TestCommand extends Command {
      *
      * @param taskList the current task list (unused in this command).
      * @param storage the storage system (unused in this command).
-     * @param ui the user interface (unused in this command).
+     * @param textUi the user interface (unused in this command).
      */
     @Override
-    public void execute(TaskList taskList, Storage storage, Ui ui) {
+    public void execute(TaskList taskList, Storage storage, TextUi textUi) {
+    }
+
+    /**
+     * Executes the test command. This method performs no operation as it serves as a placeholder for test comments.
+     *
+     * @param taskList the current task list (unused in this command).
+     * @param storage the storage system (unused in this command).
+     * @param graphicalUi the user interface (unused in this command).
+     */
+    @Override
+    public void execute(TaskList taskList, Storage storage, GraphicalUi graphicalUi) {
     }
 }
