@@ -6,9 +6,9 @@ import chillguy.ui.Ui;
 /**
  * Represents a custom exception class for the ChillGuy chatbot.
  * <p>
- * The {@code ChillGuyException} class extends {@link Exception} and provides specific error messages based on the type of
- * error encountered in the chatbot's operation. These error messages are determined by the {@link ErrorType} provided
- * when throwing the exception.
+ * The {@code ChillGuyException} class extends {@link Exception} and provides specific error messages based on the type
+ * of error encountered in the chatbot's operation. These error messages are determined by the {@link ErrorType}
+ * provided when throwing the exception.
  */
 public class ChillGuyException extends Exception {
     /**

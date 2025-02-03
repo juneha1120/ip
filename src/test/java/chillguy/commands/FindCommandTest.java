@@ -20,6 +20,7 @@ public class FindCommandTest {
             String exampleKeyword = "study";
             new FindCommand(exampleKeyword).getTasksWithKeyword(emptyTaskList);
         } catch (ChillGuyException ignored) {
+            // Ignored
         }
     }
 
@@ -31,6 +32,7 @@ public class FindCommandTest {
             exampleTaskList.addToTaskList(new Deadline("Task 1", exampleDate));
             new FindCommand("").getTasksWithKeyword(exampleTaskList);
         } catch (DateTimeParseException | ChillGuyException ignored) {
+            // Ignored
         }
     }
 
@@ -42,6 +44,7 @@ public class FindCommandTest {
             exampleTaskList.addToTaskList(new Deadline("Task 1", exampleDate));
             new FindCommand("").execute(exampleTaskList, new Storage(Storage.EXAMPLE), new Ui());
         } catch (DateTimeParseException | ChillGuyException ignored) {
+            // Ignored
         }
     }
 }

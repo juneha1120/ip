@@ -15,6 +15,7 @@ public class EventTest {
             LocalDate exampleTo = LocalDate.parse("2/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
             new Event(null, exampleFrom, exampleTo);
         } catch (NullPointerException ignored) {
+            // Ignored
         }
     }
 
