@@ -83,9 +83,8 @@ public class TaskList {
      * @return An array of strings, where each string represents a task in the list.
      */
     public String[] getStringTaskList() {
-        List<String> list = new ArrayList<>();
-        this.taskList.forEach((taskNum, task) ->
-                list.add(" " + taskNum + ". " + task));
-        return list.toArray(new String[0]);
+        return this.taskList.entrySet().stream()
+                .map(entry -> " " + entry.getKey() + ". " + entry.getValue())
+                .toArray(String[]::new);
     }
 }
