@@ -102,6 +102,6 @@ public class FindCommand extends Command {
         assert graphicalUi != null : "Graphical UI cannot be null";
 
         TaskList taskListWithKeyword = this.getTasksWithKeyword(taskList);
-        graphicalUi.appendFind(taskListWithKeyword, this.keyword);
+        graphicalUi.respondWithFindMessage(taskListWithKeyword, this.keyword);
     }
 }

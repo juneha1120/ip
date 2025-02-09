@@ -102,12 +102,12 @@ public class ChillGuy {
         assert this.graphicalUi != null : "GraphicalUi should be initialized before use";
 
         this.graphicalUi.initResponse();
-        this.graphicalUi.appendGreetingMessage();
+        this.graphicalUi.respondWithGreetingMessage();
         try {
             this.tasks = this.storage.loadTasks();
-            this.graphicalUi.appendLoadingMessage(this.tasks);
+            this.graphicalUi.respondWithLoadingMessage(this.tasks);
         } catch (ChillGuyException e) {
-            this.graphicalUi.appendError(e.getMessage());
+            this.graphicalUi.respondWithErrorMessage(e.getMessage());
         }
 
         return this.graphicalUi.getResponse();
@@ -127,9 +127,9 @@ public class ChillGuy {
             Command c = this.parser.parse(fullInput);
             c.execute(this.tasks, this.storage, this.graphicalUi);
         } catch (ChillGuyTestException ignored) {
-            // Ignored
+            // Check if the input is the start of a text-ui-test
         } catch (ChillGuyException e) {
-            this.graphicalUi.appendError(e.getMessage());
+            this.graphicalUi.respondWithErrorMessage(e.getMessage());
         }
 
         return this.graphicalUi.getResponse();

@@ -47,6 +47,6 @@ public class HelpCommand extends Command {
         assert graphicalUi != null : "Graphical UI cannot be null";
 
         ExitCommand.setCommandDescription("");
-        graphicalUi.appendHelp();
+        graphicalUi.respondWithHelpMessage();
     }
 }

@@ -71,7 +71,7 @@ public class GraphicalUi {
     /**
      * Returns a greeting message along with the ChillGuy logo.
      */
-    public void appendGreetingMessage() {
+    public void respondWithGreetingMessage() {
         this.appendResponse(
                 MESSAGE_HELLO,
                 EMPTY_DIVIDER,
@@ -83,7 +83,7 @@ public class GraphicalUi {
      *
      * @param taskList The current list of tasks.
      */
-    public void appendLoadingMessage(TaskList taskList) {
+    public void respondWithLoadingMessage(TaskList taskList) {
         this.appendResponse(
                 EMPTY_DIVIDER,
                 MESSAGE_LOAD,
@@ -102,7 +102,7 @@ public class GraphicalUi {
     /**
      * Returns the help message with a description of available commands.
      */
-    public void appendHelp() {
+    public void respondWithHelpMessage() {
         this.appendResponse(
                 MESSAGE_HELP,
                 EMPTY_DIVIDER);
@@ -115,7 +115,7 @@ public class GraphicalUi {
      * @param task The task that was added.
      * @param taskCount The total number of tasks after addition.
      */
-    public void appendAdd(Task task, int taskCount) {
+    public void respondWithAddMessage(Task task, int taskCount) {
         this.appendResponse(
                 MESSAGE_ADD_START,
                 LINE_PREFIX + task.toString(),
@@ -128,7 +128,7 @@ public class GraphicalUi {
      *
      * @param taskList The current list of tasks.
      */
-    public void appendTasks(TaskList taskList) {
+    public void respondWithTasks(TaskList taskList) {
         if (taskList.getTaskCount() == 0) {
             this.appendResponse(MESSAGE_NO_TASKS);
         } else {
@@ -146,7 +146,7 @@ public class GraphicalUi {
      * @param taskList The current list of tasks.
      * @param date The specific date to filter tasks by.
      */
-    public void appendTasksWithDate(TaskList taskList, LocalDate date) {
+    public void respondWithTasksOnDate(TaskList taskList, LocalDate date) {
         this.appendResponse(
                 MESSAGE_SHOW_TASKS_START);
         this.appendResponse(taskList.getStringTaskList());
@@ -160,7 +160,7 @@ public class GraphicalUi {
      * @param taskList The current list of tasks.
      * @param keyword The specific keyword to filter tasks by.
      */
-    public void appendFind(TaskList taskList, String keyword) {
+    public void respondWithFindMessage(TaskList taskList, String keyword) {
         this.appendResponse(
                 MESSAGE_FIND_START);
         this.appendResponse(taskList.getStringTaskList());
@@ -174,7 +174,7 @@ public class GraphicalUi {
      *
      * @param task The task that was marked.
      */
-    public void appendMark(Task task) {
+    public void respondWithMarkMessage(Task task) {
         this.appendResponse(
                 MESSAGE_MARK_START,
                 LINE_PREFIX + task.toString(),
@@ -186,7 +186,7 @@ public class GraphicalUi {
      *
      * @param task The task that was unmarked.
      */
-    public void appendUnmark(Task task) {
+    public void respondWithUnmarkMessage(Task task) {
         this.appendResponse(
                 MESSAGE_UNMARK_START,
                 LINE_PREFIX + task.toString(),
@@ -199,7 +199,7 @@ public class GraphicalUi {
      * @param task The task that was deleted.
      * @param taskCount The total number of tasks after deletion.
      */
-    public void appendDelete(Task task, int taskCount) {
+    public void respondWithDeleteMessage(Task task, int taskCount) {
         this.appendResponse(
                 MESSAGE_DELETE_START,
                 LINE_PREFIX + task.toString(),
@@ -210,7 +210,7 @@ public class GraphicalUi {
     /**
      * Returns a message asking the user to try again in case of an error.
      */
-    public void appendTryAgainMessage() {
+    public void respondWithTryAgainMessage() {
         this.appendResponse(
                 MESSAGE_TRY_AGAIN);
     }
@@ -220,7 +220,7 @@ public class GraphicalUi {
      *
      * @param message The error message to display.
      */
-    public void appendError(String message) {
+    public void respondWithErrorMessage(String message) {
         this.appendResponse(
                 message);
     }

@@ -117,6 +117,6 @@ public class DeleteCommand extends Command {
 
         Task deletedTask = this.deleteTask(taskList);
         storage.saveTasks(taskList);
-        graphicalUi.appendDelete(deletedTask, taskList.getTaskCount());
+        graphicalUi.respondWithDeleteMessage(deletedTask, taskList.getTaskCount());
     }
 }

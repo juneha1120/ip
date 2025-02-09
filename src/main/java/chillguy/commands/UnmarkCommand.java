@@ -56,6 +56,7 @@ public class UnmarkCommand extends Command {
         } else if (!curr.isDone()) {
             throw new ChillGuyException(UNMARK_ERROR, false, taskNum);
         }
+
         curr.unmark();
         storage.saveTasks(taskList);
         textUi.showUnmark(curr);
@@ -85,8 +86,9 @@ public class UnmarkCommand extends Command {
         } else if (!curr.isDone()) {
             throw new ChillGuyException(UNMARK_ERROR, false, taskNum);
         }
+
         curr.unmark();
         storage.saveTasks(taskList);
-        graphicalUi.appendUnmark(curr);
+        graphicalUi.respondWithUnmarkMessage(curr);
     }
 }
