@@ -108,6 +108,6 @@ public class ShowTasksWithDateCommand extends Command {
         assert graphicalUi != null : "Graphical UI cannot be null";
 
         TaskList taskListOnDate = this.getTasksOnDate(taskList);
-        graphicalUi.appendTasksWithDate(taskListOnDate, this.date);
+        graphicalUi.respondWithTasksOnDate(taskListOnDate, this.date);
     }
 }

@@ -46,6 +46,6 @@ public class ShowTasksCommand extends Command {
         assert storage != null : "Storage cannot be null";
         assert graphicalUi != null : "Graphical UI cannot be null";
 
-        graphicalUi.appendTasks(taskList);
+        graphicalUi.respondWithTasks(taskList);
     }
 }

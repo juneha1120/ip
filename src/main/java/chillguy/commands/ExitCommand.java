@@ -66,6 +66,6 @@ public class ExitCommand extends Command {
         assert storage != null : "Storage cannot be null";
         assert graphicalUi != null : "Graphical UI cannot be null";
 
-        graphicalUi.appendTryAgainMessage();
+        graphicalUi.respondWithTryAgainMessage();
     }
 }
