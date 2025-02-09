@@ -33,6 +33,7 @@ public class ExitCommand extends Command {
      * @return {@code true} if the command is an {@code ExitCommand}, otherwise {@code false}.
      */
     public static boolean isExit(Command command) {
+        assert command != null : "Command cannot be null";
         return command instanceof ExitCommand;
     }
 
@@ -45,6 +46,10 @@ public class ExitCommand extends Command {
      */
     @Override
     public void execute(TaskList taskList, Storage storage, TextUi textUi) {
+        assert taskList != null : "Task list cannot be null";
+        assert storage != null : "Storage cannot be null";
+        assert textUi != null : "Text UI cannot be null";
+
         textUi.showExitMessage();
     }
 
@@ -57,6 +62,10 @@ public class ExitCommand extends Command {
      */
     @Override
     public void execute(TaskList taskList, Storage storage, GraphicalUi graphicalUi) throws ChillGuyException {
+        assert taskList != null : "Task list cannot be null";
+        assert storage != null : "Storage cannot be null";
+        assert graphicalUi != null : "Graphical UI cannot be null";
+
         graphicalUi.appendTryAgainMessage();
     }
 }

@@ -22,6 +22,7 @@ public class AddCommand extends Command {
      * @param task the task to be added to the task list.
      */
     public AddCommand(Task task) {
+        assert task != null : "Task cannot be null";
         this.task = task;
     }
 
@@ -36,6 +37,10 @@ public class AddCommand extends Command {
      */
     @Override
     public void execute(TaskList taskList, Storage storage, TextUi textUi) throws ChillGuyException {
+        assert taskList != null : "Task list cannot be null";
+        assert storage != null : "Storage cannot be null";
+        assert textUi != null : "Text UI cannot be null";
+
         taskList.addToTaskList(task);
         storage.saveTasks(taskList);
         textUi.showAdd(task, taskList.getTaskCount());
@@ -52,6 +57,10 @@ public class AddCommand extends Command {
      */
     @Override
     public void execute(TaskList taskList, Storage storage, GraphicalUi graphicalUi) throws ChillGuyException {
+        assert taskList != null : "Task list cannot be null";
+        assert storage != null : "Storage cannot be null";
+        assert graphicalUi != null : "Graphical UI cannot be null";
+
         taskList.addToTaskList(task);
         storage.saveTasks(taskList);
         graphicalUi.appendAdd(task, taskList.getTaskCount());

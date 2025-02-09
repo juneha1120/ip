@@ -35,6 +35,7 @@ public class ShowTasksWithDateCommand extends Command {
      * @param date the date to filter tasks by.
      */
     public ShowTasksWithDateCommand(LocalDate date) {
+        assert date != null : "Date cannot be null";
         this.date = date;
     }
 
@@ -49,6 +50,8 @@ public class ShowTasksWithDateCommand extends Command {
      * @throws ChillGuyException if no tasks are found on the specified date.
      */
     public TaskList getTasksOnDate(TaskList taskList) throws ChillGuyException {
+        assert taskList != null : "Task list cannot be null";
+
         Map<Integer, Task> taskListOriginal = taskList.getTaskList();
         Map<Integer, Task> taskListOnDate = new LinkedHashMap<>();
         int taskCount = 0;
@@ -82,6 +85,10 @@ public class ShowTasksWithDateCommand extends Command {
      */
     @Override
     public void execute(TaskList taskList, Storage storage, TextUi textUi) throws ChillGuyException {
+        assert taskList != null : "Task list cannot be null";
+        assert storage != null : "Storage cannot be null";
+        assert textUi != null : "Text UI cannot be null";
+
         TaskList taskListOnDate = this.getTasksOnDate(taskList);
         textUi.showTasksWithDate(taskListOnDate, this.date);
     }
@@ -96,6 +103,10 @@ public class ShowTasksWithDateCommand extends Command {
      */
     @Override
     public void execute(TaskList taskList, Storage storage, GraphicalUi graphicalUi) throws ChillGuyException {
+        assert taskList != null : "Task list cannot be null";
+        assert storage != null : "Storage cannot be null";
+        assert graphicalUi != null : "Graphical UI cannot be null";
+
         TaskList taskListOnDate = this.getTasksOnDate(taskList);
         graphicalUi.appendTasksWithDate(taskListOnDate, this.date);
     }
