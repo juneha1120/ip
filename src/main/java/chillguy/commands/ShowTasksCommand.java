@@ -38,6 +38,6 @@ public class ShowTasksCommand extends Command {
      */
     @Override
     public void execute(TaskList taskList, Storage storage, GraphicalUi graphicalUi) throws ChillGuyException {
-        graphicalUi.appendTasks(taskList);
+        graphicalUi.respondWithTasks(taskList);
     }
 }

@@ -54,6 +54,6 @@ public class AddCommand extends Command {
     public void execute(TaskList taskList, Storage storage, GraphicalUi graphicalUi) throws ChillGuyException {
         taskList.addToTaskList(task);
         storage.saveTasks(taskList);
-        graphicalUi.appendAdd(task, taskList.getTaskCount());
+        graphicalUi.respondWithAddMessage(task, taskList.getTaskCount());
     }
 }

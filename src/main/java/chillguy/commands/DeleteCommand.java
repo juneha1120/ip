@@ -105,6 +105,6 @@ public class DeleteCommand extends Command {
     public void execute(TaskList taskList, Storage storage, GraphicalUi graphicalUi) throws ChillGuyException {
         Task deletedTask = this.deleteTask(taskList);
         storage.saveTasks(taskList);
-        graphicalUi.appendDelete(deletedTask, taskList.getTaskCount());
+        graphicalUi.respondWithDeleteMessage(deletedTask, taskList.getTaskCount());
     }
 }

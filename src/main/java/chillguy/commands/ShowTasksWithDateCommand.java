@@ -97,6 +97,6 @@ public class ShowTasksWithDateCommand extends Command {
     @Override
     public void execute(TaskList taskList, Storage storage, GraphicalUi graphicalUi) throws ChillGuyException {
         TaskList taskListOnDate = this.getTasksOnDate(taskList);
-        graphicalUi.appendTasksWithDate(taskListOnDate, this.date);
+        graphicalUi.respondWithTasksOnDate(taskListOnDate, this.date);
     }
 }

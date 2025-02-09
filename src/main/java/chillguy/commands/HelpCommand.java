@@ -39,6 +39,6 @@ public class HelpCommand extends Command {
     @Override
     public void execute(TaskList taskList, Storage storage, GraphicalUi graphicalUi) throws ChillGuyException {
         ExitCommand.setCommandDescription("");
-        graphicalUi.appendHelp();
+        graphicalUi.respondWithHelpMessage();
     }
 }

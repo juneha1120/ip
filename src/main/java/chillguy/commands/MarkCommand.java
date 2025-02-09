@@ -52,6 +52,7 @@ public class MarkCommand extends Command {
         } else if (curr.isDone()) {
             throw new ChillGuyException(MARK_ERROR, true, taskNum);
         }
+
         curr.mark();
         storage.saveTasks(taskList);
         textUi.showMark(curr);
@@ -77,8 +78,9 @@ public class MarkCommand extends Command {
         } else if (curr.isDone()) {
             throw new ChillGuyException(MARK_ERROR, true, taskNum);
         }
+
         curr.mark();
         storage.saveTasks(taskList);
-        graphicalUi.appendMark(curr);
+        graphicalUi.respondWithMarkMessage(curr);
     }
 }

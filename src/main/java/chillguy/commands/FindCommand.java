@@ -91,6 +91,6 @@ public class FindCommand extends Command {
     @Override
     public void execute(TaskList taskList, Storage storage, GraphicalUi graphicalUi) throws ChillGuyException {
         TaskList taskListWithKeyword = this.getTasksWithKeyword(taskList);
-        graphicalUi.appendFind(taskListWithKeyword, this.keyword);
+        graphicalUi.respondWithFindMessage(taskListWithKeyword, this.keyword);
     }
 }

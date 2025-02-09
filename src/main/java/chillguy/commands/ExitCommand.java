@@ -57,6 +57,6 @@ public class ExitCommand extends Command {
      */
     @Override
     public void execute(TaskList taskList, Storage storage, GraphicalUi graphicalUi) throws ChillGuyException {
-        graphicalUi.appendTryAgainMessage();
+        graphicalUi.respondWithTryAgainMessage();
     }
 }
