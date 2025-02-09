@@ -52,6 +52,8 @@ public class Parser {
      * @throws ChillGuyException If there is an error in parsing the command or its arguments.
      */
     public Command parse(String fullCommand) throws ChillGuyException {
+        assert fullCommand != null : "Command cannot be null";
+
         String[] command = fullCommand.split(" ", 2);
         if (command.length < 2) {
             command = new String[]{command[0], ""};
@@ -98,6 +100,7 @@ public class Parser {
      * @return {@code true} if the argument contains time information, {@code false} otherwise.
      */
     protected boolean isTimeArgument(String argument) {
+        assert argument != null : "Argument cannot be null";
         return argument.trim().contains(" ");
     }
 
@@ -112,6 +115,9 @@ public class Parser {
      * @throws ChillGuyException If there is an error in parsing the arguments or creating the task.
      */
     protected Command prepareAddCommand(TaskType taskType, String arguments) throws ChillGuyException {
+        assert taskType != null : "Task type cannot be null";
+        assert arguments != null : "Arguments cannot be null";
+
         switch (taskType) {
         case TODO:
             if (arguments.isEmpty()) {
@@ -217,6 +223,8 @@ public class Parser {
      * @throws ChillGuyException If the date format is invalid.
      */
     protected Command prepareShowWithDateCommand(String arguments) throws ChillGuyException {
+        assert arguments != null : "Arguments cannot be null";
+
         DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("d/M/yyyy");
         try {
             LocalDate date = LocalDate.parse(arguments.trim(), inputFormatter);
@@ -234,6 +242,8 @@ public class Parser {
      * @throws ChillGuyException If the task number is invalid or not a valid integer.
      */
     protected Command prepareMarkCommand(String arguments) throws ChillGuyException {
+        assert arguments != null : "Arguments cannot be null";
+
         int taskNum;
         try {
             taskNum = Integer.parseInt(arguments);
@@ -251,6 +261,8 @@ public class Parser {
      * @throws ChillGuyException If the task number is invalid or not a valid integer.
      */
     protected Command prepareUnmarkCommand(String arguments) throws ChillGuyException {
+        assert arguments != null : "Arguments cannot be null";
+
         int taskNum;
         try {
             taskNum = Integer.parseInt(arguments);
@@ -268,6 +280,8 @@ public class Parser {
      * @throws ChillGuyException If the task number is invalid or not a valid integer.
      */
     protected Command prepareDeleteCommand(String arguments) throws ChillGuyException {
+        assert arguments != null : "Arguments cannot be null";
+
         int taskNum;
         try {
             taskNum = Integer.parseInt(arguments);
