@@ -1,262 +1,346 @@
 ========================================================================
-                                       ░▒▒  ░▒▒                          
-                                      ░░ ░░▒░░░░                         
-                                     ░░░░▒▒░▒░▒                          
-                           ░░▒▓▓▓▒░░ ░░░░░  ░▒                           
-               ░▒▓▓████▒░░░   ░░▒▒█▒░▒▒▓▓░  ░░▒                          
-               █████████░         ░    ░░     ░░                         
-               █████████▒                 ░░  ░░                         
-                ███████░             ░░░░░░░ ░░                          
-                  ▓██▓▒░            ░░▒▒▒░  ░ ░                          
-                     ░▒▒▒▒▒▒░░   ░░░░░░   ░░ ░▒                          
-                           ░▓▒░░       ░░▒▒▒▒░ ░▒                        
-                           ░     ░░░░░           ▒                       
-                          ░░                 ▒    ░                      
-                           ░▒               ▒     ▒                      
-                            ▒  ░▒▒▒▒▓▓▓▒▒░░ ░▓░ ░▒                       
-                            ░▒    ░▒▒▒░░         ░                       
-                             ░       ░          ░░                       
-                              ░       ░░        ░░                       
-                              ░                  ░                       
-                           ░       ▒░░▒     ▒▒▒░▒░                       
-                            ░▒▒▒▒▒▒░░▒░        ▒▒                        
-                                       ░░▒▒▒▒▒░                          
- 
- Mmm... Were you looking for me?
+                                      ░▒▒  ░▒▒                          
+                                     ░░ ░░▒░░░░                         
+                                    ░░░░▒▒░▒░▒                          
+                          ░░▒▓▓▓▒░░ ░░░░░  ░▒                           
+              ░▒▓▓████▒░░░   ░░▒▒█▒░▒▒▓▓░  ░░▒                          
+              █████████░         ░    ░░     ░░                         
+              █████████▒                 ░░  ░░                         
+               ███████░             ░░░░░░░ ░░                          
+                 ▓██▓▒░            ░░▒▒▒░  ░ ░                          
+                    ░▒▒▒▒▒▒░░   ░░░░░░   ░░ ░▒                          
+                          ░▓▒░░       ░░▒▒▒▒░ ░▒                        
+                          ░     ░░░░░           ▒                       
+                         ░░                 ▒    ░                      
+                          ░▒               ▒     ▒                      
+                           ▒  ░▒▒▒▒▓▓▓▒▒░░ ░▓░ ░▒                       
+                           ░▒    ░▒▒▒░░         ░                       
+                            ░       ░          ░░                       
+                             ░       ░░        ░░                       
+                             ░                  ░                       
+                          ░       ▒░░▒     ▒▒▒░▒░                       
+                           ░▒▒▒▒▒▒░░▒░        ▒▒                        
+                                      ░░▒▒▒▒▒░                          
+
+Mmm... Were you looking for me?
 I'm just a chill guy.
- 
- Anyways, you can call me if you need any help,
+
+Anyways, you can call me if you need any help,
 or, let's just chill as usual...
 ========================================================================
 ========================================================================
- I'm trying to recall your tasks from last time...
- 
- Looks like you have nothing in the list...
+I'm trying to recall your tasks from last time...
+
+Looks like you have nothing in the list...
 Cool, let's just sit back and chill.
 ========================================================================
 ========================================================================
- I'm sorry...
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+I'm sorry...
 Mind chilling on your own for while
 then trying again?
 ========================================================================
 ========================================================================
- I'm the best at chilling,
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+I'm the best at chilling,
 but I can do these too...
- 
-  # chill guy : shows list of available commands.
+
+ # chill guy : shows list of available commands.
      For example, chill guy
- 
-  # todo : adds task without any date/time to task list.
+
+ # todo : adds task without any date/time to task list.
      For example, todo study CS2103T
- 
-  # deadline : adds task due specified date/time to task list.
+
+ # deadline : adds task due specified date/time to task list.
      For example, deadline study CS2103T /by 01/01/1000 0100
- 
-  # event : adds task from and to specified date/time to task list.
+
+ # event : adds task from and to specified date/time to task list.
      For example, event study CS2103T /from 01/01/1000 0100 /to 02/01/1000 0200
- 
-  # show tasks : shows list of added tasks.
+
+ # show tasks : shows list of added tasks.
      For example, show tasks
- 
-  # show tasks on : shows list of tasks on specified date.
+
+ # show tasks on : shows list of tasks on specified date.
      For example, show tasks on 01/01/1000
- 
-  # find : shows list of tasks with specified keyword.
+
+ # find : shows list of tasks with specified keyword.
      For example, find study CS2103T
- 
-  # remind : shows list of specified type due today.
+
+ # remind : shows list of specified type due today.
      For example, remind todo
- 
-  # mark : marks specified task as done.
+
+ # mark : marks specified task as done.
      For example, mark 3
- 
-  # unmark : unmarks specified task.
+
+ # unmark : unmarks specified task.
      For example, unmark 3
- 
-  # delete : delete specified task.
+
+ # delete : delete specified task.
      For example, delete 3
- 
- # bye : exits the chatbot.
+
+# bye : exits the chatbot.
      For example, bye
 ========================================================================
 ========================================================================
- Looks like you have nothing in the list...
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+Looks like you have nothing in the list...
 Cool, let's just sit back and chill.
 ========================================================================
 ========================================================================
- Gotcha... I've added this task :
-  [T][ ] read book
- Now you have 1 tasks in the list.
- But remember, you can always chill first.
-========================================================================
- We chill, but could you follow this format? :
-  deadline <description> /by <d/M/yyyy (HHmm)>.
-========================================================================
- We chill, but could you follow this format? :
-  deadline <description> /by <d/M/yyyy (HHmm)>.
 ========================================================================
 ========================================================================
- Gotcha... I've added this task :
-  [D][ ] read book (by Jan 1 1000)
- Now you have 2 tasks in the list.
- But remember, you can always chill first.
 ========================================================================
 ========================================================================
- Gotcha... I've added this task :
-  [D][ ] read book (by Jan 1 1000 1:00am)
- Now you have 3 tasks in the list.
- But remember, you can always chill first.
-========================================================================
- We chill, but could you follow this format? :
-  event <description> /from <d/M/yyyy (HHmm)> /to <d/M/yyyy (HHmm)>.
-========================================================================
- We chill, but could you follow this format? :
-  event <description> /from <d/M/yyyy (HHmm)> /to <d/M/yyyy (HHmm)>.
+Gotcha... I've added this task :
+ [T][ ] read book
+Now you have 1 tasks in the list.
+But remember, you can always chill first.
 ========================================================================
 ========================================================================
- Gotcha... I've added this task :
-  [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
- Now you have 4 tasks in the list.
- But remember, you can always chill first.
 ========================================================================
 ========================================================================
- Gotcha... I've added this task :
-  [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
- Now you have 5 tasks in the list.
- But remember, you can always chill first.
 ========================================================================
 ========================================================================
- Seems like you were too chill
+We chill, but could you follow this format? :
+deadline <description> /by <d/M/yyyy (HHmm)>.
+========================================================================
+========================================================================
+========================================================================
+We chill, but could you follow this format? :
+deadline <description> /by <d/M/yyyy (HHmm)>.
+========================================================================
+========================================================================
+========================================================================
+Gotcha... I've added this task :
+ [D][ ] read book (by Jan 1 1000)
+Now you have 2 tasks in the list.
+But remember, you can always chill first.
+========================================================================
+========================================================================
+========================================================================
+Gotcha... I've added this task :
+ [D][ ] read book (by Jan 1 1000 1:00am)
+Now you have 3 tasks in the list.
+But remember, you can always chill first.
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+We chill, but could you follow this format? :
+event <description> /from <d/M/yyyy (HHmm)> /to <d/M/yyyy (HHmm)>.
+========================================================================
+========================================================================
+========================================================================
+We chill, but could you follow this format? :
+event <description> /from <d/M/yyyy (HHmm)> /to <d/M/yyyy (HHmm)>.
+========================================================================
+========================================================================
+========================================================================
+Gotcha... I've added this task :
+ [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
+Now you have 4 tasks in the list.
+But remember, you can always chill first.
+========================================================================
+========================================================================
+========================================================================
+Gotcha... I've added this task :
+ [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
+Now you have 5 tasks in the list.
+But remember, you can always chill first.
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+Seems like you were too chill
 and forgot what you had...
 
 Anyways, here's what you have :
-  1. [T][ ] read book
-  2. [D][ ] read book (by Jan 1 1000)
-  3. [D][ ] read book (by Jan 1 1000 1:00am)
-  4. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
-  5. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
- You have 5 tasks in the list.
+ 1. [T][ ] read book
+ 2. [D][ ] read book (by Jan 1 1000)
+ 3. [D][ ] read book (by Jan 1 1000 1:00am)
+ 4. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
+ 5. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
+You have 5 task(s) in the list.
 ========================================================================
- We chill, but could follow this format? :
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+We chill, but could follow this format? :
 show tasks on <d/M/yyyy>.
 ========================================================================
 ========================================================================
- Seems like you were too chill
+========================================================================
+Seems like you were too chill
 and forgot what you had...
 
 Anyways, here's what you have :
-  1. [D][ ] read book (by Jan 1 1000)
-  2. [D][ ] read book (by Jan 1 1000 1:00am)
-  3. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
-  4. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
- You have 4 tasks on Jan 1 1000
+ 1. [D][ ] read book (by Jan 1 1000)
+ 2. [D][ ] read book (by Jan 1 1000 1:00am)
+ 3. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
+ 4. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
+You have 4 tasks on Jan 1 1000
 ========================================================================
 ========================================================================
- We chill, but could you tell me
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+We chill, but could you tell me
 the keyword to search?
 ========================================================================
 ========================================================================
- We chill, but looks like you have
+========================================================================
+We chill, but looks like you have
 no matching ones.
 ========================================================================
 ========================================================================
- Seems like you were too chill
+========================================================================
+Seems like you were too chill
 and forgot what you had...
 
 Anyways, here are the matching ones :
-  1. [T][ ] read book
-  2. [D][ ] read book (by Jan 1 1000)
-  3. [D][ ] read book (by Jan 1 1000 1:00am)
-  4. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
-  5. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
- You have 5 tasks with keyword : read
+ 1. [T][ ] read book
+ 2. [D][ ] read book (by Jan 1 1000)
+ 3. [D][ ] read book (by Jan 1 1000 1:00am)
+ 4. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
+ 5. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
+You have 5 task(s) with keyword : read
 ========================================================================
- We chill, but could you tell me
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+We chill, but could you tell me
 the valid task type to get reminders for?
 ========================================================================
 ========================================================================
- We chill, but looks like you have
+========================================================================
+We chill, but looks like you have
 no reminders for the task type.
 ========================================================================
 ========================================================================
- Seems like you were too chill
+========================================================================
+Seems like you were too chill
 and now need some reminders...
 
 Anyways, here are the ones for today :
-  1. [T][ ] read book
+ 1. [T][ ] read book
+You have 1 reminder(s) with TODO
 ========================================================================
 ========================================================================
- Nice... I've marked this task as done :
-  [T][X] read book
- Think you can chill a bit now.
 ========================================================================
 ========================================================================
- We chill, but the task is already marked as done.
 ========================================================================
 ========================================================================
- Nice... I've marked this task as done :
-  [E][X] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
- Think you can chill a bit now.
+Nice... I've marked this task as done :
+ [T][X] read book
+Think you can chill a bit now.
 ========================================================================
 ========================================================================
- Ok... I've marked this task as not done yet :
-  [T][ ] read book
- But no worries,
+========================================================================
+We chill, but the task is already marked as done.
+========================================================================
+========================================================================
+========================================================================
+Nice... I've marked this task as done :
+ [E][X] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
+Think you can chill a bit now.
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+Ok... I've marked this task as not done yet :
+ [T][ ] read book
+But no worries,
 you are always welcome to just chill.
 ========================================================================
 ========================================================================
- We chill, but the task is not marked yet.
+========================================================================
+We chill, but the task is not marked yet.
 ========================================================================
 ========================================================================
- Ok... I've marked this task as not done yet :
-  [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
- But no worries,
+========================================================================
+Ok... I've marked this task as not done yet :
+ [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
+But no worries,
 you are always welcome to just chill.
 ========================================================================
 ========================================================================
- Noted... I've removed this task :
-  [T][ ] read book
- Now you have 4 tasks in the list.
- You know what, I also thought
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+Noted... I've removed this task :
+ [T][ ] read book
+Now you have 4 task(s) in the list.
+You know what, I also thought
 we didn't really need that
 ========================================================================
- We chill, but I don't seem to find this task : 
 ========================================================================
 ========================================================================
- Seems like you were too chill
+We chill, but I don't seem to find this task : 
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+Seems like you were too chill
 and forgot what you had...
 
 Anyways, here's what you have :
-  1. [D][ ] read book (by Jan 1 1000)
-  2. [D][ ] read book (by Jan 1 1000 1:00am)
-  3. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
-  4. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
- You have 4 tasks in the list.
+ 1. [D][ ] read book (by Jan 1 1000)
+ 2. [D][ ] read book (by Jan 1 1000 1:00am)
+ 3. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
+ 4. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
+You have 4 task(s) in the list.
 ========================================================================
 ========================================================================
- Bye...
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+Bye...
 Hope to see you and chill together again soon...
- 
-                                       ░▒▒  ░▒▒                          
-                                      ░░ ░░▒░░░░                         
-                                     ░░░░▒▒░▒░▒                          
-                           ░░▒▓▓▓▒░░ ░░░░░  ░▒                           
-               ░▒▓▓████▒░░░   ░░▒▒█▒░▒▒▓▓░  ░░▒                          
-               █████████░         ░    ░░     ░░                         
-               █████████▒                 ░░  ░░                         
-                ███████░             ░░░░░░░ ░░                          
-                  ▓██▓▒░            ░░▒▒▒░  ░ ░                          
-                     ░▒▒▒▒▒▒░░   ░░░░░░   ░░ ░▒                          
-                           ░▓▒░░       ░░▒▒▒▒░ ░▒                        
-                           ░     ░░░░░           ▒                       
-                          ░░                 ▒    ░                      
-                           ░▒               ▒     ▒                      
-                            ▒  ░▒▒▒▒▓▓▓▒▒░░ ░▓░ ░▒                       
-                            ░▒    ░▒▒▒░░         ░                       
-                             ░       ░          ░░                       
-                              ░       ░░        ░░                       
-                              ░                  ░                       
-                           ░       ▒░░▒     ▒▒▒░▒░                       
-                            ░▒▒▒▒▒▒░░▒░        ▒▒                        
-                                       ░░▒▒▒▒▒░                          
+
+                                      ░▒▒  ░▒▒                          
+                                     ░░ ░░▒░░░░                         
+                                    ░░░░▒▒░▒░▒                          
+                          ░░▒▓▓▓▒░░ ░░░░░  ░▒                           
+              ░▒▓▓████▒░░░   ░░▒▒█▒░▒▒▓▓░  ░░▒                          
+              █████████░         ░    ░░     ░░                         
+              █████████▒                 ░░  ░░                         
+               ███████░             ░░░░░░░ ░░                          
+                 ▓██▓▒░            ░░▒▒▒░  ░ ░                          
+                    ░▒▒▒▒▒▒░░   ░░░░░░   ░░ ░▒                          
+                          ░▓▒░░       ░░▒▒▒▒░ ░▒                        
+                          ░     ░░░░░           ▒                       
+                         ░░                 ▒    ░                      
+                          ░▒               ▒     ▒                      
+                           ▒  ░▒▒▒▒▓▓▓▒▒░░ ░▓░ ░▒                       
+                           ░▒    ░▒▒▒░░         ░                       
+                            ░       ░          ░░                       
+                             ░       ░░        ░░                       
+                             ░                  ░                       
+                          ░       ▒░░▒     ▒▒▒░▒░                       
+                           ░▒▒▒▒▒▒░░▒░        ▒▒                        
+                                      ░░▒▒▒▒▒░                          
 ========================================================================
