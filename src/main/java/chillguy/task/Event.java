@@ -171,10 +171,25 @@ public class Event extends Task {
      */
     @Override
     public String toString() {
-        return "[E]" + super.toString() + " (from "
-            + (this.from == null ? this.fromDate.format(DateTimeFormatter.ofPattern("MMM d yyyy"))
-                : this.from.format(DateTimeFormatter.ofPattern("MMM d yyyy h:mma")))
-            + " to " + (this.to == null ? this.toDate.format(DateTimeFormatter.ofPattern("MMM d yyyy"))
-                : this.to.format(DateTimeFormatter.ofPattern("MMM d yyyy h:mma"))) + ")";
+        String formattedFrom;
+        String formattedTo;
+
+        if (this.from == null) {
+            formattedFrom = this.fromDate.format(DateTimeFormatter.ofPattern("MMM d yyyy"));
+        } else {
+            formattedFrom = this.from.format(DateTimeFormatter.ofPattern("MMM d yyyy h:mma"));
+            formattedFrom = formattedFrom.substring(0, formattedFrom.length() - 2)
+                    + formattedFrom.substring(formattedFrom.length() - 2).toLowerCase();
+        }
+
+        if (this.to == null) {
+            formattedTo = this.toDate.format(DateTimeFormatter.ofPattern("MMM d yyyy"));
+        } else {
+            formattedTo = this.to.format(DateTimeFormatter.ofPattern("MMM d yyyy h:mma"));
+            formattedTo = formattedTo.substring(0, formattedTo.length() - 2)
+                    + formattedTo.substring(formattedTo.length() - 2).toLowerCase();
+        }
+
+        return "[E]" + super.toString() + " (from " + formattedFrom + " to " + formattedTo + ")";
     }
 }
