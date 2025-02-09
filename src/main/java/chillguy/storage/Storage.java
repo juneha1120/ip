@@ -37,6 +37,7 @@ public class Storage {
      * @param filePath The path to the file where tasks will be stored.
      */
     public Storage(String filePath) {
+        assert filePath != null && !filePath.isEmpty() : "File path cannot be null or empty";
         this.filePath = filePath;
     }
 
@@ -50,6 +51,8 @@ public class Storage {
      * @throws ChillGuyException If the line is in an invalid format or the task type is unknown.
      */
     public static Task fromFileFormat(String line) throws ChillGuyException {
+        assert line != null && !line.isEmpty() : "Line cannot be null or empty";
+
         String[] parts = line.split(" \\| ");
         if (line.isEmpty()) {
             return null;
@@ -95,6 +98,8 @@ public class Storage {
      * @throws ChillGuyException If an error occurs while creating the file or writing to it.
      */
     public void saveTasks(TaskList taskList) throws ChillGuyException {
+        assert taskList != null : "Task list cannot be null";
+
         StringBuilder data = new StringBuilder();
         for (Map.Entry<Integer, Task> entry : taskList.getTaskList().entrySet()) {
             data.append(entry.getValue().toFileFormat()).append("\n");

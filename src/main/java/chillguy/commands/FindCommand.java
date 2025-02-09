@@ -31,6 +31,7 @@ public class FindCommand extends Command {
      * @param keyword The keyword to search for in task names.
      */
     public FindCommand(String keyword) {
+        assert keyword != null : "Keyword cannot be null";
         this.keyword = keyword;
     }
 
@@ -44,6 +45,8 @@ public class FindCommand extends Command {
      * @throws ChillGuyException If no tasks match the keyword or if the keyword is empty.
      */
     public TaskList getTasksWithKeyword(TaskList taskList) throws ChillGuyException {
+        assert taskList != null : "Task list cannot be null";
+
         if (keyword.isEmpty()) {
             throw new ChillGuyException(NO_KEYWORD_ERROR);
         }
@@ -76,6 +79,10 @@ public class FindCommand extends Command {
      */
     @Override
     public void execute(TaskList taskList, Storage storage, TextUi textUi) throws ChillGuyException {
+        assert taskList != null : "Task list cannot be null";
+        assert storage != null : "Storage cannot be null";
+        assert textUi != null : "Text UI cannot be null";
+
         TaskList taskListWithKeyword = this.getTasksWithKeyword(taskList);
         textUi.showFind(taskListWithKeyword, this.keyword);
     }
@@ -90,6 +97,10 @@ public class FindCommand extends Command {
      */
     @Override
     public void execute(TaskList taskList, Storage storage, GraphicalUi graphicalUi) throws ChillGuyException {
+        assert taskList != null : "Task list cannot be null";
+        assert storage != null : "Storage cannot be null";
+        assert graphicalUi != null : "Graphical UI cannot be null";
+
         TaskList taskListWithKeyword = this.getTasksWithKeyword(taskList);
         graphicalUi.respondWithFindMessage(taskListWithKeyword, this.keyword);
     }

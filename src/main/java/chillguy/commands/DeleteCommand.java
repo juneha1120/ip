@@ -46,6 +46,8 @@ public class DeleteCommand extends Command {
      * @throws ChillGuyException if the task does not exist in the list.
      */
     public Task deleteTask(TaskList taskList) throws ChillGuyException {
+        assert taskList != null : "Task list cannot be null";
+
         Task deletedTask;
         if (taskList.getTaskList().containsKey(this.taskNum)) {
             deletedTask = taskList.getTaskList().remove(this.taskNum);
@@ -65,6 +67,8 @@ public class DeleteCommand extends Command {
      * @param taskList the task list to be renumbered.
      */
     public void renumberTasks(TaskList taskList) {
+        assert taskList != null : "Task list cannot be null";
+
         Map<Integer, Task> newTaskList = new LinkedHashMap<>();
         int newTaskCount = 0;
 
@@ -87,6 +91,10 @@ public class DeleteCommand extends Command {
      */
     @Override
     public void execute(TaskList taskList, Storage storage, TextUi textUi) throws ChillGuyException {
+        assert taskList != null : "Task list cannot be null";
+        assert storage != null : "Storage cannot be null";
+        assert textUi != null : "Text UI cannot be null";
+
         Task deletedTask = this.deleteTask(taskList);
         storage.saveTasks(taskList);
         textUi.showDelete(deletedTask, taskList.getTaskCount());
@@ -103,6 +111,10 @@ public class DeleteCommand extends Command {
      */
     @Override
     public void execute(TaskList taskList, Storage storage, GraphicalUi graphicalUi) throws ChillGuyException {
+        assert taskList != null : "Task list cannot be null";
+        assert storage != null : "Storage cannot be null";
+        assert graphicalUi != null : "Graphical UI cannot be null";
+
         Task deletedTask = this.deleteTask(taskList);
         storage.saveTasks(taskList);
         graphicalUi.respondWithDeleteMessage(deletedTask, taskList.getTaskCount());
