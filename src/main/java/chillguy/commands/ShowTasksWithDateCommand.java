@@ -26,7 +26,7 @@ import chillguy.ui.TextUi;
 public class ShowTasksWithDateCommand extends Command {
     public static final String COMMAND_WORD = "show tasks on";
     public static final String COMMAND_DESCRIPTION = COMMAND_WORD + " : shows list of tasks on specified date.\n"
-            + " ".repeat(COMMAND_WORD.length()) + EXAMPLE_PREFIX + COMMAND_WORD + " 01/01/1000";
+            + EXAMPLE_PREFIX + COMMAND_WORD + " 01/01/1000";
     private final LocalDate date;
 
     /**

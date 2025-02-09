@@ -14,6 +14,7 @@ import static chillguy.main.Messages.MESSAGE_LOAD_TASKS_START;
 import static chillguy.main.Messages.MESSAGE_MARK_END;
 import static chillguy.main.Messages.MESSAGE_MARK_START;
 import static chillguy.main.Messages.MESSAGE_NO_TASKS;
+import static chillguy.main.Messages.MESSAGE_REMINDER_START;
 import static chillguy.main.Messages.MESSAGE_SHOW_TASKS_START;
 import static chillguy.main.Messages.MESSAGE_TRY_AGAIN;
 import static chillguy.main.Messages.MESSAGE_UNMARK_END;
@@ -25,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import chillguy.enums.TaskType;
 import chillguy.task.Task;
 import chillguy.task.TaskList;
 
@@ -155,7 +157,7 @@ public class GraphicalUi {
     }
 
     /**
-     * Returns the list of tasks that contains a specific keyword
+     * Returns the list of tasks that contains a specific keyword.
      *
      * @param taskList The current list of tasks.
      * @param keyword The specific keyword to filter tasks by.
@@ -168,6 +170,19 @@ public class GraphicalUi {
                 "You have " + taskList.getTaskCount() + " tasks with keyword : " + keyword);
     }
 
+    /**
+     * Returns the reminders of the specific task type.
+     *
+     * @param taskList The current list of tasks.
+     * @param type The specific task type to filter tasks by.
+     */
+    public void respondWithReminders(TaskList taskList, TaskType type) {
+        this.appendResponse(
+                MESSAGE_REMINDER_START);
+        this.appendResponse(taskList.getStringTaskList());
+//        this.appendResponse(
+//                "You have " + taskList.getTaskCount() + " reminders with " + type);
+    }
 
     /**
      * Returns a message indicating that a task has been marked as completed.

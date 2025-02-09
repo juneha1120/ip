@@ -16,7 +16,7 @@ public class ExitCommand extends Command {
     public static final String COMMAND_WORD = "bye";
     public static final String LINE_PREFIX = "# ";
     private static String COMMAND_DESCRIPTION = LINE_PREFIX + COMMAND_WORD + " : exits the chatbot.\n"
-            + " ".repeat(COMMAND_WORD.length()) + EXAMPLE_PREFIX + COMMAND_WORD;
+            + EXAMPLE_PREFIX + COMMAND_WORD;
 
     public static String getCommandDescription() {
         return COMMAND_DESCRIPTION;

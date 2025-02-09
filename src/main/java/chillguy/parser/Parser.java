@@ -7,6 +7,7 @@ import static chillguy.enums.ErrorType.EVENT_ERROR;
 import static chillguy.enums.ErrorType.MARK_ERROR;
 import static chillguy.enums.ErrorType.TASK_ERROR;
 import static chillguy.enums.ErrorType.TODO_ERROR;
+import static chillguy.enums.ErrorType.TYPE_ERROR;
 import static chillguy.enums.ErrorType.UNMARK_ERROR;
 import static chillguy.enums.TaskType.DEADLINE;
 import static chillguy.enums.TaskType.EVENT;
@@ -24,6 +25,7 @@ import chillguy.commands.ExitCommand;
 import chillguy.commands.FindCommand;
 import chillguy.commands.HelpCommand;
 import chillguy.commands.MarkCommand;
+import chillguy.commands.RemindCommand;
 import chillguy.commands.ShowTasksCommand;
 import chillguy.commands.ShowTasksWithDateCommand;
 import chillguy.commands.TestCommand;
@@ -83,6 +85,7 @@ public class Parser {
         case ShowTasksCommand.COMMAND_WORD -> new ShowTasksCommand();
         case ShowTasksWithDateCommand.COMMAND_WORD -> prepareShowWithDateCommand(arguments);
         case FindCommand.COMMAND_WORD -> new FindCommand(arguments);
+        case RemindCommand.COMMAND_WORD -> prepareRemindCommand(arguments);
         case MarkCommand.COMMAND_WORD -> prepareMarkCommand(arguments);
         case UnmarkCommand.COMMAND_WORD -> prepareUnmarkCommand(arguments);
         case DeleteCommand.COMMAND_WORD -> prepareDeleteCommand(arguments);
@@ -231,6 +234,31 @@ public class Parser {
             return new ShowTasksWithDateCommand(date);
         } catch (DateTimeParseException e) {
             throw new ChillGuyException(DATE_ERROR);
+        }
+    }
+
+    /**
+     * Prepares a {@link RemindCommand} with a type argument parsed from the user input.
+     *
+     * @param arguments The arguments provided by the user, expected to be a task type string.
+     * @return A {@link RemindCommand} object for displaying reminders of specified task type.
+     * @throws ChillGuyException If the task type string is invalid.
+     */
+    protected Command prepareRemindCommand(String arguments) throws ChillGuyException {
+        assert arguments != null : "Arguments cannot be null";
+
+        if (arguments.isEmpty()) {
+            throw new ChillGuyException(TYPE_ERROR);
+        }
+
+        if (arguments.equals(Todo.COMMAND_WORD)) {
+            return new RemindCommand(TODO);
+        } else if (arguments.equals(Deadline.COMMAND_WORD)) {
+            return new RemindCommand(DEADLINE);
+        } else if (arguments.equals(Event.COMMAND_WORD)) {
+            return new RemindCommand(EVENT);
+        } else {
+            throw new ChillGuyException(TYPE_ERROR);
         }
     }
 

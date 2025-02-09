@@ -6,6 +6,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import chillguy.enums.TaskType;
+
 /**
  * Represents a {@code Event} task that has a specified start date/time and end date/time.
  * This class extends the {@link Task} class and encapsulates details about a task
@@ -15,10 +17,9 @@ public class Event extends Task {
     public static final String COMMAND_WORD = "event";
     public static final String COMMAND_DESCRIPTION = COMMAND_WORD
             + " : adds task from and to specified date/time to task list.\n"
-            + " ".repeat(COMMAND_WORD.length()) + EXAMPLE_PREFIX + COMMAND_WORD
-            + " study CS2103T /from 01/01/1000 0100"
-            + "\n                                             /to 02/01/1000 0200";
-
+            + EXAMPLE_PREFIX + COMMAND_WORD
+            + " study CS2103T /from 01/01/1000 0100 /to 02/01/1000 0200";
+    protected TaskType type = TaskType.EVENT;
     protected LocalDateTime from;
     protected LocalDate fromDate;
     protected LocalDateTime to;
@@ -121,10 +122,21 @@ public class Event extends Task {
     }
 
     /**
+     * Returns the {@code TaskType} of the task.
+     *
+     * @return The {@code TaskType}.
+     */
+    @Override
+    public TaskType getType() {
+        return this.type;
+    }
+
+    /**
      * Returns the start date of the event.
      *
      * @return The start date of the event.
      */
+    @Override
     public LocalDate getFromDate() {
         return fromDate;
     }
@@ -134,6 +146,7 @@ public class Event extends Task {
      *
      * @return The end date of the event.
      */
+    @Override
     public LocalDate getToDate() {
         return toDate;
     }

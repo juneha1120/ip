@@ -1,5 +1,9 @@
 package chillguy.task;
 
+import java.time.LocalDate;
+
+import chillguy.enums.TaskType;
+
 /**
  * Represents a generic task with a name and completion status.
  * This class provides basic task functionality that can be extended by more specific task types
@@ -8,6 +12,10 @@ package chillguy.task;
 public class Task {
     protected String taskName;
     protected boolean isDone;
+    protected TaskType type;
+    protected LocalDate byDate;
+    protected LocalDate fromDate;
+    protected LocalDate toDate;
 
     /**
      * Constructs a {@code Task} with the specified name and sets its completion status to {@code false}.
@@ -51,6 +59,15 @@ public class Task {
     }
 
     /**
+     * Returns the {@code TaskType} of the task.
+     *
+     * @return The {@code TaskType}.
+     */
+    public TaskType getType() {
+        return this.type;
+    }
+
+    /**
      * Marks the task as completed.
      */
     public void mark() {
@@ -62,6 +79,33 @@ public class Task {
      */
     public void unmark() {
         this.isDone = false;
+    }
+
+    /**
+     * Returns the due {@code LocalDate} of the task.
+     *
+     * @return The {@code LocalDate} by which the task is due.
+     */
+    public LocalDate getByDate() {
+        return this.byDate;
+    }
+
+    /**
+     * Returns the start {@code LocalDate} of the task.
+     *
+     * @return The start {@code LocalDate} of the task.
+     */
+    public LocalDate getFromDate() {
+        return this.fromDate;
+    }
+
+    /**
+     * Returns the end {@code LocalDate} of the task.
+     *
+     * @return The end {@code LocalDate} of the task.
+     */
+    public LocalDate getToDate() {
+        return this.toDate;
     }
 
     /**

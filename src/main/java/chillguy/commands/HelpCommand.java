@@ -15,7 +15,7 @@ import chillguy.ui.TextUi;
 public class HelpCommand extends Command {
     public static final String COMMAND_WORD = "chill guy";
     public static final String COMMAND_DESCRIPTION = COMMAND_WORD + " : shows list of available commands.\n"
-            + " ".repeat(COMMAND_WORD.length()) + EXAMPLE_PREFIX + COMMAND_WORD;
+            + EXAMPLE_PREFIX + COMMAND_WORD;
 
     /**
      * Executes the help command by displaying the list of available commands through the {@link TextUi}.

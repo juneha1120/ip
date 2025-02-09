@@ -2,6 +2,8 @@ package chillguy.task;
 
 import static chillguy.commands.Command.EXAMPLE_PREFIX;
 
+import chillguy.enums.TaskType;
+
 /**
  * Represents a {@link Task} that does not have any specific date/time associated with it.
  * This class extends the {@link Task} class and encapsulates details about a task
@@ -10,7 +12,8 @@ import static chillguy.commands.Command.EXAMPLE_PREFIX;
 public class Todo extends Task {
     public static final String COMMAND_WORD = "todo";
     public static final String COMMAND_DESCRIPTION = COMMAND_WORD + " : adds task without any date/time to task list.\n"
-            + " ".repeat(COMMAND_WORD.length()) + EXAMPLE_PREFIX + COMMAND_WORD + " study CS2103T";
+            + EXAMPLE_PREFIX + COMMAND_WORD + " study CS2103T";
+    protected TaskType type = TaskType.TODO;
 
     /**
      * Constructs a {@code Todo} task with the specified task name. The task is marked as not done by default.
@@ -19,6 +22,7 @@ public class Todo extends Task {
      */
     public Todo(String taskName) {
         super(taskName);
+
     }
 
     /**
@@ -29,6 +33,16 @@ public class Todo extends Task {
      */
     public Todo(String taskName, boolean isDone) {
         super(taskName, isDone);
+    }
+
+    /**
+     * Returns the {@code TaskType} of the task.
+     *
+     * @return The {@code TaskType}.
+     */
+    @Override
+    public TaskType getType() {
+        return this.type;
     }
 
     /**
