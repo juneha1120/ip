@@ -46,6 +46,10 @@ public class MarkCommand extends Command {
      */
     @Override
     public void execute(TaskList taskList, Storage storage, TextUi textUi) throws ChillGuyException {
+        assert taskList != null : "Task list cannot be null";
+        assert storage != null : "Storage cannot be null";
+        assert textUi != null : "Text UI cannot be null";
+
         Task curr = taskList.getTaskList().get(taskNum);
         if (curr == null) {
             throw new ChillGuyException(MARK_ERROR, false, taskNum);
@@ -71,6 +75,10 @@ public class MarkCommand extends Command {
      */
     @Override
     public void execute(TaskList taskList, Storage storage, GraphicalUi graphicalUi) throws ChillGuyException {
+        assert taskList != null : "Task list cannot be null";
+        assert storage != null : "Storage cannot be null";
+        assert graphicalUi != null : "Graphical UI cannot be null";
+
         Task curr = taskList.getTaskList().get(taskNum);
         if (curr == null) {
             throw new ChillGuyException(MARK_ERROR, false, taskNum);

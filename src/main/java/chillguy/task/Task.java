@@ -15,6 +15,7 @@ public class Task {
      * @param taskName The name of the task.
      */
     public Task(String taskName) {
+        assert taskName != null && !taskName.isEmpty() : "Task name cannot be null or empty";
         this.taskName = taskName;
         this.isDone = false;
     }
@@ -26,6 +27,7 @@ public class Task {
      * @param isDone The completion status of the task (true if completed, false otherwise).
      */
     public Task(String taskName, boolean isDone) {
+        assert taskName != null && !taskName.isEmpty() : "Task name cannot be null or empty";
         this.taskName = taskName;
         this.isDone = isDone;
     }

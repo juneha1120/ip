@@ -31,6 +31,8 @@ public class ChillGuy {
      * @param filePath The file path for loading and saving tasks.
      */
     public ChillGuy(String filePath) {
+        assert filePath != null && !filePath.isEmpty() : "File path cannot be null or empty";
+
         this.parser = new Parser();
         this.tasks = new TaskList();
         this.storage = new Storage(filePath);
@@ -63,6 +65,9 @@ public class ChillGuy {
      */
     public void runWithTUi() {
         this.textUi.showGreetingMessage();
+
+        assert this.tasks != null : "Task list should be initialized properly";
+
         try {
             this.tasks = this.storage.loadTasks();
             textUi.showLoadingMessage(this.tasks);
@@ -94,6 +99,8 @@ public class ChillGuy {
      * @return A {@link String} response to be handled.
      */
     public String startWithGUi() {
+        assert this.graphicalUi != null : "GraphicalUi should be initialized before use";
+
         this.graphicalUi.initResponse();
         this.graphicalUi.appendGreetingMessage();
         try {
@@ -113,6 +120,8 @@ public class ChillGuy {
      * @return A {@link String} response to be handled.
      */
     public String getResponseWithGUi(String fullInput) {
+        assert this.graphicalUi != null : "GraphicalUi should be initialized before use";
+
         this.graphicalUi.initResponse();
         try {
             Command c = this.parser.parse(fullInput);

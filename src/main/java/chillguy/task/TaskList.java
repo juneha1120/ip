@@ -38,6 +38,7 @@ public class TaskList {
      * @param task The {@link Task} to be added to the task list.
      */
     public void addToTaskList(Task task) {
+        assert task != null : "Task cannot be null";
         this.taskList.put(this.getTaskCount() + 1, task);
         updateTaskCount();
     }
@@ -57,6 +58,7 @@ public class TaskList {
      * @param taskList A map containing the new task list to set.
      */
     public void setTaskList(Map<Integer, Task> taskList) {
+        assert taskList != null : "Task list cannot be null";
         this.taskList = taskList;
     }
 
