@@ -1,0 +1,56 @@
+.root {
+    main-background-color: derive(#a0aaa6, 15%);
+    -fx-background-color: main-background-color;
+}
+
+.text-field {
+    -fx-background-color: #d5d1be;
+    -fx-border-color: derive(#d5d1be, -20%);
+    -fx-border-width: 2px;
+    -fx-border-radius: 0 0 0 0.5em;
+    -fx-font-family: "Roboto";
+    -fx-font-size: 18px;
+}
+
+.button {
+    -fx-background-color: #ae4b43;
+    -fx-border-color: derive(#ae4b43, -20%);
+    -fx-border-width: 2px;
+    -fx-border-radius: 0 0 0.5em 0;
+    -fx-font-family: "Roboto";
+    -fx-font-size: 18px;
+}
+
+.button:hover {
+    -fx-background-color: derive(#ae4b43, -30%);
+}
+
+.button:pressed {
+    -fx-background-color: derive(#ae4b43, -40%);
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar {
+    -fx-background-color: transparent;
+    -fx-font-size: 10px;  /* Change width of scroll bar. */
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: derive(main-background-color, -25%);
+    -fx-background-radius: 1em;
+}
+
+/* Hides the increment and decrement buttons. */
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-pref-height: 0;
+    -fx-opacity: 0;
+}
+

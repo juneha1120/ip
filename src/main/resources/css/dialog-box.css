@@ -1,0 +1,33 @@
+.label {
+    -fx-font-family: "Roboto";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+
+    -fx-background-color: derive(#97aea6, 50%);
+    -fx-border-color: #97aea6;
+    -fx-border-width: 2px;
+    -fx-background-radius: 1.1em 1.1em 0 1.1em;
+    -fx-border-radius: 1em 1em 0 1em;
+}
+
+.reply-label {
+    -fx-font-family: "Roboto";
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+
+    -fx-background-color: derive(#a17f3b, 50%);
+    -fx-border-color: #a17f3b;
+    -fx-border-width: 2px;
+    -fx-background-radius: 1.1em 1.1em 1.1em 0;
+    -fx-border-radius: 1em 1em 1em 0;
+}
+
+#displayPicture {
+    /* Change size of image. */
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+
+    /* Rotate image clockwise by degrees. */
+    -fx-rotate: 0;
+}
+
