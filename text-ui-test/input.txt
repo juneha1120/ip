@@ -80,6 +80,17 @@
     find read
 
 ##########################################################
+# testing remind command
+##########################################################
+
+    # should catch no type error
+    remind
+    # should catch no reminder error
+    remind deadline
+    # should show reminders of todos
+    remind todo
+
+##########################################################
 # testing mark command
 ##########################################################
 

@@ -6,6 +6,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import chillguy.enums.TaskType;
+
 /**
  * Represents a {@code Deadline} task that has a specified due date/time.
  * This class extends the {@link Task} class and encapsulates details about a task
@@ -15,8 +17,8 @@ public class Deadline extends Task {
     public static final String COMMAND_WORD = "deadline";
     public static final String COMMAND_DESCRIPTION = COMMAND_WORD
             + " : adds task due specified date/time to task list.\n"
-            + " ".repeat(COMMAND_WORD.length()) + EXAMPLE_PREFIX + COMMAND_WORD + " study CS2103T /by 01/01/1000 0100";
-
+            + EXAMPLE_PREFIX + COMMAND_WORD + " study CS2103T /by 01/01/1000 0100";
+    protected TaskType type = TaskType.DEADLINE;
     protected LocalDateTime by;
     protected LocalDate byDate;
 
@@ -74,12 +76,23 @@ public class Deadline extends Task {
     }
 
     /**
+     * Returns the {@code TaskType} of the task.
+     *
+     * @return The {@code TaskType}.
+     */
+    @Override
+    public TaskType getType() {
+        return this.type;
+    }
+
+    /**
      * Returns the due {@code LocalDate} of the task.
      *
      * @return The {@code LocalDate} by which the task is due.
      */
+    @Override
     public LocalDate getByDate() {
-        return byDate;
+        return this.byDate;
     }
 
     /**

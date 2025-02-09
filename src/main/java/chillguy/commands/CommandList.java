@@ -29,6 +29,8 @@ public class CommandList {
         EMPTY_DIVIDER,
         LINE_PREFIX + FindCommand.COMMAND_DESCRIPTION,
         EMPTY_DIVIDER,
+        LINE_PREFIX + RemindCommand.COMMAND_DESCRIPTION,
+        EMPTY_DIVIDER,
         LINE_PREFIX + MarkCommand.COMMAND_DESCRIPTION,
         EMPTY_DIVIDER,
         LINE_PREFIX + UnmarkCommand.COMMAND_DESCRIPTION,

@@ -22,7 +22,7 @@ import chillguy.ui.TextUi;
 public class FindCommand extends Command {
     public static final String COMMAND_WORD = "find";
     public static final String COMMAND_DESCRIPTION = COMMAND_WORD + " : shows list of tasks with specified keyword.\n"
-            + " ".repeat(COMMAND_WORD.length()) + EXAMPLE_PREFIX + COMMAND_WORD + " study CS2103T";
+            + EXAMPLE_PREFIX + COMMAND_WORD + " study CS2103T";
     private final String keyword;
 
     /**

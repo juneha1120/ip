@@ -74,6 +74,8 @@ public class ChillGuyException extends Exception {
         case LIST_WITH_DATE_ERROR -> "We chill, but looks like you have\nno tasks on the date.";
         case LIST_WITH_KEYWORD_ERROR -> "We chill, but looks like you have\nno matching ones.";
         case NO_KEYWORD_ERROR -> "We chill, but could you tell me\nthe keyword to search?";
+        case TYPE_ERROR -> "We chill, but could you tell me\nthe valid task type to get reminders for?";
+        case REMINDERS_ERROR -> "We chill, but looks like you have\nno reminders for the task type.";
         default -> ""; };
     }
 

@@ -29,6 +29,9 @@ public class Messages {
     public static final String MESSAGE_FIND_START = "Seems like you were too chill\n"
                                                     + "and forgot what you had...\n\n"
                                                     + "Anyways, here are the matching ones :";
+    public static final String MESSAGE_REMINDER_START = "Seems like you were too chill\n"
+                                                    + "and now need some reminders...\n\n"
+                                                    + "Anyways, here are the ones for today :";
     public static final String MESSAGE_NO_TASKS = "Looks like you have nothing in the list...\n"
                                                   + "Cool, let's just sit back and chill.";
     public static final String MESSAGE_MARK_START = "Nice... I've marked this task as done :";
