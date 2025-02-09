@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import chillguy.commands.TryAgainCommand;
 import chillguy.enums.TaskType;
 import chillguy.exceptions.ChillGuyException;
+import chillguy.exceptions.ChillGuyTestException;
 
 public class ParserTest {
     @Test
@@ -21,7 +22,7 @@ public class ParserTest {
         String nonExistingStringCommand = "nonExistingStringCommand";
         try {
             assertInstanceOf(TryAgainCommand.class, new Parser().parse(nonExistingStringCommand));
-        } catch (ChillGuyException ignored) {
+        } catch (ChillGuyException | ChillGuyTestException ignored) {
             // Ignored
         }
     }

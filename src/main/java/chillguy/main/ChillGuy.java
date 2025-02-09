@@ -84,9 +84,7 @@ public class ChillGuy {
                 c.execute(this.tasks, this.storage, this.textUi);
                 isExit = ExitCommand.isExit(c);
                 this.textUi.showDivider();
-            } catch (ChillGuyTestException ignored) {
-                // Ignored
-            } catch (ChillGuyException e) {
+            } catch (ChillGuyTestException | ChillGuyException e) {
                 this.textUi.showError(e.getMessage());
                 this.textUi.showDivider();
             }
@@ -126,9 +124,7 @@ public class ChillGuy {
         try {
             Command c = this.parser.parse(fullInput);
             c.execute(this.tasks, this.storage, this.graphicalUi);
-        } catch (ChillGuyTestException ignored) {
-            // Check if the input is the start of a text-ui-test
-        } catch (ChillGuyException e) {
+        } catch (ChillGuyTestException | ChillGuyException e) {
             this.graphicalUi.respondWithErrorMessage(e.getMessage());
         }
 

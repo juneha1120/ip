@@ -51,13 +51,6 @@ public class ChillGuyException extends Exception {
     }
 
     /**
-     * Default constructor for {@code ChillGuyException}.
-     */
-    public ChillGuyException() {
-
-    }
-
-    /**
      * Retrieves the error message for the given error type.
      *
      * @param type the error type to retrieve the corresponding error message.

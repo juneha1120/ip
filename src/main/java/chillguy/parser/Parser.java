@@ -53,7 +53,7 @@ public class Parser {
      * @return A corresponding {@link Command} object to be executed.
      * @throws ChillGuyException If there is an error in parsing the command or its arguments.
      */
-    public Command parse(String fullCommand) throws ChillGuyException {
+    public Command parse(String fullCommand) throws ChillGuyException, ChillGuyTestException {
         assert fullCommand != null : "Command cannot be null";
 
         String[] command = fullCommand.split(" ", 2);
@@ -93,7 +93,7 @@ public class Parser {
         case DeleteCommand.COMMAND_WORD -> prepareDeleteCommand(arguments);
         case ExitCommand.COMMAND_WORD -> new ExitCommand();
         case TestCommand.COMMAND_WORD, TestCommand.COMMAND_LINE, TestCommand.EMPTY_LINE ->
-                throw new ChillGuyTestException();
+                throw new ChillGuyTestException(fullCommand);
         default -> new TryAgainCommand(); };
     }
 
