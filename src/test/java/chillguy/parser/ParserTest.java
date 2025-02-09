@@ -1,6 +1,7 @@
 package chillguy.parser;
 
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -11,12 +12,8 @@ import chillguy.exceptions.ChillGuyException;
 public class ParserTest {
     @Test
     public void parse_nullString_throwsException() {
-        try {
-            String nullString = null;
-            new Parser().parse(nullString);
-        } catch (ChillGuyException | NullPointerException ignored) {
-            // Ignored
-        }
+        String nullString = null;
+        assertThrows(AssertionError.class, () -> new Parser().parse(nullString));
     }
 
     @Test
@@ -31,22 +28,14 @@ public class ParserTest {
 
     @Test
     public void isTimeArgument_nullString_throwsException() {
-        try {
-            String nullString = null;
-            new Parser().isTimeArgument(nullString);
-        } catch (NullPointerException ignored) {
-            // Ignored
-        }
+        String nullString = null;
+        assertThrows(AssertionError.class, () -> new Parser().isTimeArgument(nullString));
     }
 
     @Test
     public void prepareAddCommand_nullTaskType_throwsException() {
-        try {
-            String exampleString = "Task 1";
-            new Parser().prepareAddCommand(null, exampleString);
-        } catch (ChillGuyException | NullPointerException ignored) {
-            // Ignored
-        }
+        String exampleString = "Task 1";
+        assertThrows(AssertionError.class, () -> new Parser().prepareAddCommand(null, exampleString));
     }
 
     @Test

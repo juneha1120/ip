@@ -66,11 +66,13 @@ public class Parser {
 
         // Handle command words with more than two words
         if (commandWord.equals("show")) {
-            if (arguments.contains("on")) {
+            if (arguments.contains("tasks on")) {
                 commandWord = ShowTasksWithDateCommand.COMMAND_WORD;
                 arguments = arguments.split("on", 2)[1];
-            } else {
+            } else if (arguments.contains("tasks")) {
                 commandWord = ShowTasksCommand.COMMAND_WORD;
+            } else {
+                commandWord = "tryagain";
             }
         } else if (commandWord.equals("chill") && arguments.equals("guy")) {
             commandWord = HelpCommand.COMMAND_WORD;
@@ -136,6 +138,9 @@ public class Parser {
             } else {
                 String[] argumentSplit = arguments.split("/by", 2);
                 String taskName = argumentSplit[0].trim();
+                if (taskName.isEmpty()) {
+                    throw new ChillGuyException(DEADLINE_ERROR, false);
+                }
                 String taskBy = argumentSplit[1].trim();
                 DateTimeFormatter byFormatter;
                 if (this.isTimeArgument(taskBy)) {
@@ -165,6 +170,9 @@ public class Parser {
                 String[] argumentSplit = arguments.split("/from", 2);
                 String[] fromTo = argumentSplit[1].split("/to", 2);
                 String taskName = argumentSplit[0].trim();
+                if (taskName.isEmpty()) {
+                    throw new ChillGuyException(EVENT_ERROR, false);
+                }
                 String taskFrom = fromTo[0].trim();
                 String taskTo = fromTo[1].trim();
                 DateTimeFormatter fromFormatter;

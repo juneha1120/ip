@@ -111,7 +111,7 @@ public class TextUi {
             if (message.equals(DIVIDER)) {
                 System.out.println(message);
             } else {
-                System.out.println(LINE_PREFIX + message);
+                System.out.println(message);
             }
         }
     }
@@ -156,7 +156,7 @@ public class TextUi {
                     MESSAGE_LOAD_TASKS_START);
             this.showToUser(taskList.getStringTaskList());
             this.showToUser(
-                    "You have " + taskList.getTaskCount() + " tasks in the list.");
+                    "You have " + taskList.getTaskCount() + " task(s) in the list.");
         }
         this.showToUser(
                 DIVIDER);
@@ -199,7 +199,7 @@ public class TextUi {
                     MESSAGE_SHOW_TASKS_START);
             this.showToUser(taskList.getStringTaskList());
             this.showToUser(
-                    "You have " + taskList.getTaskCount() + " tasks in the list.");
+                    "You have " + taskList.getTaskCount() + " task(s) in the list.");
         }
     }
 
@@ -228,7 +228,7 @@ public class TextUi {
                 MESSAGE_FIND_START);
         this.showToUser(taskList.getStringTaskList());
         this.showToUser(
-                "You have " + taskList.getTaskCount() + " tasks with keyword : " + keyword);
+                "You have " + taskList.getTaskCount() + " task(s) with keyword : " + keyword);
     }
 
     /**
@@ -241,8 +241,8 @@ public class TextUi {
         this.showToUser(
                 MESSAGE_REMINDER_START);
         this.showToUser(taskList.getStringTaskList());
-//        this.showToUser(
-//                "You have " + taskList.getTaskCount() + " reminders with " + type);
+        this.showToUser(
+                "You have " + taskList.getTaskCount() + " reminder(s) with " + type);
     }
 
     /**
@@ -279,7 +279,7 @@ public class TextUi {
         this.showToUser(
                 MESSAGE_DELETE_START,
                 LINE_PREFIX + task.toString(),
-                "Now you have " + taskCount + " tasks in the list.",
+                "Now you have " + taskCount + " task(s) in the list.",
                 MESSAGE_DELETE_END);
     }
 

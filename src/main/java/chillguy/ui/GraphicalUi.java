@@ -97,7 +97,7 @@ public class GraphicalUi {
                     MESSAGE_LOAD_TASKS_START);
             this.appendResponse(taskList.getStringTaskList());
             this.appendResponse(
-                    "You have " + taskList.getTaskCount() + " tasks in the list.");
+                    "You have " + taskList.getTaskCount() + " task(s) in the list.");
         }
     }
 
@@ -121,7 +121,7 @@ public class GraphicalUi {
         this.appendResponse(
                 MESSAGE_ADD_START,
                 LINE_PREFIX + task.toString(),
-                "Now you have " + taskCount + " tasks in the list.",
+                "Now you have " + taskCount + " task(s) in the list.",
                 MESSAGE_ADD_END);
     }
 
@@ -138,7 +138,7 @@ public class GraphicalUi {
                     MESSAGE_SHOW_TASKS_START);
             this.appendResponse(taskList.getStringTaskList());
             this.appendResponse(
-                    "You have " + taskList.getTaskCount() + " tasks in the list.");
+                    "You have " + taskList.getTaskCount() + " task(s) in the list.");
         }
     }
 
@@ -152,7 +152,7 @@ public class GraphicalUi {
         this.appendResponse(
                 MESSAGE_SHOW_TASKS_START);
         this.appendResponse(taskList.getStringTaskList());
-        this.appendResponse("You have " + taskList.getTaskCount() + " tasks on "
+        this.appendResponse("You have " + taskList.getTaskCount() + " task(s) on "
                 + date.format(DateTimeFormatter.ofPattern("MMM d yyyy")));
     }
 
@@ -167,7 +167,7 @@ public class GraphicalUi {
                 MESSAGE_FIND_START);
         this.appendResponse(taskList.getStringTaskList());
         this.appendResponse(
-                "You have " + taskList.getTaskCount() + " tasks with keyword : " + keyword);
+                "You have " + taskList.getTaskCount() + " task(s) with keyword : " + keyword);
     }
 
     /**
@@ -180,8 +180,8 @@ public class GraphicalUi {
         this.appendResponse(
                 MESSAGE_REMINDER_START);
         this.appendResponse(taskList.getStringTaskList());
-//        this.appendResponse(
-//                "You have " + taskList.getTaskCount() + " reminders with " + type);
+        this.appendResponse(
+                "You have " + taskList.getTaskCount() + " reminder(s) with " + type);
     }
 
     /**
@@ -218,7 +218,7 @@ public class GraphicalUi {
         this.appendResponse(
                 MESSAGE_DELETE_START,
                 LINE_PREFIX + task.toString(),
-                "Now you have " + taskCount + " tasks in the list.",
+                "Now you have " + taskCount + " task(s) in the list.",
                 MESSAGE_DELETE_END);
     }
 

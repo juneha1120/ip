@@ -121,7 +121,7 @@ Cool, let's just sit back and chill.
 ========================================================================
 ========================================================================
  Gotcha... I've added this task :
-  [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 23:00pm)
+  [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
  Now you have 5 tasks in the list.
  But remember, you can always chill first.
 ========================================================================
@@ -134,7 +134,7 @@ Anyways, here's what you have :
   2. [D][ ] read book (by Jan 1 1000)
   3. [D][ ] read book (by Jan 1 1000 1:00am)
   4. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
-  5. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 23:00pm)
+  5. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
  You have 5 tasks in the list.
 ========================================================================
  We chill, but could follow this format? :
@@ -148,7 +148,7 @@ Anyways, here's what you have :
   1. [D][ ] read book (by Jan 1 1000)
   2. [D][ ] read book (by Jan 1 1000 1:00am)
   3. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
-  4. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 23:00pm)
+  4. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
  You have 4 tasks on Jan 1 1000
 ========================================================================
 ========================================================================
@@ -168,7 +168,7 @@ Anyways, here are the matching ones :
   2. [D][ ] read book (by Jan 1 1000)
   3. [D][ ] read book (by Jan 1 1000 1:00am)
   4. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
-  5. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 23:00pm)
+  5. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
  You have 5 tasks with keyword : read
 ========================================================================
  We chill, but could you tell me
@@ -195,7 +195,7 @@ Anyways, here are the ones for today :
 ========================================================================
 ========================================================================
  Nice... I've marked this task as done :
-  [E][X] read book (from Jan 1 1000 1:00am to Jan 2 1000 23:00pm)
+  [E][X] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
  Think you can chill a bit now.
 ========================================================================
 ========================================================================
@@ -209,7 +209,7 @@ you are always welcome to just chill.
 ========================================================================
 ========================================================================
  Ok... I've marked this task as not done yet :
-  [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 23:00pm)
+  [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
  But no worries,
 you are always welcome to just chill.
 ========================================================================
@@ -230,7 +230,7 @@ Anyways, here's what you have :
   1. [D][ ] read book (by Jan 1 1000)
   2. [D][ ] read book (by Jan 1 1000 1:00am)
   3. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
-  4. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 23:00pm)
+  4. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
  You have 4 tasks in the list.
 ========================================================================
 ========================================================================

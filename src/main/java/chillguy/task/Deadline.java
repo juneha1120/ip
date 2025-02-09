@@ -116,6 +116,6 @@ public class Deadline extends Task {
     public String toString() {
         return "[D]" + super.toString() + " (by "
             + (this.by == null ? this.byDate.format(DateTimeFormatter.ofPattern("MMM d yyyy"))
-                : this.by.format(DateTimeFormatter.ofPattern("MMM d yyyy H:mma"))) + ")";
+                : this.by.format(DateTimeFormatter.ofPattern("MMM d yyyy h:mma"))) + ")";
     }
 }

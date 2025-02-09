@@ -1,5 +1,7 @@
 package chillguy.task;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -10,13 +12,9 @@ import org.junit.jupiter.api.Test;
 public class EventTest {
     @Test
     public void event_nullTaskName_throwsException() {
-        try {
-            LocalDate exampleFrom = LocalDate.parse("1/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
-            LocalDate exampleTo = LocalDate.parse("2/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
-            new Event(null, exampleFrom, exampleTo);
-        } catch (NullPointerException ignored) {
-            // Ignored
-        }
+        LocalDate exampleFrom = LocalDate.parse("1/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
+        LocalDate exampleTo = LocalDate.parse("2/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
+        assertThrows(AssertionError.class, () -> new Event(null, exampleFrom, exampleTo));
     }
 
     @Test

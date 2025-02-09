@@ -1,5 +1,7 @@
 package chillguy.storage;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.Test;
 
 import chillguy.exceptions.ChillGuyException;
@@ -19,12 +21,8 @@ public class StorageTest {
 
     @Test
     public void saveTasks_nullTaskList_throwsException() {
-        try {
-            TaskList nullTaskList = null;
-            new Storage(Storage.EXAMPLE).saveTasks(nullTaskList);
-        } catch (ChillGuyException | NullPointerException ignored) {
-            // Ignored
-        }
+        TaskList nullTaskList = null;
+        assertThrows(AssertionError.class, () -> new Storage(Storage.EXAMPLE).saveTasks(nullTaskList));
     }
 
     @Test

@@ -26,7 +26,8 @@ public abstract class Command {
     public abstract void execute(TaskList taskList, Storage storage, TextUi textUi) throws ChillGuyException;
 
     /**
-     * Executes the specific command, interacting with the given {@link TaskList}, {@link Storage}, and {@link GraphicalUi}.
+     * Executes the specific command, interacting with the given {@link TaskList}, {@link Storage},
+     * and {@link GraphicalUi}.
      *
      * @param taskList the list of tasks to be modified by the command.
      * @param storage the storage system to save data during command execution.

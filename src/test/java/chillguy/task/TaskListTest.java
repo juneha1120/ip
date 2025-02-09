@@ -1,5 +1,7 @@
 package chillguy.task;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.util.Map;
 
 import org.junit.jupiter.api.Test;
@@ -17,22 +19,14 @@ public class TaskListTest {
 
     @Test
     public void addToTaskList_nullTask_throwsException() {
-        try {
-            Task nullTask = null;
-            new TaskList().addToTaskList(nullTask);
-        } catch (NullPointerException ignored) {
-            // Ignored
-        }
+        Task nullTask = null;
+        assertThrows(AssertionError.class, () -> new TaskList().addToTaskList(nullTask));
     }
 
     @Test
     public void setTaskList_nullTaskList_throwsException() {
-        try {
-            Map<Integer, Task> nullTaskList = null;
-            new TaskList().setTaskList(nullTaskList);
-        } catch (NullPointerException ignored) {
-            // Ignored
-        }
+        Map<Integer, Task> nullTaskList = null;
+        assertThrows(AssertionError.class, () -> new TaskList().setTaskList(nullTaskList));
     }
 
     @Test

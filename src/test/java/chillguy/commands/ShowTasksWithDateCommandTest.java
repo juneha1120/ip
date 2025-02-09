@@ -44,7 +44,8 @@ public class ShowTasksWithDateCommandTest {
             LocalDate exampleDate = LocalDate.parse("1/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
             exampleTaskList.addToTaskList(new Deadline("Task 1", exampleDate));
             LocalDate invalidDate = LocalDate.parse("1/13/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
-            new ShowTasksWithDateCommand(invalidDate).execute(exampleTaskList, new Storage(Storage.EXAMPLE), new TextUi());
+            new ShowTasksWithDateCommand(invalidDate).execute(exampleTaskList, new Storage(Storage.EXAMPLE),
+                    new TextUi());
         } catch (DateTimeParseException | ChillGuyException ignored) {
             // Ignored
         }

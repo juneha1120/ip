@@ -15,15 +15,15 @@ import chillguy.ui.TextUi;
 public class ExitCommand extends Command {
     public static final String COMMAND_WORD = "bye";
     public static final String LINE_PREFIX = "# ";
-    private static String COMMAND_DESCRIPTION = LINE_PREFIX + COMMAND_WORD + " : exits the chatbot.\n"
+    private static String commandDescription = LINE_PREFIX + COMMAND_WORD + " : exits the chatbot.\n"
             + EXAMPLE_PREFIX + COMMAND_WORD;
 
     public static String getCommandDescription() {
-        return COMMAND_DESCRIPTION;
+        return commandDescription;
     }
 
     public static void setCommandDescription(String commandDescription) {
-        COMMAND_DESCRIPTION = commandDescription;
+        ExitCommand.commandDescription = commandDescription;
     }
 
     /**

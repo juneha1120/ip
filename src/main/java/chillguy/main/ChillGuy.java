@@ -79,8 +79,8 @@ public class ChillGuy {
         while (!isExit) {
             try {
                 String fullCommand = this.textUi.readCommand();
-                Command c = this.parser.parse(fullCommand);
                 this.textUi.showDivider();
+                Command c = this.parser.parse(fullCommand);
                 c.execute(this.tasks, this.storage, this.textUi);
                 isExit = ExitCommand.isExit(c);
                 this.textUi.showDivider();

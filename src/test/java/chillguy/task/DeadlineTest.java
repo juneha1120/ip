@@ -1,5 +1,7 @@
 package chillguy.task;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -10,12 +12,8 @@ import org.junit.jupiter.api.Test;
 public class DeadlineTest {
     @Test
     public void deadline_nullTaskName_throwsException() {
-        try {
-            LocalDate exampleBy = LocalDate.parse("1/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
-            new Deadline(null, exampleBy);
-        } catch (NullPointerException ignored) {
-            // Ignored
-        }
+        LocalDate exampleBy = LocalDate.parse("1/1/1000", DateTimeFormatter.ofPattern("d/M/yyyy"));
+        assertThrows(AssertionError.class, () -> new Deadline(null, exampleBy));
     }
 
     @Test
