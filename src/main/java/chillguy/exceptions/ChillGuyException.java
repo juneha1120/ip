@@ -66,15 +66,14 @@ public class ChillGuyException extends Exception {
      */
     public static String getErrorMessage(ErrorType type) {
         return switch (type) {
-        case TODO_ERROR -> "We chill, but could you provide the details for your todo?";
-        case LIST_ERROR -> "We chill, but looks like you have no tasks in your list now.";
+        case TODO_ERROR -> "We chill, but could you provide the details\nfor your todo?";
         case TASK_ERROR -> "We chill, but I don't seem to know about that task.";
-        case DATE_ERROR -> "We chill, but could follow this format? : show tasks on <d/M/yyyy>.";
+        case DATE_ERROR -> "We chill, but could follow this format? :\nshow tasks on <d/M/yyyy>.";
         case CREATE_FILE_ERROR -> "We chill, but I can't seem to create save files.";
         case READ_FILE_ERROR -> "We chill, but I can't seem to read saved files.";
-        case LIST_WITH_DATE_ERROR -> "We chill, but looks like you have no tasks on the date.";
-        case LIST_WITH_KEYWORD_ERROR -> "We chill, but looks like you have no matching ones.";
-        case NO_KEYWORD_ERROR -> "We chill, but could you tell me the keyword to search?";
+        case LIST_WITH_DATE_ERROR -> "We chill, but looks like you have\nno tasks on the date.";
+        case LIST_WITH_KEYWORD_ERROR -> "We chill, but looks like you have\nno matching ones.";
+        case NO_KEYWORD_ERROR -> "We chill, but could you tell me\nthe keyword to search?";
         default -> ""; };
     }
 

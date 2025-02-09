@@ -44,6 +44,10 @@ public class FindCommand extends Command {
      * @throws ChillGuyException If no tasks match the keyword or if the keyword is empty.
      */
     public TaskList getTasksWithKeyword(TaskList taskList) throws ChillGuyException {
+        if (keyword.isEmpty()) {
+            throw new ChillGuyException(NO_KEYWORD_ERROR);
+        }
+
         Map<Integer, Task> taskListOriginal = taskList.getTaskList();
         Map<Integer, Task> taskListWithKeyword = new LinkedHashMap<>();
         int taskCount = 0;
@@ -56,10 +60,6 @@ public class FindCommand extends Command {
 
         if (taskListWithKeyword.isEmpty()) {
             throw new ChillGuyException(LIST_WITH_KEYWORD_ERROR);
-        }
-
-        if (keyword.isEmpty()) {
-            throw new ChillGuyException(NO_KEYWORD_ERROR);
         }
 
         return new TaskList(taskListWithKeyword);

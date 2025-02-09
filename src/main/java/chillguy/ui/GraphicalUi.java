@@ -85,6 +85,7 @@ public class GraphicalUi {
      */
     public void appendLoadingMessage(TaskList taskList) {
         this.appendResponse(
+                EMPTY_DIVIDER,
                 MESSAGE_LOAD,
                 EMPTY_DIVIDER);
         if (taskList.getTaskCount() == 0) {
