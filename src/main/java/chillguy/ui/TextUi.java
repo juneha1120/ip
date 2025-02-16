@@ -1,6 +1,6 @@
 package chillguy.ui;
 
-import static chillguy.commands.CommandList.COMMAND_DESCRIPTION_LIST;
+import static chillguy.commands.CommandList.COMMAND_LIST;
 import static chillguy.main.Messages.MESSAGE_ADD_END;
 import static chillguy.main.Messages.MESSAGE_ADD_START;
 import static chillguy.main.Messages.MESSAGE_BYE;
@@ -9,7 +9,9 @@ import static chillguy.main.Messages.MESSAGE_DELETE_END;
 import static chillguy.main.Messages.MESSAGE_DELETE_START;
 import static chillguy.main.Messages.MESSAGE_FIND_START;
 import static chillguy.main.Messages.MESSAGE_HELLO;
-import static chillguy.main.Messages.MESSAGE_HELP;
+import static chillguy.main.Messages.MESSAGE_HELP_LIST_END;
+import static chillguy.main.Messages.MESSAGE_HELP_LIST_START;
+import static chillguy.main.Messages.MESSAGE_HELP_SINGLE_COMMAND;
 import static chillguy.main.Messages.MESSAGE_LOAD;
 import static chillguy.main.Messages.MESSAGE_LOAD_TASKS_START;
 import static chillguy.main.Messages.MESSAGE_MARK_END;
@@ -108,11 +110,7 @@ public class TextUi {
      */
     public void showToUser(String... messages) {
         for (String message : messages) {
-            if (message.equals(DIVIDER)) {
-                System.out.println(message);
-            } else {
-                System.out.println(message);
-            }
+            System.out.println(message);
         }
     }
 
@@ -163,13 +161,26 @@ public class TextUi {
     }
 
     /**
-     * Displays the help message with a description of available commands.
+     * Displays the help message of specified command description.
      */
-    public void showHelp() {
+    public void showHelp(String commandDescription) {
         this.showToUser(
-                MESSAGE_HELP,
+                MESSAGE_HELP_SINGLE_COMMAND,
                 EMPTY_DIVIDER);
-        this.showToUser(COMMAND_DESCRIPTION_LIST);
+        this.showToUser(commandDescription);
+    }
+
+    /**
+     * Displays the list of available commands
+     */
+    public void showCommandList() {
+        this.showToUser(
+                MESSAGE_HELP_LIST_START,
+                EMPTY_DIVIDER);
+        this.showToUser(COMMAND_LIST);
+        this.showToUser(
+                EMPTY_DIVIDER,
+                MESSAGE_HELP_LIST_END);
     }
 
     /**

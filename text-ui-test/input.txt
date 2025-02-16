@@ -10,7 +10,9 @@
 ##########################################################
 
     # should show all available commands
-    chill guy
+    help
+    # should show description of todo
+    help todo
 
 ##########################################################
 # testing show tasks command
@@ -99,7 +101,7 @@
     # should catch marking again error
     mark 1
     # should catch no such task error
-    mark 5
+    mark 6
 
 ##########################################################
 # testing unmark command
@@ -110,7 +112,7 @@
     # should catch unmarking again error
     unmark 1
     # should catch no such task error
-    unmark 5
+    unmark 6
 
 ##########################################################
 # testing delete command

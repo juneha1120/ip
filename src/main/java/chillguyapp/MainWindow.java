@@ -1,6 +1,11 @@
 package chillguyapp;
 
+import java.util.Objects;
+
+import chillguy.commands.ExitCommand;
 import chillguy.main.ChillGuy;
+import javafx.animation.PauseTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -8,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 
 /**
  * Controller for the main GUI.
@@ -24,7 +30,8 @@ public class MainWindow extends AnchorPane {
 
     private ChillGuy chillGuy;
 
-    private final Image chillGuyImage = new Image(this.getClass().getResourceAsStream("/images/ChillGuyImage.png"));
+    private final Image chillGuyImage = new Image(Objects.requireNonNull(this.getClass()
+            .getResourceAsStream("/images/ChillGuyImage.png")));
 
     /**
      * Initializes the GUI by setting up the scroll pane behavior.
@@ -69,8 +76,14 @@ public class MainWindow extends AnchorPane {
                 DialogBox.getUserDialog(input),
                 DialogBox.getChillGuyDialog(response, chillGuyImage)
         );
+
+        if (input.equalsIgnoreCase(ExitCommand.COMMAND_WORD)) {
+            PauseTransition delay = new PauseTransition(Duration.seconds(3));
+            delay.setOnFinished(event -> Platform.exit());
+            delay.play();
+            return;
+        }
+
         userInput.clear();
     }
 }
-
-

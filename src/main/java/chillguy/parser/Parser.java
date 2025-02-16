@@ -1,11 +1,11 @@
 package chillguy.parser;
 
+import static chillguy.enums.ErrorType.COMMAND_ERROR;
 import static chillguy.enums.ErrorType.DATE_ERROR;
 import static chillguy.enums.ErrorType.DEADLINE_ERROR;
 import static chillguy.enums.ErrorType.DELETE_ERROR;
 import static chillguy.enums.ErrorType.EVENT_ERROR;
 import static chillguy.enums.ErrorType.MARK_ERROR;
-import static chillguy.enums.ErrorType.TASK_ERROR;
 import static chillguy.enums.ErrorType.TODO_ERROR;
 import static chillguy.enums.ErrorType.TYPE_ERROR;
 import static chillguy.enums.ErrorType.UNMARK_ERROR;
@@ -17,6 +17,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.temporal.Temporal;
 
 import chillguy.commands.AddCommand;
 import chillguy.commands.Command;
@@ -64,28 +65,13 @@ public class Parser {
         String commandWord = command[0];
         String arguments = command[1];
 
-        // Handle command words with more than two words
-        if (commandWord.equals("show")) {
-            if (arguments.contains("tasks on")) {
-                commandWord = ShowTasksWithDateCommand.COMMAND_WORD;
-                arguments = arguments.split("on", 2)[1];
-            } else if (arguments.contains("tasks")) {
-                commandWord = ShowTasksCommand.COMMAND_WORD;
-            } else {
-                commandWord = "tryagain";
-            }
-        } else if (commandWord.equals("chill") && arguments.equals("guy")) {
-            commandWord = HelpCommand.COMMAND_WORD;
-        }
-
         // Return corresponding Command based on the command word
         return switch (commandWord) {
-        case HelpCommand.COMMAND_WORD -> new HelpCommand();
+        case HelpCommand.COMMAND_WORD -> prepareHelpCommand(arguments);
         case Todo.COMMAND_WORD -> prepareAddCommand(TODO, arguments);
         case Deadline.COMMAND_WORD -> prepareAddCommand(DEADLINE, arguments);
         case Event.COMMAND_WORD -> prepareAddCommand(EVENT, arguments);
-        case ShowTasksCommand.COMMAND_WORD -> new ShowTasksCommand();
-        case ShowTasksWithDateCommand.COMMAND_WORD -> prepareShowWithDateCommand(arguments);
+        case ShowTasksCommand.COMMAND_WORD -> prepareShowTasksCommand(fullCommand);
         case FindCommand.COMMAND_WORD -> new FindCommand(arguments);
         case RemindCommand.COMMAND_WORD -> prepareRemindCommand(arguments);
         case MarkCommand.COMMAND_WORD -> prepareMarkCommand(arguments);
@@ -94,7 +80,35 @@ public class Parser {
         case ExitCommand.COMMAND_WORD -> new ExitCommand();
         case TestCommand.COMMAND_WORD, TestCommand.COMMAND_LINE, TestCommand.EMPTY_LINE ->
                 throw new ChillGuyTestException(fullCommand);
-        default -> new TryAgainCommand(); };
+        default -> new TryAgainCommand();
+        };
+    }
+
+    /**
+     * Prepares a {@link HelpCommand} to show commands and their descriptions, based on the provided arguments.
+     *
+     * @param arguments The arguments provided by the user
+     * @return A {@link HelpCommand} object for unmarking the task.
+     * @throws ChillGuyException If the argument is invalid.
+     */
+    protected Command prepareHelpCommand(String arguments) throws ChillGuyException {
+        assert arguments != null : "Arguments cannot be null";
+
+        return switch (arguments) {
+        case "" -> new HelpCommand("");
+        case Todo.COMMAND_WORD -> new HelpCommand(Todo.COMMAND_DESCRIPTION);
+        case Deadline.COMMAND_WORD -> new HelpCommand(Deadline.COMMAND_DESCRIPTION);
+        case Event.COMMAND_WORD -> new HelpCommand(Event.COMMAND_DESCRIPTION);
+        case ShowTasksCommand.COMMAND_PHRASE -> new HelpCommand(ShowTasksCommand.COMMAND_DESCRIPTION);
+        case ShowTasksWithDateCommand.COMMAND_PHRASE -> new HelpCommand(ShowTasksWithDateCommand.COMMAND_DESCRIPTION);
+        case FindCommand.COMMAND_WORD -> new HelpCommand(FindCommand.COMMAND_DESCRIPTION);
+        case RemindCommand.COMMAND_WORD -> new HelpCommand(RemindCommand.COMMAND_DESCRIPTION);
+        case MarkCommand.COMMAND_WORD -> new HelpCommand(MarkCommand.COMMAND_DESCRIPTION);
+        case UnmarkCommand.COMMAND_WORD -> new HelpCommand(UnmarkCommand.COMMAND_DESCRIPTION);
+        case DeleteCommand.COMMAND_WORD -> new HelpCommand(DeleteCommand.COMMAND_DESCRIPTION);
+        case ExitCommand.COMMAND_WORD -> new HelpCommand(ExitCommand.COMMAND_DESCRIPTION);
+        default -> throw new ChillGuyException(COMMAND_ERROR, arguments);
+        };
     }
 
     /**
@@ -110,11 +124,45 @@ public class Parser {
     }
 
     /**
-     * Prepares an {@link AddCommand} based on the task type and the provided arguments.
-     * It creates the appropriate task type ({@link Todo}, {@link Deadline}, or {@link Event})
-     * and constructs an {@link AddCommand} to be executed.
+     * Parses a date or date-time string and converts it into a {@link Temporal} object.
+     * Supports two formats: "d/M/yyyy" (date) and "d/M/yyyy H:mm" (date with time).
      *
-     * @param taskType The type of task to add (e.g., TODO, DEADLINE, or EVENT).
+     * @param dateTime The date/time string to parse.
+     * @return A {@link LocalDate} if only a date is provided, or a {@link LocalDateTime} if a time is included.
+     * @throws ChillGuyException If the date/time format is invalid.
+     */
+    private Temporal parseDateTime(String dateTime, boolean isDeadline) throws ChillGuyException {
+        DateTimeFormatter formatter;
+        if (this.isTimeArgument(dateTime)) {
+            formatter = DateTimeFormatter.ofPattern("d/M/yyyy H:mm");
+            try {
+                return LocalDateTime.parse(dateTime, formatter);
+            } catch (DateTimeParseException e) {
+                if (isDeadline) {
+                    throw new ChillGuyException(DEADLINE_ERROR, true);
+                } else {
+                    throw new ChillGuyException(EVENT_ERROR, true);
+                }
+            }
+        } else {
+            formatter = DateTimeFormatter.ofPattern("d/M/yyyy");
+            try {
+                return LocalDate.parse(dateTime, formatter);
+            } catch (DateTimeParseException e) {
+                if (isDeadline) {
+                    throw new ChillGuyException(DEADLINE_ERROR, true);
+                } else {
+                    throw new ChillGuyException(EVENT_ERROR, true);
+                }
+            }
+        }
+    }
+
+    /**
+     * Prepares an {@link AddCommand} based on the task type and the provided arguments.
+     * It delegates the task creation to specific methods for {@link Todo}, {@link Deadline}, or {@link Event}.
+     *
+     * @param taskType  The type of task to add (e.g., TODO, DEADLINE, or EVENT).
      * @param arguments The arguments associated with the task (e.g., description, date/time).
      * @return The {@link AddCommand} to be executed.
      * @throws ChillGuyException If there is an error in parsing the arguments or creating the task.
@@ -123,125 +171,128 @@ public class Parser {
         assert taskType != null : "Task type cannot be null";
         assert arguments != null : "Arguments cannot be null";
 
-        switch (taskType) {
-        case TODO:
-            if (arguments.isEmpty()) {
-                throw new ChillGuyException(TODO_ERROR);
-            } else {
-                return new AddCommand(new Todo(arguments));
-            }
-        case DEADLINE:
-            if (arguments.isEmpty()) {
-                throw new ChillGuyException(DEADLINE_ERROR, false);
-            } else if (!arguments.contains("/by")) {
-                throw new ChillGuyException(DEADLINE_ERROR, true);
-            } else {
-                String[] argumentSplit = arguments.split("/by", 2);
-                String taskName = argumentSplit[0].trim();
-                if (taskName.isEmpty()) {
-                    throw new ChillGuyException(DEADLINE_ERROR, false);
-                }
-                String taskBy = argumentSplit[1].trim();
-                DateTimeFormatter byFormatter;
-                if (this.isTimeArgument(taskBy)) {
-                    byFormatter = DateTimeFormatter.ofPattern("d/M/yyyy H:mm");
-                    try {
-                        LocalDateTime by = LocalDateTime.parse(taskBy, byFormatter);
-                        return new AddCommand(new Deadline(taskName, by));
-                    } catch (DateTimeParseException e) {
-                        throw new ChillGuyException(DEADLINE_ERROR, true);
-                    }
-                } else {
-                    byFormatter = DateTimeFormatter.ofPattern("d/M/yyyy");
-                    try {
-                        LocalDate by = LocalDate.parse(taskBy, byFormatter);
-                        return new AddCommand(new Deadline(taskName, by));
-                    } catch (DateTimeParseException e) {
-                        throw new ChillGuyException(DEADLINE_ERROR, true);
-                    }
-                }
-            }
-        case EVENT:
-            if (arguments.isEmpty()) {
-                throw new ChillGuyException(EVENT_ERROR, false);
-            } else if (!arguments.contains("/from") || !arguments.contains("/to")) {
-                throw new ChillGuyException(EVENT_ERROR, true);
-            } else {
-                String[] argumentSplit = arguments.split("/from", 2);
-                String[] fromTo = argumentSplit[1].split("/to", 2);
-                String taskName = argumentSplit[0].trim();
-                if (taskName.isEmpty()) {
-                    throw new ChillGuyException(EVENT_ERROR, false);
-                }
-                String taskFrom = fromTo[0].trim();
-                String taskTo = fromTo[1].trim();
-                DateTimeFormatter fromFormatter;
-                DateTimeFormatter toFormatter;
-                if (this.isTimeArgument(taskFrom)) {
-                    fromFormatter = DateTimeFormatter.ofPattern("d/M/yyyy H:mm");
-                    if (this.isTimeArgument(taskTo)) {
-                        toFormatter = DateTimeFormatter.ofPattern("d/M/yyyy H:mm");
-                        try {
-                            LocalDateTime from = LocalDateTime.parse(taskFrom, fromFormatter);
-                            LocalDateTime to = LocalDateTime.parse(taskTo, toFormatter);
-                            return new AddCommand(new Event(taskName, from, to));
-                        } catch (DateTimeParseException e) {
-                            throw new ChillGuyException(EVENT_ERROR, true);
-                        }
-                    } else {
-                        toFormatter = DateTimeFormatter.ofPattern("d/M/yyyy");
-                        try {
-                            LocalDateTime from = LocalDateTime.parse(taskFrom, fromFormatter);
-                            LocalDate to = LocalDate.parse(taskTo, toFormatter);
-                            return new AddCommand(new Event(taskName, from, to));
-                        } catch (DateTimeParseException e) {
-                            throw new ChillGuyException(EVENT_ERROR, true);
-                        }
-                    }
-                } else {
-                    fromFormatter = DateTimeFormatter.ofPattern("d/M/yyyy");
-                    if (this.isTimeArgument(taskTo)) {
-                        toFormatter = DateTimeFormatter.ofPattern("d/M/yyyy H:mm");
-                        try {
-                            LocalDate from = LocalDate.parse(taskFrom, fromFormatter);
-                            LocalDateTime to = LocalDateTime.parse(taskTo, toFormatter);
-                            return new AddCommand(new Event(taskName, from, to));
-                        } catch (DateTimeParseException e) {
-                            throw new ChillGuyException(EVENT_ERROR, true);
-                        }
-                    } else {
-                        toFormatter = DateTimeFormatter.ofPattern("d/M/yyyy");
-                        try {
-                            LocalDate from = LocalDate.parse(taskFrom, fromFormatter);
-                            LocalDate to = LocalDate.parse(taskTo, toFormatter);
-                            return new AddCommand(new Event(taskName, from, to));
-                        } catch (DateTimeParseException e) {
-                            throw new ChillGuyException(EVENT_ERROR, true);
-                        }
-                    }
-                }
-            }
-        default:
-            throw new ChillGuyException(TASK_ERROR);
+        return switch (taskType) {
+        case TODO -> prepareTodoCommand(arguments);
+        case DEADLINE -> prepareDeadlineCommand(arguments);
+        case EVENT -> prepareEventCommand(arguments);
+        };
+    }
+
+    /**
+     * Creates an {@link AddCommand} for a TODO task.
+     *
+     * @param arguments The description of the TODO task.
+     * @return The {@link AddCommand} containing the TODO task.
+     * @throws ChillGuyException If the arguments are empty.
+     */
+    private Command prepareTodoCommand(String arguments) throws ChillGuyException {
+        if (arguments.isEmpty()) {
+            throw new ChillGuyException(TODO_ERROR);
+        }
+        return new AddCommand(new Todo(arguments));
+    }
+
+    /**
+     * Creates an {@link AddCommand} for a DEADLINE task.
+     *
+     * @param arguments The description and due date of the DEADLINE task in "task /by date" format.
+     * @return The {@link AddCommand} containing the DEADLINE task.
+     * @throws ChillGuyException If the arguments are invalid or incorrectly formatted.
+     */
+    private Command prepareDeadlineCommand(String arguments) throws ChillGuyException {
+        if (arguments.isEmpty()) {
+            throw new ChillGuyException(DEADLINE_ERROR, false);
+        }
+        if (!arguments.contains("/by")) {
+            throw new ChillGuyException(DEADLINE_ERROR, true);
+        }
+
+        String[] argumentSplit = arguments.split("/by", 2);
+        String taskName = argumentSplit[0].trim();
+        String taskBy = argumentSplit[1].trim();
+
+        if (taskName.isEmpty()) {
+            throw new ChillGuyException(DEADLINE_ERROR, false);
+        }
+
+        boolean isDeadline = true;
+        Temporal by = parseDateTime(taskBy, isDeadline);
+
+        if (by instanceof LocalDateTime) {
+            return new AddCommand(new Deadline(taskName, (LocalDateTime) by));
+        } else {
+            return new AddCommand(new Deadline(taskName, (LocalDate) by));
         }
     }
 
     /**
-     * Prepares a {@link ShowTasksWithDateCommand} with a date argument parsed from the user input.
+     * Creates an {@link AddCommand} for an EVENT task.
      *
-     * @param arguments The arguments provided by the user, expected to be a date string in the format "d/M/yyyy".
-     * @return A {@link ShowTasksWithDateCommand} object for displaying tasks on the specified date.
+     * @param arguments The description, start, and end date/time of EVENT task in "task /from date /to date" format.
+     * @return The {@link AddCommand} containing the EVENT task.
+     * @throws ChillGuyException If the arguments are invalid or incorrectly formatted.
+     */
+    private Command prepareEventCommand(String arguments) throws ChillGuyException {
+        if (arguments.isEmpty()) {
+            throw new ChillGuyException(EVENT_ERROR, false);
+        }
+        if (!arguments.contains("/from") || !arguments.contains("/to")) {
+            throw new ChillGuyException(EVENT_ERROR, true);
+        }
+
+        String[] argumentSplit = arguments.split("/from", 2);
+        String[] fromTo = argumentSplit[1].split("/to", 2);
+        String taskName = argumentSplit[0].trim();
+        String taskFrom = fromTo[0].trim();
+        String taskTo = fromTo[1].trim();
+
+        if (taskName.isEmpty()) {
+            throw new ChillGuyException(EVENT_ERROR, false);
+        }
+
+        boolean isDeadline = false;
+        Temporal from = parseDateTime(taskFrom, isDeadline);
+        Temporal to = parseDateTime(taskTo, isDeadline);
+
+        if (from instanceof LocalDateTime && to instanceof LocalDateTime) {
+            return new AddCommand(new Event(taskName, (LocalDateTime) from, (LocalDateTime) to));
+        } else if (from instanceof LocalDateTime && to instanceof LocalDate) {
+            return new AddCommand(new Event(taskName, (LocalDateTime) from, (LocalDate) to));
+        } else if (from instanceof LocalDate && to instanceof LocalDateTime) {
+            return new AddCommand(new Event(taskName, (LocalDate) from, (LocalDateTime) to));
+        } else {
+            assert from instanceof LocalDate;
+            return new AddCommand(new Event(taskName, (LocalDate) from, (LocalDate) to));
+        }
+    }
+
+    /**
+     * Prepares either a {@link ShowTasksCommand}, {@link ShowTasksWithDateCommand},
+     * or {@link TryAgainCommand}
+     * depending on if the argument parsed from the user input includes relevant argument.
+     *
+     * @param fullCommand The full string command provided by the user.
+     * @return A command object for displaying all tasks, displaying tasks on the specified date, or try-again.
      * @throws ChillGuyException If the date format is invalid.
      */
-    protected Command prepareShowWithDateCommand(String arguments) throws ChillGuyException {
-        assert arguments != null : "Arguments cannot be null";
+    protected Command prepareShowTasksCommand(String fullCommand) throws ChillGuyException {
+        assert fullCommand != null : "Arguments cannot be null";
 
-        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("d/M/yyyy");
-        try {
-            LocalDate date = LocalDate.parse(arguments.trim(), inputFormatter);
-            return new ShowTasksWithDateCommand(date);
-        } catch (DateTimeParseException e) {
-            throw new ChillGuyException(DATE_ERROR);
+        if (fullCommand.contains(ShowTasksWithDateCommand.COMMAND_PHRASE)) {
+            DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("d/M/yyyy");
+            try {
+                String dateArgument = fullCommand.substring(fullCommand
+                        .indexOf(ShowTasksWithDateCommand.COMMAND_PHRASE)
+                        + ShowTasksWithDateCommand.COMMAND_PHRASE.length()).trim();
+                LocalDate date = LocalDate.parse(dateArgument, inputFormatter);
+                return new ShowTasksWithDateCommand(date);
+            } catch (DateTimeParseException e) {
+                throw new ChillGuyException(DATE_ERROR);
+            }
+        } else if (fullCommand.contains(ShowTasksCommand.COMMAND_PHRASE)) {
+            return new ShowTasksCommand();
+        } else {
+            return new TryAgainCommand();
         }
     }
 
@@ -259,15 +310,12 @@ public class Parser {
             throw new ChillGuyException(TYPE_ERROR);
         }
 
-        if (arguments.equals(Todo.COMMAND_WORD)) {
-            return new RemindCommand(TODO);
-        } else if (arguments.equals(Deadline.COMMAND_WORD)) {
-            return new RemindCommand(DEADLINE);
-        } else if (arguments.equals(Event.COMMAND_WORD)) {
-            return new RemindCommand(EVENT);
-        } else {
-            throw new ChillGuyException(TYPE_ERROR);
-        }
+        return switch (arguments) {
+        case Todo.COMMAND_WORD -> new RemindCommand(TODO);
+        case Deadline.COMMAND_WORD -> new RemindCommand(DEADLINE);
+        case Event.COMMAND_WORD -> new RemindCommand(EVENT);
+        default -> throw new ChillGuyException(TYPE_ERROR);
+        };
     }
 
     /**

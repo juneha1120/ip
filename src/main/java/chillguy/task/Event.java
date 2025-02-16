@@ -42,6 +42,38 @@ public class Event extends Task {
     }
 
     /**
+     * Constructs an {@code Event} with the specified task name, completion status, start date/time, and end date.
+     *
+     * @param taskName The name of the event.
+     * @param isDone The completion status of the event (true if completed, false otherwise).
+     * @param from The start date and time of the event.
+     * @param toDate The end date of the event.
+     */
+    public Event(String taskName, boolean isDone, LocalDateTime from, LocalDate toDate) {
+        super(taskName, isDone);
+        this.from = from;
+        this.fromDate = from.toLocalDate();
+        this.to = null;
+        this.toDate = toDate;
+    }
+
+    /**
+     * Constructs an {@code Event} with the specified task name, completion status, start date, and end date/time.
+     *
+     * @param taskName The name of the event.
+     * @param isDone The completion status of the event (true if completed, false otherwise).
+     * @param fromDate The start date of the event.
+     * @param to The end date and time of the event.
+     */
+    public Event(String taskName, boolean isDone, LocalDate fromDate, LocalDateTime to) {
+        super(taskName, isDone);
+        this.from = null;
+        this.fromDate = fromDate;
+        this.to = to;
+        this.toDate = to.toLocalDate();
+    }
+
+    /**
      * Constructs an {@code Event} with the specified task name, completion status, start date, and end date.
      *
      * @param taskName The name of the event.

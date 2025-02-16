@@ -25,7 +25,7 @@
 Mmm... Were you looking for me?
 I'm just a chill guy.
 
-Anyways, you can call me if you need any help,
+Anyways, you can call 'help' if you need any help,
 or, let's just chill as usual...
 ========================================================================
 ========================================================================
@@ -67,41 +67,30 @@ then trying again?
 I'm the best at chilling,
 but I can do these too...
 
- # chill guy : shows list of available commands.
-     For example, chill guy
+ # todo
+ # deadline
+ # event
+ # show tasks
+ # show tasks on
+ # find
+ # remind
+ # mark
+ # unmark
+ # delete
+ # bye
 
- # todo : adds task without any date/time to task list.
-     For example, todo study CS2103T
+You can also learn specific command by
+help + <command name>
+========================================================================
+========================================================================
+# should show description of todo
+========================================================================
+========================================================================
+Alright.. here's how it works :
 
- # deadline : adds task due specified date/time to task list.
-     For example, deadline study CS2103T /by 01/01/1000 0100
+todo : adds task without any date/time to task list.
 
- # event : adds task from and to specified date/time to task list.
-     For example, event study CS2103T /from 01/01/1000 0100 /to 02/01/1000 0200
-
- # show tasks : shows list of added tasks.
-     For example, show tasks
-
- # show tasks on : shows list of tasks on specified date.
-     For example, show tasks on 01/01/1000
-
- # find : shows list of tasks with specified keyword.
-     For example, find study CS2103T
-
- # remind : shows list of specified type due today.
-     For example, remind todo
-
- # mark : marks specified task as done.
-     For example, mark 3
-
- # unmark : unmarks specified task.
-     For example, unmark 3
-
- # delete : delete specified task.
-     For example, delete 3
-
-# bye : exits the chatbot.
-     For example, bye
+For example, todo study CS2103T
 ========================================================================
 ========================================================================
 ##########################################################
@@ -151,14 +140,14 @@ But remember, you can always chill first.
 ========================================================================
 ========================================================================
 We chill, but could you follow this format? :
-deadline <description> /by <d/M/yyyy (HHmm)>.
+deadline <description> /by <d/M/yyyy (HH:mm)>.
 ========================================================================
 ========================================================================
 # should catch invalid format
 ========================================================================
 ========================================================================
 We chill, but could you follow this format? :
-deadline <description> /by <d/M/yyyy (HHmm)>.
+deadline <description> /by <d/M/yyyy (HH:mm)>.
 ========================================================================
 ========================================================================
 # should add a deadline by Jan 1 1000
@@ -192,14 +181,14 @@ But remember, you can always chill first.
 ========================================================================
 ========================================================================
 We chill, but could you follow this format? :
-event <description> /from <d/M/yyyy (HHmm)> /to <d/M/yyyy (HHmm)>.
+event <description> /from <d/M/yyyy (HH:mm)> /to <d/M/yyyy (HH:mm)>.
 ========================================================================
 ========================================================================
 # should catch invalid format
 ========================================================================
 ========================================================================
 We chill, but could you follow this format? :
-event <description> /from <d/M/yyyy (HHmm)> /to <d/M/yyyy (HHmm)>.
+event <description> /from <d/M/yyyy (HH:mm)> /to <d/M/yyyy (HH:mm)>.
 ========================================================================
 ========================================================================
 # should add an event from Jan 1 1000 to Jan 2 1000
@@ -372,9 +361,7 @@ We chill, but the task is already marked as done.
 # should catch no such task error
 ========================================================================
 ========================================================================
-Nice... I've marked this task as done :
- [E][X] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
-Think you can chill a bit now.
+We chill, but I don't seem to find the task : 6
 ========================================================================
 ========================================================================
 ##########################################################
@@ -404,10 +391,7 @@ We chill, but the task is not marked yet.
 # should catch no such task error
 ========================================================================
 ========================================================================
-Ok... I've marked this task as not done yet :
- [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
-But no worries,
-you are always welcome to just chill.
+We chill, but I don't seem to find the task : 6
 ========================================================================
 ========================================================================
 ##########################################################

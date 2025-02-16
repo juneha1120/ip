@@ -14,8 +14,7 @@ import chillguy.ui.TextUi;
  * The {@code ChillGuy} class is the main entry point of the task management application.
  * It handles user interactions, parses commands, and manages the task list. It also interacts
  * with the {@link Storage} class to load and save tasks, and uses {@link Parser} to interpret user inputs.
- * The class is responsible for displaying messages via the {@link TextUi} class and processing commands
- * such as adding, deleting, or marking tasks.
+ * The class is responsible for displaying messages via the {@link TextUi} class and processing commands.
  */
 public class ChillGuy {
     private final Parser parser;
@@ -50,7 +49,7 @@ public class ChillGuy {
     }
 
     /**
-     * The main entry point for the {@code ChillGuy} application. Initializes the application and calls
+     * Enters the {@code ChillGuy} application. Initializes the application and calls
      * the {@link #runWithTUi()} method to begin processing user commands.
      *
      * @param args Command-line arguments (not used in this implementation).

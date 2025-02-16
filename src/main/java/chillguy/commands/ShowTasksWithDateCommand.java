@@ -24,9 +24,10 @@ import chillguy.ui.TextUi;
  * After retrieving the tasks for the specified date, the task list is displayed through the {@link TextUi}.
  */
 public class ShowTasksWithDateCommand extends Command {
-    public static final String COMMAND_WORD = "show tasks on";
-    public static final String COMMAND_DESCRIPTION = COMMAND_WORD + " : shows list of tasks on specified date.\n"
-            + EXAMPLE_PREFIX + COMMAND_WORD + " 01/01/1000";
+    public static final String COMMAND_WORD = "show";
+    public static final String COMMAND_PHRASE = "show tasks on";
+    public static final String COMMAND_DESCRIPTION = COMMAND_PHRASE + " : shows list of tasks on specified date.\n"
+            + EXAMPLE_PREFIX + COMMAND_PHRASE + " 01/01/1000";
     private final LocalDate date;
 
     /**

@@ -13,10 +13,13 @@ public class Messages {
     public static final String MESSAGE_LOAD = "I'm trying to recall your tasks from last time...";
     public static final String MESSAGE_BYE = "Bye...\n"
                                              + "Hope to see you and chill together again soon...";
-    public static final String MESSAGE_CALL = "Anyways, you can call me if you need any help,\n"
+    public static final String MESSAGE_CALL = "Anyways, you can call 'help' if you need any help,\n"
                                               + "or, let's just chill as usual...";
-    public static final String MESSAGE_HELP = "I'm the best at chilling,\n"
+    public static final String MESSAGE_HELP_LIST_START = "I'm the best at chilling,\n"
                                               + "but I can do these too...";
+    public static final String MESSAGE_HELP_LIST_END = "You can also learn specific command by\n"
+                                                        + "help + <command name>";
+    public static final String MESSAGE_HELP_SINGLE_COMMAND = "Alright.. here's how it works :";
     public static final String MESSAGE_TRY_AGAIN = "I'm sorry...\n"
                                                    + "Mind chilling on your own for while\n"
                                                    + "then trying again?";

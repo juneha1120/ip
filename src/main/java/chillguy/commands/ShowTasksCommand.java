@@ -13,9 +13,10 @@ import chillguy.ui.TextUi;
  * It triggers the {@link TextUi} to show the entire task list to the user.
  */
 public class ShowTasksCommand extends Command {
-    public static final String COMMAND_WORD = "show tasks";
-    public static final String COMMAND_DESCRIPTION = COMMAND_WORD + " : shows list of added tasks.\n"
-            + EXAMPLE_PREFIX + COMMAND_WORD;
+    public static final String COMMAND_WORD = "show";
+    public static final String COMMAND_PHRASE = "show tasks";
+    public static final String COMMAND_DESCRIPTION = COMMAND_PHRASE + " : shows list of added tasks.\n"
+            + EXAMPLE_PREFIX + COMMAND_PHRASE;
 
     /**
      * Executes the show tasks command by displaying all tasks in the {@link TaskList} through the {@link TextUi}.

@@ -49,16 +49,6 @@ public class ParserTest {
     }
 
     @Test
-    public void prepareShowWithDateCommand_invalidString_throwsException() {
-        try {
-            String invalidString = "invalid";
-            new Parser().prepareShowWithDateCommand(invalidString);
-        } catch (ChillGuyException ignored) {
-            // Ignored
-        }
-    }
-
-    @Test
     public void prepareMarkCommand_invalidString_throwsException() {
         try {
             String invalidString = "invalid";

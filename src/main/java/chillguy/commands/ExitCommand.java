@@ -14,17 +14,8 @@ import chillguy.ui.TextUi;
  */
 public class ExitCommand extends Command {
     public static final String COMMAND_WORD = "bye";
-    public static final String LINE_PREFIX = "# ";
-    private static String commandDescription = LINE_PREFIX + COMMAND_WORD + " : exits the chatbot.\n"
+    public static final String COMMAND_DESCRIPTION = COMMAND_WORD + " : exits the chatbot.\n"
             + EXAMPLE_PREFIX + COMMAND_WORD;
-
-    public static String getCommandDescription() {
-        return commandDescription;
-    }
-
-    public static void setCommandDescription(String commandDescription) {
-        ExitCommand.commandDescription = commandDescription;
-    }
 
     /**
      * Checks if the provided command is an instance of {@link ExitCommand}.
@@ -54,7 +45,7 @@ public class ExitCommand extends Command {
     }
 
     /**
-     * Executes the exit command by returning try-again message through the {@link GraphicalUi}.
+     * Executes the exit command by returning the exit message through the {@link GraphicalUi}.
      *
      * @param taskList the current task list (unused in this command).
      * @param storage the storage system (unused in this command).
@@ -66,6 +57,6 @@ public class ExitCommand extends Command {
         assert storage != null : "Storage cannot be null";
         assert graphicalUi != null : "Graphical UI cannot be null";
 
-        graphicalUi.respondWithTryAgainMessage();
+        graphicalUi.respondWithExitMessage();
     }
 }

@@ -13,7 +13,7 @@ import chillguy.ui.TextUi;
  * {@link Storage}, and {@link TextUi}.
  */
 public abstract class Command {
-    public static final String EXAMPLE_PREFIX = " ".repeat(5) + "For example, ";
+    public static final String EXAMPLE_PREFIX = "\nFor example, ";
 
     /**
      * Executes the specific command, interacting with the given {@link TaskList}, {@link Storage}, and {@link TextUi}.

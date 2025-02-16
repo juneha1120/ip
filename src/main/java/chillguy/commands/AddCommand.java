@@ -11,7 +11,7 @@ import chillguy.ui.TextUi;
  * Represents a command to add a task to the task list.
  * <p>
  * The {@code AddCommand} class is responsible for adding a {@link Task} to the {@link TaskList}, saving the updated
- * task list to the {@link Storage}, and displaying the corresponding confirmation message through the {@link TextUi}.
+ * task list to the {@link Storage}, and displaying message through the {@link TextUi} or the {@link GraphicalUi}.
  */
 public class AddCommand extends Command {
     private final Task task;

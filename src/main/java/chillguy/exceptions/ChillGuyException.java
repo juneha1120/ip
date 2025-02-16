@@ -59,7 +59,6 @@ public class ChillGuyException extends Exception {
     public static String getErrorMessage(ErrorType type) {
         return switch (type) {
         case TODO_ERROR -> "We chill, but could you provide the details\nfor your todo?";
-        case TASK_ERROR -> "We chill, but I don't seem to know about that task.";
         case DATE_ERROR -> "We chill, but could follow this format? :\nshow tasks on <d/M/yyyy>.";
         case CREATE_FILE_ERROR -> "We chill, but I can't seem to create save files.";
         case READ_FILE_ERROR -> "We chill, but I can't seem to read saved files.";
@@ -68,7 +67,8 @@ public class ChillGuyException extends Exception {
         case NO_KEYWORD_ERROR -> "We chill, but could you tell me\nthe keyword to search?";
         case TYPE_ERROR -> "We chill, but could you tell me\nthe valid task type to get reminders for?";
         case REMINDERS_ERROR -> "We chill, but looks like you have\nno reminders for the task type.";
-        default -> ""; };
+        default -> "";
+        };
     }
 
     /**
@@ -82,10 +82,10 @@ public class ChillGuyException extends Exception {
         return switch (type) {
         case DEADLINE_ERROR -> !containsDesc ? "We chill, but could you provide the details for your deadline?"
                 : "We chill, but could you follow this format? :\n"
-                  + "deadline <description> /by <d/M/yyyy (HHmm)>.";
+                  + "deadline <description> /by <d/M/yyyy (HH:mm)>.";
         case EVENT_ERROR -> !containsDesc ? "We chill, but could you provide the details for your event?"
                 : "We chill, but could you follow this format? :\n"
-                  + "event <description> /from <d/M/yyyy (HHmm)> /to <d/M/yyyy (HHmm)>.";
+                  + "event <description> /from <d/M/yyyy (HH:mm)> /to <d/M/yyyy (HH:mm)>.";
         default -> ""; };
     }
 
@@ -116,11 +116,11 @@ public class ChillGuyException extends Exception {
      */
     public static String getErrorMessage(ErrorType type, String line) {
         return switch (type) {
+        case COMMAND_ERROR -> "We chill, but I don't have this command : " + line;
         case DELETE_ERROR -> "We chill, but I don't seem to find this task : " + line;
-        case LOAD_ERROR -> "We chill, but I couldn't understand this line : " + line;
-        case INVALID_FORMAT_ERROR -> "We chill, but the format is invalid for this line : " + line
+        case READ_FORMAT_ERROR -> "We chill, but the format is invalid for this line : " + line
                 + "\n" + "I will skip it for now and move on...";
-        case INVALID_TYPE_ERROR -> "We chill, but I don't seem to understand the type here : " + line
+        case READ_TYPE_ERROR -> "We chill, but I don't seem to understand the type here : " + line
                 + "\n" + "I will skip it for now and move on...";
         case MARK_ERROR, UNMARK_ERROR -> "We chill, but I don't seem to find the task : " + line;
         default -> ""; };

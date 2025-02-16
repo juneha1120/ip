@@ -1,9 +1,9 @@
 package chillguy.storage;
 
 import static chillguy.enums.ErrorType.CREATE_FILE_ERROR;
-import static chillguy.enums.ErrorType.INVALID_FORMAT_ERROR;
-import static chillguy.enums.ErrorType.INVALID_TYPE_ERROR;
 import static chillguy.enums.ErrorType.READ_FILE_ERROR;
+import static chillguy.enums.ErrorType.READ_FORMAT_ERROR;
+import static chillguy.enums.ErrorType.READ_TYPE_ERROR;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -54,10 +54,8 @@ public class Storage {
         assert line != null && !line.isEmpty() : "Line cannot be null or empty";
 
         String[] parts = line.split(" \\| ");
-        if (line.isEmpty()) {
-            return null;
-        } else if (parts.length < 3) {
-            throw new ChillGuyException(INVALID_FORMAT_ERROR, line);
+        if (parts.length < 3) {
+            throw new ChillGuyException(READ_FORMAT_ERROR, line);
         }
 
         String type = parts[0];
@@ -77,15 +75,17 @@ public class Storage {
         case "E":
             String from = parts[3];
             String to = parts[4];
-            if (from.contains("T")) {
-                return new Event(description, isDone, LocalDateTime.parse(from),
-                        LocalDateTime.parse(to));
+            if (from.contains("T") && to.contains("T")) {
+                return new Event(description, isDone, LocalDateTime.parse(from), LocalDateTime.parse(to));
+            } else if (from.contains("T") && !to.contains("T")) {
+                return new Event(description, isDone, LocalDateTime.parse(from), LocalDate.parse(to));
+            } else if (!from.contains("T") && to.contains("T")) {
+                return new Event(description, isDone, LocalDate.parse(from), LocalDateTime.parse(to));
             } else {
-                return new Event(description, isDone, LocalDate.parse(from),
-                        LocalDate.parse(to));
+                return new Event(description, isDone, LocalDate.parse(from), LocalDate.parse(to));
             }
         default:
-            throw new ChillGuyException(INVALID_TYPE_ERROR, line);
+            throw new ChillGuyException(READ_TYPE_ERROR, line);
         }
     }
 
@@ -141,9 +141,7 @@ public class Storage {
             List<String> lines = Files.readAllLines(path);
             for (String line : lines) {
                 Task task = fromFileFormat(line);
-                if (task != null) {
-                    loadedTaskList.put(++loadedTaskCount, task);
-                }
+                loadedTaskList.put(++loadedTaskCount, task);
             }
         } catch (IOException e) {
             throw new ChillGuyException(READ_FILE_ERROR);

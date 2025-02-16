@@ -13,9 +13,17 @@ import chillguy.ui.TextUi;
  * the user requests help. It triggers the {@link TextUi} to show the help message containing all available commands.
  */
 public class HelpCommand extends Command {
-    public static final String COMMAND_WORD = "chill guy";
-    public static final String COMMAND_DESCRIPTION = COMMAND_WORD + " : shows list of available commands.\n"
-            + EXAMPLE_PREFIX + COMMAND_WORD;
+    public static final String COMMAND_WORD = "help";
+    public static final String COMMAND_DESCRIPTION = COMMAND_WORD + " : shows how to use specified command.\n"
+            + EXAMPLE_PREFIX + COMMAND_WORD + "todo";
+    private String commandDescription;
+
+    /**
+     * Constructs a {@code HelpCommand} with the specified command description.
+     */
+    public HelpCommand(String commandDescription) {
+        this.commandDescription = commandDescription;
+    }
 
     /**
      * Executes the help command by displaying the list of available commands through the {@link TextUi}.
@@ -30,7 +38,11 @@ public class HelpCommand extends Command {
         assert storage != null : "Storage cannot be null";
         assert textUi != null : "Text UI cannot be null";
 
-        textUi.showHelp();
+        if (this.commandDescription.isEmpty()) {
+            textUi.showCommandList();
+        } else {
+            textUi.showHelp(this.commandDescription);
+        }
     }
 
     /**
@@ -46,7 +58,10 @@ public class HelpCommand extends Command {
         assert storage != null : "Storage cannot be null";
         assert graphicalUi != null : "Graphical UI cannot be null";
 
-        ExitCommand.setCommandDescription("");
-        graphicalUi.respondWithHelpMessage();
+        if (this.commandDescription.isEmpty()) {
+            graphicalUi.respondWithCommandList();
+        } else {
+            graphicalUi.respondWithHelpMessage(this.commandDescription);
+        }
     }
 }
