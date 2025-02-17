@@ -37,8 +37,7 @@ designed to help you manage tasks efficiently while keeping things chill.
 
 ## Features
 
-> :information_source: [NOTE]  
-> **Notes about the command format**:
+> ℹ️ **Notes about the command format**:
 > * Words in `UPPER_CASE` are the parameters to be supplied by the user.
 > * Extraneous parameters for commands that do not take in parameters (such as help, show tasks, bye) will be ignored. 
 > e.g. if the command specifies bye 123, it will be interpreted as bye.
@@ -72,7 +71,7 @@ You can also learn specific command by
 help <command name>
 ```
 
-> :bulb: [TIP]  
+> 💡 **Tip**  
 > You can view the details of each command by:
 > 
 > Format: `help COMMAND_NAME`
@@ -280,7 +279,7 @@ There is no need to save manually.
 ChillGuy data are saved automatically as a text file `chillguy.txt`.  
 Advanced users are welcome to update data directly by editing that data file.
 
-> :warning: [WARNING]  
+> ⚠️ **Warning**  
 > If your changes to the data file makes its format invalid, ChillGuy will discard invalid lines 
 > and start with valid lines only. Hence, it is recommended to take a backup of the tile before editing it.
 
