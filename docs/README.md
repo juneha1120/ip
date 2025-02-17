@@ -1,6 +1,11 @@
+---
+layout: page
+title: User Guide
+---
+
 # ChillGuy
 
-![Ui.png](Ui.png)
+<img src="Ui.png" width="400" alt="">
 
 > "When your to-do list is full of overdue ones, but you are just a chill guy." - Chill Guy
 
@@ -44,6 +49,15 @@ designed to help you manage tasks efficiently while keeping things chill.
 > e.g. if the command specifies bye 123, it will be interpreted as bye.
 > * Command words are case-insensitive.<br>
 
+<div markdown="block" class="alert alert-info">
+
+**Notes about the command format**:<br>
+* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
+* Extraneous parameters for commands that do not take in parameters (such as help, show tasks, bye) will be ignored.<br>
+e.g. if the command specifies bye 123, it will be interpreted as bye.
+* Command words are case-insensitive.<
+</div>
+
 ### Viewing help: `help`
 
 Shows a list of available commands.
@@ -80,6 +94,18 @@ help <command name>
 > Example: `help todo`
 > 
 > Chillguy replies with the details of specified command.
+
+<div markdown="block" class="alert alert-primary">
+
+**Tip**:<br>
+You can view the details of each command by:<br>
+
+Format: `help COMMAND_NAME`<br>
+
+Example: `help todo`<br>
+
+Chillguy replies with the details of specified command.
+</div>
 
 ### Adding a todo: `todo`
 
@@ -283,6 +309,13 @@ Advanced users are welcome to update data directly by editing that data file.
 > [!WARNING]  
 > If your changes to the data file makes its format invalid, ChillGuy will discard invalid lines 
 > and start with valid lines only. Hence, it is recommended to take a backup of the tile before editing it.
+
+<div markdown="block" class="alert alert-warning">
+
+**Caution**:<br>
+If your changes to the data file makes its format invalid, ChillGuy will discard invalid lines
+and start with valid lines only. Hence, it is recommended to take a backup of the tile before editing it.
+</div>
 
 --------------------------------------------------------------------------------------------------------------------
 
