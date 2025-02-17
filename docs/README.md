@@ -88,6 +88,7 @@ help <command name>
 > 
 > Chillguy replies with the details of specified command.
 <br>
+<br>
 
 ### Adding a todo: `todo`
 
