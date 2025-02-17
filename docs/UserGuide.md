@@ -1,12 +1,6 @@
----
-layout: page
-title: ChillGuy User Guide
----
+# ChillGuy
 
-<img src="/docs/Ui.png" width="400" alt="">
-
-
-
+![Ui.png](Ui.png)
 
 > "When your to-do list is full of overdue ones, but you are just a chill guy." - Chill Guy
 
@@ -43,14 +37,12 @@ designed to help you manage tasks efficiently while keeping things chill.
 
 ## Features
 
-<div markdown="block" class="alert alert-info">
-
-**Notes about the command format**:<br>
-* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br> 
-* Extraneous parameters for commands that do not take in parameters (such as help, show tasks, bye) will be ignored.
-  e.g. if the command specifies bye 123, it will be interpreted as bye.<br>
-* Command words are case-insensitive.<br>
-</div>
+> [!NOTE]  
+> **Notes about the command format**:
+> * Words in `UPPER_CASE` are the parameters to be supplied by the user.
+> * Extraneous parameters for commands that do not take in parameters (such as help, show tasks, bye) will be ignored. 
+> e.g. if the command specifies bye 123, it will be interpreted as bye.
+> * Command words are case-insensitive.<br>
 
 ### Viewing help: `help`
 
@@ -80,16 +72,14 @@ You can also learn specific command by
 help <command name>
 ```
 
-<div markdown="block" class="alert alert-primary">
-
-You can view the details of each command by:  
- 
-Format: `help COMMAND_NAME`  
-
-Example: `help todo`  
-
-Chillguy replies with the details of specified command.
-</div>
+> [!TIP]  
+> You can view the details of each command by:
+> 
+> Format: `help COMMAND_NAME`
+> 
+> Example: `help todo`
+> 
+> Chillguy replies with the details of specified command.
 
 ### Adding a todo: `todo`
 
@@ -290,11 +280,9 @@ There is no need to save manually.
 ChillGuy data are saved automatically as a text file `chillguy.txt`.  
 Advanced users are welcome to update data directly by editing that data file.
 
-<div markdown="span" class="alert alert-warning">
-
-If your changes to the data file makes its format invalid, ChillGuy will discard invalid lines 
-and start with valid lines only. Hence, it is recommended to take a backup of the tile before editing it.
-</div>
+> [!WARNING]  
+> If your changes to the data file makes its format invalid, ChillGuy will discard invalid lines 
+> and start with valid lines only. Hence, it is recommended to take a backup of the tile before editing it.
 
 --------------------------------------------------------------------------------------------------------------------
 
