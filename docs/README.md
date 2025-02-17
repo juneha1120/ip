@@ -313,19 +313,21 @@ Advanced users are welcome to update data directly by editing that data file.
 <br>
 
 --------------------------------------------------------------------------------------------------------------------
-## Command summary
-
-
-| Command                               | Format, Example                                                                                                                        |
-|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| **Adding a todo**                     | `todo TASK_NAME` <br> e.g., `todo study CS2103T`                                                                                       |
-| **Adding a deadline**                 | `deadline TASK_NAME /by DUE_DATE_TIME` <br> e.g., `deadline study CS2103T /by 21/02/2025 16:00`                                        |
-| **Adding an event**                   | `event TASK_NAME /from START_DATE_TIME /to END_DATE_TIME` <br> e.g., `event study CS2103T /from 17/02/2025 18:00 /to 17/02/2025 20:00` |
-| **Listing all tasks**                 | `show tasks`                                                                                                                           |
-| **Listing tasks on specific date**    | `show tasks on DATE_TIME` <br> e.g., `show tasks on 21/02/2025`                                                                        |
-| **Finding tasks with keyword**        | `find KEYWORD` <br> e.g., `find CS2103T`                                                                                               |
-| **Reminding a specific type of task** | `remind TASK_TYPE` <br> e.g., `remind deadline`                                                                                        |
-| **Marking a task**                    | `mark TASK_NUMBER` <br> e.g., `mark 1`                                                                                                 |
-| **Unmarking a task**                  | `unmark TASK_NUMBER` <br> e.g., `unmark 1`                                                                                             |
-| **Deleting a task**                   | `delete TASK_NUMBER` <br> e.g., `delete 1`                                                                                             |
-| **Viewing help**                      | `help`                                                                                                                                 |
+## Command summary  
+  
+  
+| Command                               | Format, Example                                                                                                                        |    
+|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|  
+| **Adding a todo**                     | `todo TASK_NAME` <br> e.g., `todo study CS2103T`                                                                                       |  
+| **Adding a deadline**                 | `deadline TASK_NAME /by DUE_DATE_TIME` <br> e.g., `deadline study CS2103T /by 21/02/2025 16:00`                                        |  
+| **Adding an event**                   | `event TASK_NAME /from START_DATE_TIME /to END_DATE_TIME` <br> e.g., `event study CS2103T /from 17/02/2025 18:00 /to 17/02/2025 20:00` |  
+| **Listing all tasks**                 | `show tasks`                                                                                                                           |  
+| **Listing tasks on specific date**    | `show tasks on DATE_TIME` <br> e.g., `show tasks on 21/02/2025`                                                                        |  
+| **Finding tasks with keyword**        | `find KEYWORD` <br> e.g., `find CS2103T`                                                                                               |  
+| **Reminding a specific type of task** | `remind TASK_TYPE` <br> e.g., `remind deadline`                                                                                        |  
+| **Marking a task**                    | `mark TASK_NUMBER` <br> e.g., `mark 1`                                                                                                 |  
+| **Unmarking a task**                  | `unmark TASK_NUMBER` <br> e.g., `unmark 1`                                                                                             |  
+| **Deleting a task**                   | `delete TASK_NUMBER` <br> e.g., `delete 1`                                                                                             |  
+| **Viewing help**                      | `help`                                                                                                                                 | 
+  
+  
