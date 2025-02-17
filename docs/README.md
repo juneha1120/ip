@@ -48,8 +48,13 @@ designed to help you manage tasks efficiently while keeping things chill.
 > * Extraneous parameters for commands that do not take in parameters (such as help, show tasks, bye) will be ignored. 
 > e.g. if the command specifies bye 123, it will be interpreted as bye.
 > * Command words are case-insensitive.
-<br>
-<br>
+
+
+
+<br/>
+<br/>
+
+
 
 ### Viewing help: `help`
 
@@ -88,7 +93,11 @@ help <command name>
 > 
 > Chillguy replies with the details of specified command.
 
-<br>
+
+
+<br/>
+
+
 
 ### Adding a todo: `todo`
 
@@ -305,9 +314,11 @@ Advanced users are welcome to update data directly by editing that data file.
 > ⚠️ **Warning**  
 > If your changes to the data file makes its format invalid, ChillGuy will discard invalid lines 
 > and start with valid lines only. Hence, it is recommended to take a backup of the tile before editing it.
-<br>
-<br>
-<br>
+
+
+<br/>
+<br/>
+<br/>
 
 --------------------------------------------------------------------------------------------------------------------
 ## Command summary
