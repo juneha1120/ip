@@ -1,8 +1,15 @@
-# ChillGuy User Guide
+---
+layout: page
+title: ChillGuy User Guide
+---
 
-![Ui.png](Ui.png)
+<img src="/docs/Ui.png" width="400" alt="">
 
-> "When your to-do list is full with overdue ones but you are just a chill guy." - Chill Guy
+  
+  
+
+
+> "When your to-do list is full of overdue ones, but you are just a chill guy." - Chill Guy
 
 ChillGuy is here to just chill most of the time but also take care of things you need to do.
 
@@ -37,11 +44,14 @@ designed to help you manage tasks efficiently while keeping things chill.
 
 ## Features
 
-> [!NOTE]
-> - Words in `UPPER_CASE` are the parameters to be supplied by the user.
-> - Extraneous parameters for commands that do not take in parameters (such as help, show tasks, bye) will be ignored.
-    e.g. if the command specifies bye 123, it will be interpreted as bye.
-> - Command words are case-insensitive.
+<div markdown="block" class="alert alert-info">
+
+**Notes about the command format**:<br>
+* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br> 
+* Extraneous parameters for commands that do not take in parameters (such as help, show tasks, bye) will be ignored.
+  e.g. if the command specifies bye 123, it will be interpreted as bye.<br>
+* Command words are case-insensitive.<br>
+</div>
 
 ### Viewing help: `help`
 
@@ -71,14 +81,16 @@ You can also learn specific command by
 help <command name>
 ```
 
-> [!TIP]
-> You can view the details of each command by:  
-> 
-> Format: `help COMMAND_NAME`  
-> 
-> Example: `help todo`  
-> 
-> Chillguy replies with the details of specified command.
+<div markdown="block" class="alert alert-primary">
+
+You can view the details of each command by:  
+ 
+Format: `help COMMAND_NAME`  
+
+Example: `help todo`  
+
+Chillguy replies with the details of specified command.
+</div>
 
 ### Adding a todo: `todo`
 
@@ -279,24 +291,25 @@ There is no need to save manually.
 ChillGuy data are saved automatically as a text file `chillguy.txt`.  
 Advanced users are welcome to update data directly by editing that data file.
 
-> [!CAUTION]
-> If your changes to the data file makes its format invalid, ChillGuy will discard invalid lines 
-> and start with valid lines only. Hence, it is recommended to take a backup of the tile before editing it.
+<div markdown="span" class="alert alert-warning">
+If your changes to the data file makes its format invalid, ChillGuy will discard invalid lines 
+and start with valid lines only. Hence, it is recommended to take a backup of the tile before editing it.
+</div>
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
 
-Command | Format, Example
---------|------------------
-**Adding a todo** | `todo TASK_NAME` <br> e.g., `todo study CS2103T`
-**Adding a deadline** | `deadline TASK_NAME /by DUE_DATE_TIME` <br> e.g., `deadline study CS2103T /by 21/02/2025 16:00`
-**Adding an event** | `event TASK_NAME /from START_DATE_TIME /to END_DATE_TIME` <br> e.g., `event study CS2103T /from 17/02/2025 18:00 /to 17/02/2025 20:00`
-**Listing all tasks** | `show tasks`
-**Listing tasks on specific date** | `show tasks on DATE_TIME` <br> e.g., `show tasks on 21/02/2025`
-**Finding tasks with keyword** | `find KEYWORD` <br> e.g., `find CS2103T`
-**Reminding a specific type of task** | `remind TASK_TYPE` <br> e.g., `remind deadline`
-**Marking a task** | `mark TASK_NUMBER` <br> e.g., `mark 1`
-**Unmarking a task** | `unmark TASK_NUMBER` <br> e.g., `unmark 1`
-**Deleting a task** | `delete TASK_NUMBER` <br> e.g., `delete 1`
-**Viewing help** | `help`
+| Command                               | Format, Example                                                                                                                        |
+|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| **Adding a todo**                     | `todo TASK_NAME` <br> e.g., `todo study CS2103T`                                                                                       |
+| **Adding a deadline**                 | `deadline TASK_NAME /by DUE_DATE_TIME` <br> e.g., `deadline study CS2103T /by 21/02/2025 16:00`                                        |
+| **Adding an event**                   | `event TASK_NAME /from START_DATE_TIME /to END_DATE_TIME` <br> e.g., `event study CS2103T /from 17/02/2025 18:00 /to 17/02/2025 20:00` |
+| **Listing all tasks**                 | `show tasks`                                                                                                                           |
+| **Listing tasks on specific date**    | `show tasks on DATE_TIME` <br> e.g., `show tasks on 21/02/2025`                                                                        |
+| **Finding tasks with keyword**        | `find KEYWORD` <br> e.g., `find CS2103T`                                                                                               |
+| **Reminding a specific type of task** | `remind TASK_TYPE` <br> e.g., `remind deadline`                                                                                        |
+| **Marking a task**                    | `mark TASK_NUMBER` <br> e.g., `mark 1`                                                                                                 |
+| **Unmarking a task**                  | `unmark TASK_NUMBER` <br> e.g., `unmark 1`                                                                                             |
+| **Deleting a task**                   | `delete TASK_NUMBER` <br> e.g., `delete 1`                                                                                             |
+| **Viewing help**                      | `help`                                                                                                                                 |
