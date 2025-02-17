@@ -11,8 +11,8 @@ ChillGuy is a **command-line optimized task manager desktop app** with a **chatb
 designed to help you manage tasks efficiently while keeping things chill.
 
 * Table of Contents
-{:toc}
-
+{:toc}  
+  
 <br>
 <br>
 <br>
@@ -35,7 +35,8 @@ designed to help you manage tasks efficiently while keeping things chill.
 
 5. **Using ChillGuy**:
    - Type the command in the command box and press **Enter** or **Send button** to execute it.
-   - **Example**: Typing `help` and pressing **Enter** will display available commands.
+   - **Example**: Typing `help` and pressing **Enter** will display available commands.  
+    
 <br>
 <br>
 <br>
@@ -47,14 +48,10 @@ designed to help you manage tasks efficiently while keeping things chill.
 > * Words in `UPPER_CASE` are the parameters to be supplied by the user.
 > * Extraneous parameters for commands that do not take in parameters (such as help, show tasks, bye) will be ignored. 
 > e.g. if the command specifies bye 123, it will be interpreted as bye.
-> * Command words are case-insensitive.
-
-
-
-<br/>
-<br/>
-
-
+> * Command words are case-insensitive.      
+  
+<br>
+<br>
 
 ### Viewing help: `help`
 
@@ -91,13 +88,9 @@ help <command name>
 > 
 > Example: `help todo`
 > 
-> Chillguy replies with the details of specified command.
-
-
-
-<br/>
-
-
+> Chillguy replies with the details of specified command.    
+  
+<br>
 
 ### Adding a todo: `todo`
 
@@ -313,15 +306,15 @@ Advanced users are welcome to update data directly by editing that data file.
 
 > ⚠️ **Warning**  
 > If your changes to the data file makes its format invalid, ChillGuy will discard invalid lines 
-> and start with valid lines only. Hence, it is recommended to take a backup of the tile before editing it.
-
-
-<br/>
-<br/>
-<br/>
+> and start with valid lines only. Hence, it is recommended to take a backup of the tile before editing it.    
+  
+<br>
+<br>
+<br>
 
 --------------------------------------------------------------------------------------------------------------------
 ## Command summary
+
 
 | Command                               | Format, Example                                                                                                                        |
 |---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
@@ -336,7 +329,3 @@ Advanced users are welcome to update data directly by editing that data file.
 | **Unmarking a task**                  | `unmark TASK_NUMBER` <br> e.g., `unmark 1`                                                                                             |
 | **Deleting a task**                   | `delete TASK_NUMBER` <br> e.g., `delete 1`                                                                                             |
 | **Viewing help**                      | `help`                                                                                                                                 |
-<br>
-<br>
-<br>
-
