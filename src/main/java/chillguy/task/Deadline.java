@@ -16,7 +16,7 @@ import chillguy.enums.TaskType;
 public class Deadline extends Task {
     public static final String COMMAND_WORD = "deadline";
     public static final String COMMAND_DESCRIPTION = COMMAND_WORD
-            + " : adds task due specified date/time to task list.\n"
+            + ": adds task due specified date/time to task list.\n"
             + EXAMPLE_PREFIX + COMMAND_WORD + " study CS2103T /by 01/01/1000 0100";
     protected TaskType type = TaskType.DEADLINE;
     protected LocalDateTime by;

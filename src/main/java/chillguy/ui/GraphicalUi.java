@@ -43,7 +43,6 @@ import chillguy.task.TaskList;
  */
 public class GraphicalUi {
     public static final String EMPTY_DIVIDER = "";
-    public static final String LINE_PREFIX = " ";
     private List<String> responseList;
 
     /**
@@ -136,7 +135,7 @@ public class GraphicalUi {
     public void respondWithAddMessage(Task task, int taskCount) {
         this.appendResponse(
                 MESSAGE_ADD_START,
-                LINE_PREFIX + task.toString(),
+                task.toString(),
                 "Now you have " + taskCount + " task(s) in the list.",
                 MESSAGE_ADD_END);
     }
@@ -169,7 +168,7 @@ public class GraphicalUi {
                 MESSAGE_SHOW_TASKS_START);
         this.appendResponse(taskList.getStringTaskList());
         this.appendResponse("You have " + taskList.getTaskCount() + " task(s) on "
-                + date.format(DateTimeFormatter.ofPattern("MMM d yyyy")));
+                + date.format(DateTimeFormatter.ofPattern("MMM d yyyy")) + ".");
     }
 
     /**
@@ -183,7 +182,7 @@ public class GraphicalUi {
                 MESSAGE_FIND_START);
         this.appendResponse(taskList.getStringTaskList());
         this.appendResponse(
-                "You have " + taskList.getTaskCount() + " task(s) with keyword : " + keyword);
+                "You have " + taskList.getTaskCount() + " task(s) with keyword : " + keyword + ".");
     }
 
     /**
@@ -197,7 +196,7 @@ public class GraphicalUi {
                 MESSAGE_REMINDER_START);
         this.appendResponse(taskList.getStringTaskList());
         this.appendResponse(
-                "You have " + taskList.getTaskCount() + " reminder(s) with " + type);
+                "You have " + taskList.getTaskCount() + " reminder(s) with " + type + ".");
     }
 
     /**
@@ -208,7 +207,7 @@ public class GraphicalUi {
     public void respondWithMarkMessage(Task task) {
         this.appendResponse(
                 MESSAGE_MARK_START,
-                LINE_PREFIX + task.toString(),
+                task.toString(),
                 MESSAGE_MARK_END);
     }
 
@@ -220,7 +219,7 @@ public class GraphicalUi {
     public void respondWithUnmarkMessage(Task task) {
         this.appendResponse(
                 MESSAGE_UNMARK_START,
-                LINE_PREFIX + task.toString(),
+                task.toString(),
                 MESSAGE_UNMARK_END);
     }
 
@@ -233,7 +232,7 @@ public class GraphicalUi {
     public void respondWithDeleteMessage(Task task, int taskCount) {
         this.appendResponse(
                 MESSAGE_DELETE_START,
-                LINE_PREFIX + task.toString(),
+                task.toString(),
                 "Now you have " + taskCount + " task(s) in the list.",
                 MESSAGE_DELETE_END);
     }

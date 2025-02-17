@@ -14,7 +14,7 @@ import chillguy.ui.TextUi;
  */
 public class HelpCommand extends Command {
     public static final String COMMAND_WORD = "help";
-    public static final String COMMAND_DESCRIPTION = COMMAND_WORD + " : shows how to use specified command.\n"
+    public static final String COMMAND_DESCRIPTION = COMMAND_WORD + ": shows how to use specified command.\n"
             + EXAMPLE_PREFIX + COMMAND_WORD + "todo";
     private String commandDescription;
 

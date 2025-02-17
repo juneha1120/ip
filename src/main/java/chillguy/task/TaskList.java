@@ -84,7 +84,7 @@ public class TaskList {
      */
     public String[] getStringTaskList() {
         return this.taskList.entrySet().stream()
-                .map(entry -> " " + entry.getKey() + ". " + entry.getValue())
+                .map(entry -> entry.getKey() + ". " + entry.getValue())
                 .toArray(String[]::new);
     }
 }

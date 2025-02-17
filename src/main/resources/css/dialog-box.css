@@ -6,8 +6,8 @@
     -fx-background-color: derive(#97aea6, 50%);
     -fx-border-color: #97aea6;
     -fx-border-width: 2px;
-    -fx-background-radius: 1.1em 1.1em 0 1.1em;
-    -fx-border-radius: 1em 1em 0 1em;
+    -fx-background-radius: 1.1em 0 1.1em 1.1em;
+    -fx-border-radius: 1em 0 1em 1em;
 }
 
 .reply-label {
@@ -18,8 +18,8 @@
     -fx-background-color: derive(#a17f3b, 50%);
     -fx-border-color: #a17f3b;
     -fx-border-width: 2px;
-    -fx-background-radius: 1.1em 1.1em 1.1em 0;
-    -fx-border-radius: 1em 1em 1em 0;
+    -fx-background-radius: 0 1.1em 1.1em 1.1em;
+    -fx-border-radius: 0 1em 1em 1em;
 }
 
 #displayPicture {

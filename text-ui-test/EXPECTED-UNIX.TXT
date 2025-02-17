@@ -80,15 +80,15 @@ but I can do these too...
  # bye
 
 You can also learn specific command by
-help + <command name>
+help <command name>
 ========================================================================
 ========================================================================
 # should show description of todo
 ========================================================================
 ========================================================================
-Alright.. here's how it works :
+Alright.. here's how it works:
 
-todo : adds task without any date/time to task list.
+todo: adds task without any date/time to task list.
 
 For example, todo study CS2103T
 ========================================================================
@@ -121,9 +121,9 @@ Cool, let's just sit back and chill.
     # should add a todo named read book
 ========================================================================
 ========================================================================
-Gotcha... I've added this task :
- [T][ ] read book
-Now you have 1 tasks in the list.
+Gotcha... I've added this task:
+[T][ ] read book
+Now you have 1 task(s) in the list.
 But remember, you can always chill first.
 ========================================================================
 ========================================================================
@@ -139,32 +139,32 @@ But remember, you can always chill first.
     # should catch invalid format
 ========================================================================
 ========================================================================
-We chill, but could you follow this format? :
-deadline <description> /by <d/M/yyyy (HH:mm)>.
+We chill, but could you follow this format?
+deadline <task name> /by <d/M/yyyy (HH:mm)>.
 ========================================================================
 ========================================================================
 # should catch invalid format
 ========================================================================
 ========================================================================
-We chill, but could you follow this format? :
-deadline <description> /by <d/M/yyyy (HH:mm)>.
+We chill, but could you follow this format?
+deadline <task name> /by <d/M/yyyy (HH:mm)>.
 ========================================================================
 ========================================================================
 # should add a deadline by Jan 1 1000
 ========================================================================
 ========================================================================
-Gotcha... I've added this task :
- [D][ ] read book (by Jan 1 1000)
-Now you have 2 tasks in the list.
+Gotcha... I've added this task:
+[D][ ] read book (by Jan 1 1000)
+Now you have 2 task(s) in the list.
 But remember, you can always chill first.
 ========================================================================
 ========================================================================
 # should add a deadline by Jan 1 1000 01:00am
 ========================================================================
 ========================================================================
-Gotcha... I've added this task :
- [D][ ] read book (by Jan 1 1000 1:00am)
-Now you have 3 tasks in the list.
+Gotcha... I've added this task:
+[D][ ] read book (by Jan 1 1000 1:00am)
+Now you have 3 task(s) in the list.
 But remember, you can always chill first.
 ========================================================================
 ========================================================================
@@ -180,32 +180,32 @@ But remember, you can always chill first.
     # should catch invalid format
 ========================================================================
 ========================================================================
-We chill, but could you follow this format? :
-event <description> /from <d/M/yyyy (HH:mm)> /to <d/M/yyyy (HH:mm)>.
+We chill, but could you follow this format?
+event <task name> /from <d/M/yyyy (HH:mm)> /to <d/M/yyyy (HH:mm)>.
 ========================================================================
 ========================================================================
 # should catch invalid format
 ========================================================================
 ========================================================================
-We chill, but could you follow this format? :
-event <description> /from <d/M/yyyy (HH:mm)> /to <d/M/yyyy (HH:mm)>.
+We chill, but could you follow this format?
+event <task name> /from <d/M/yyyy (HH:mm)> /to <d/M/yyyy (HH:mm)>.
 ========================================================================
 ========================================================================
 # should add an event from Jan 1 1000 to Jan 2 1000
 ========================================================================
 ========================================================================
-Gotcha... I've added this task :
- [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
-Now you have 4 tasks in the list.
+Gotcha... I've added this task:
+[E][ ] read book (from Jan 1 1000 to Jan 2 1000)
+Now you have 4 task(s) in the list.
 But remember, you can always chill first.
 ========================================================================
 ========================================================================
 # should add an event from Jan 1 1000 01:00am to Jan 2 1000 11:00pm
 ========================================================================
 ========================================================================
-Gotcha... I've added this task :
- [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
-Now you have 5 tasks in the list.
+Gotcha... I've added this task:
+[E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
+Now you have 5 task(s) in the list.
 But remember, you can always chill first.
 ========================================================================
 ========================================================================
@@ -224,12 +224,12 @@ But remember, you can always chill first.
 Seems like you were too chill
 and forgot what you had...
 
-Anyways, here's what you have :
- 1. [T][ ] read book
- 2. [D][ ] read book (by Jan 1 1000)
- 3. [D][ ] read book (by Jan 1 1000 1:00am)
- 4. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
- 5. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
+Anyways, here's what you have:
+1. [T][ ] read book
+2. [D][ ] read book (by Jan 1 1000)
+3. [D][ ] read book (by Jan 1 1000 1:00am)
+4. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
+5. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
 You have 5 task(s) in the list.
 ========================================================================
 ========================================================================
@@ -245,7 +245,7 @@ You have 5 task(s) in the list.
     # should catch invalid format
 ========================================================================
 ========================================================================
-We chill, but could follow this format? :
+We chill, but could follow this format?
 show tasks on <d/M/yyyy>.
 ========================================================================
 ========================================================================
@@ -255,12 +255,12 @@ show tasks on <d/M/yyyy>.
 Seems like you were too chill
 and forgot what you had...
 
-Anyways, here's what you have :
- 1. [D][ ] read book (by Jan 1 1000)
- 2. [D][ ] read book (by Jan 1 1000 1:00am)
- 3. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
- 4. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
-You have 4 tasks on Jan 1 1000
+Anyways, here's what you have:
+1. [D][ ] read book (by Jan 1 1000)
+2. [D][ ] read book (by Jan 1 1000 1:00am)
+3. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
+4. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
+You have 4 tasks on Jan 1 1000.
 ========================================================================
 ========================================================================
 ##########################################################
@@ -292,13 +292,13 @@ no matching ones.
 Seems like you were too chill
 and forgot what you had...
 
-Anyways, here are the matching ones :
- 1. [T][ ] read book
- 2. [D][ ] read book (by Jan 1 1000)
- 3. [D][ ] read book (by Jan 1 1000 1:00am)
- 4. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
- 5. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
-You have 5 task(s) with keyword : read
+Anyways, here's what I found matching:
+1. [T][ ] read book
+2. [D][ ] read book (by Jan 1 1000)
+3. [D][ ] read book (by Jan 1 1000 1:00am)
+4. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
+5. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
+You have 5 task(s) with keyword : read.
 ========================================================================
 ========================================================================
 ##########################################################
@@ -321,7 +321,7 @@ the valid task type to get reminders for?
 ========================================================================
 ========================================================================
 We chill, but looks like you have
-no reminders for the task type.
+no reminders for the task type today.
 ========================================================================
 ========================================================================
 # should show reminders of todos
@@ -330,9 +330,9 @@ no reminders for the task type.
 Seems like you were too chill
 and now need some reminders...
 
-Anyways, here are the ones for today :
- 1. [T][ ] read book
-You have 1 reminder(s) with TODO
+Anyways, here's what I found to remind you:
+1. [T][ ] read book
+You have 1 reminder(s) with TODO.
 ========================================================================
 ========================================================================
 ##########################################################
@@ -347,8 +347,8 @@ You have 1 reminder(s) with TODO
     # should mark and show marked task
 ========================================================================
 ========================================================================
-Nice... I've marked this task as done :
- [T][X] read book
+Nice... I've marked this task as done:
+[T][X] read book
 Think you can chill a bit now.
 ========================================================================
 ========================================================================
@@ -361,7 +361,7 @@ We chill, but the task is already marked as done.
 # should catch no such task error
 ========================================================================
 ========================================================================
-We chill, but I don't seem to find the task : 6
+We chill, but I don't seem to find the task: 6.
 ========================================================================
 ========================================================================
 ##########################################################
@@ -376,8 +376,8 @@ We chill, but I don't seem to find the task : 6
     # should unmark and show unmarked task
 ========================================================================
 ========================================================================
-Ok... I've marked this task as not done yet :
- [T][ ] read book
+Ok... I've marked this task as not done yet:
+[T][ ] read book
 But no worries,
 you are always welcome to just chill.
 ========================================================================
@@ -391,7 +391,7 @@ We chill, but the task is not marked yet.
 # should catch no such task error
 ========================================================================
 ========================================================================
-We chill, but I don't seem to find the task : 6
+We chill, but I don't seem to find the task: 6.
 ========================================================================
 ========================================================================
 ##########################################################
@@ -406,17 +406,17 @@ We chill, but I don't seem to find the task : 6
     # should delete and show deleted task
 ========================================================================
 ========================================================================
-Noted... I've removed this task :
- [T][ ] read book
+Noted... I've removed this task:
+[T][ ] read book
 Now you have 4 task(s) in the list.
 You know what, I also thought
-we didn't really need that
+we didn't really need that.
 ========================================================================
 ========================================================================
 # should catch no such task error
 ========================================================================
 ========================================================================
-We chill, but I don't seem to find this task : 
+We chill, but I don't seem to find this task: .
 ========================================================================
 ========================================================================
 ##########################################################
@@ -434,11 +434,11 @@ We chill, but I don't seem to find this task :
 Seems like you were too chill
 and forgot what you had...
 
-Anyways, here's what you have :
- 1. [D][ ] read book (by Jan 1 1000)
- 2. [D][ ] read book (by Jan 1 1000 1:00am)
- 3. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
- 4. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
+Anyways, here's what you have:
+1. [D][ ] read book (by Jan 1 1000)
+2. [D][ ] read book (by Jan 1 1000 1:00am)
+3. [E][ ] read book (from Jan 1 1000 to Jan 2 1000)
+4. [E][ ] read book (from Jan 1 1000 1:00am to Jan 2 1000 11:00pm)
 You have 4 task(s) in the list.
 ========================================================================
 ========================================================================

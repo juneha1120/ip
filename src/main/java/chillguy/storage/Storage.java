@@ -66,6 +66,9 @@ public class Storage {
         case "T":
             return new Todo(description, isDone);
         case "D":
+            if (parts.length < 4) {
+                throw new ChillGuyException(READ_FORMAT_ERROR, line);
+            }
             String by = parts[3];
             if (by.contains("T")) {
                 return new Deadline(description, isDone, LocalDateTime.parse(by));
@@ -73,6 +76,9 @@ public class Storage {
                 return new Deadline(description, isDone, LocalDate.parse(by));
             }
         case "E":
+            if (parts.length < 5) {
+                throw new ChillGuyException(READ_FORMAT_ERROR, line);
+            }
             String from = parts[3];
             String to = parts[4];
             if (from.contains("T") && to.contains("T")) {
@@ -137,14 +143,20 @@ public class Storage {
             }
         }
 
+        List<String> lines;
         try {
-            List<String> lines = Files.readAllLines(path);
-            for (String line : lines) {
-                Task task = fromFileFormat(line);
-                loadedTaskList.put(++loadedTaskCount, task);
-            }
+            lines = Files.readAllLines(path);
         } catch (IOException e) {
             throw new ChillGuyException(READ_FILE_ERROR);
+        }
+
+        for (String line : lines) {
+            try {
+                Task task = fromFileFormat(line);
+                loadedTaskList.put(++loadedTaskCount, task);
+            } catch (ChillGuyException e) {
+                System.out.println(e.getMessage());
+            }
         }
 
         return new TaskList(loadedTaskList);

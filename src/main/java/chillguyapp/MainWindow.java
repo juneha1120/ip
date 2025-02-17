@@ -77,8 +77,9 @@ public class MainWindow extends AnchorPane {
                 DialogBox.getChillGuyDialog(response, chillGuyImage)
         );
 
-        if (input.equalsIgnoreCase(ExitCommand.COMMAND_WORD)) {
-            PauseTransition delay = new PauseTransition(Duration.seconds(3));
+        String[] exitCheck = input.split(" ", 2);
+        if (exitCheck[0].equalsIgnoreCase(ExitCommand.COMMAND_WORD)) {
+            PauseTransition delay = new PauseTransition(Duration.seconds(2.5));
             delay.setOnFinished(event -> Platform.exit());
             delay.play();
             return;

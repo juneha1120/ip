@@ -14,7 +14,7 @@ import chillguy.ui.TextUi;
  */
 public class ExitCommand extends Command {
     public static final String COMMAND_WORD = "bye";
-    public static final String COMMAND_DESCRIPTION = COMMAND_WORD + " : exits the chatbot.\n"
+    public static final String COMMAND_DESCRIPTION = COMMAND_WORD + ": exits the chatbot.\n"
             + EXAMPLE_PREFIX + COMMAND_WORD;
 
     /**

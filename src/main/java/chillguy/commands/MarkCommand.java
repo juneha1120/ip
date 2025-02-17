@@ -19,7 +19,7 @@ import chillguy.ui.TextUi;
  */
 public class MarkCommand extends Command {
     public static final String COMMAND_WORD = "mark";
-    public static final String COMMAND_DESCRIPTION = COMMAND_WORD + " : marks specified task as done.\n"
+    public static final String COMMAND_DESCRIPTION = COMMAND_WORD + ": marks specified task as done.\n"
             + EXAMPLE_PREFIX + COMMAND_WORD + " 3";
     private final int taskNum;
 

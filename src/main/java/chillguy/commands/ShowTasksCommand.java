@@ -15,7 +15,7 @@ import chillguy.ui.TextUi;
 public class ShowTasksCommand extends Command {
     public static final String COMMAND_WORD = "show";
     public static final String COMMAND_PHRASE = "show tasks";
-    public static final String COMMAND_DESCRIPTION = COMMAND_PHRASE + " : shows list of added tasks.\n"
+    public static final String COMMAND_DESCRIPTION = COMMAND_PHRASE + ": shows list of added tasks.\n"
             + EXAMPLE_PREFIX + COMMAND_PHRASE;
 
     /**

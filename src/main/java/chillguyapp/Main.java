@@ -22,6 +22,7 @@ public class Main extends Application {
             FXMLLoader fxmlLoader = new FXMLLoader(chillguyapp.Main.class.getResource("/view/MainWindow.fxml"));
             AnchorPane ap = fxmlLoader.load();
             Scene scene = new Scene(ap);
+            stage.setTitle("ChillGuy - Your Chill Chatbot");
             stage.setScene(scene);
             stage.setMinHeight(420);
             stage.setMinWidth(420);

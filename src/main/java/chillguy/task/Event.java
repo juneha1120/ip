@@ -16,7 +16,7 @@ import chillguy.enums.TaskType;
 public class Event extends Task {
     public static final String COMMAND_WORD = "event";
     public static final String COMMAND_DESCRIPTION = COMMAND_WORD
-            + " : adds task from and to specified date/time to task list.\n"
+            + ": adds task from and to specified date/time to task list.\n"
             + EXAMPLE_PREFIX + COMMAND_WORD
             + " study CS2103T /from 01/01/1000 0100 /to 02/01/1000 0200";
     protected TaskType type = TaskType.EVENT;

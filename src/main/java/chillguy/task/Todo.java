@@ -11,7 +11,7 @@ import chillguy.enums.TaskType;
  */
 public class Todo extends Task {
     public static final String COMMAND_WORD = "todo";
-    public static final String COMMAND_DESCRIPTION = COMMAND_WORD + " : adds task without any date/time to task list.\n"
+    public static final String COMMAND_DESCRIPTION = COMMAND_WORD + ": adds task without any date/time to task list.\n"
             + EXAMPLE_PREFIX + COMMAND_WORD + " study CS2103T";
     protected TaskType type = TaskType.TODO;
 

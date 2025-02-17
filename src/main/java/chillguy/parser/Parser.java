@@ -62,7 +62,7 @@ public class Parser {
             command = new String[]{command[0], ""};
         }
 
-        String commandWord = command[0];
+        String commandWord = command[0].toLowerCase();
         String arguments = command[1];
 
         // Return corresponding Command based on the command word
@@ -94,7 +94,7 @@ public class Parser {
     protected Command prepareHelpCommand(String arguments) throws ChillGuyException {
         assert arguments != null : "Arguments cannot be null";
 
-        return switch (arguments) {
+        return switch (arguments.toLowerCase()) {
         case "" -> new HelpCommand("");
         case Todo.COMMAND_WORD -> new HelpCommand(Todo.COMMAND_DESCRIPTION);
         case Deadline.COMMAND_WORD -> new HelpCommand(Deadline.COMMAND_DESCRIPTION);
@@ -278,6 +278,7 @@ public class Parser {
     protected Command prepareShowTasksCommand(String fullCommand) throws ChillGuyException {
         assert fullCommand != null : "Arguments cannot be null";
 
+        fullCommand = fullCommand.toLowerCase();
         if (fullCommand.contains(ShowTasksWithDateCommand.COMMAND_PHRASE)) {
             DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("d/M/yyyy");
             try {
@@ -309,6 +310,8 @@ public class Parser {
         if (arguments.isEmpty()) {
             throw new ChillGuyException(TYPE_ERROR);
         }
+
+        arguments = arguments.toLowerCase();
 
         return switch (arguments) {
         case Todo.COMMAND_WORD -> new RemindCommand(TODO);

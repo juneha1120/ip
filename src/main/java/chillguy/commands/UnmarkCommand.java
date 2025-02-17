@@ -19,7 +19,7 @@ import chillguy.ui.TextUi;
  */
 public class UnmarkCommand extends Command {
     public static final String COMMAND_WORD = "unmark";
-    public static final String COMMAND_DESCRIPTION = COMMAND_WORD + " : unmarks specified task.\n"
+    public static final String COMMAND_DESCRIPTION = COMMAND_WORD + ": unmarks specified task.\n"
             + EXAMPLE_PREFIX + COMMAND_WORD + " 3";
     private final int taskNum;
 

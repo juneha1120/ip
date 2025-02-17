@@ -23,7 +23,7 @@ import chillguy.ui.TextUi;
  */
 public class RemindCommand extends Command {
     public static final String COMMAND_WORD = "remind";
-    public static final String COMMAND_DESCRIPTION = COMMAND_WORD + " : shows list of specified type due today.\n"
+    public static final String COMMAND_DESCRIPTION = COMMAND_WORD + ": shows list of specified type due today.\n"
             + EXAMPLE_PREFIX + COMMAND_WORD + " todo";
     private final TaskType type;
 
@@ -61,7 +61,8 @@ public class RemindCommand extends Command {
                     reminders.put(++reminderCount, task);
                 }
             } else if (task.getType() == TaskType.EVENT && task.getType().equals(this.type)) {
-                if (task.getFromDate().isBefore(LocalDate.now()) && task.getToDate().isAfter(LocalDate.now())) {
+                if ((task.getFromDate().isBefore(LocalDate.now()) && task.getToDate().isAfter(LocalDate.now()))
+                    || task.getFromDate().isEqual(LocalDate.now()) || task.getToDate().isEqual(LocalDate.now())) {
                     reminders.put(++reminderCount, task);
                 }
             }
