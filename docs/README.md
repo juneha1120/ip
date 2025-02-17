@@ -292,6 +292,7 @@ ChillGuy data are saved automatically as a text file `chillguy.txt`.
 Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">
+
 If your changes to the data file makes its format invalid, ChillGuy will discard invalid lines 
 and start with valid lines only. Hence, it is recommended to take a backup of the tile before editing it.
 </div>
