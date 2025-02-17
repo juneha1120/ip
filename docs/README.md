@@ -1,6 +1,7 @@
-# ChillGuy
+# ChillGuy User Guide
 
 <img src="Ui.png" width="400" alt="">
+<br>
 
 > "When your to-do list is full of overdue ones, but you are just a chill guy." - Chill Guy
 
@@ -12,8 +13,11 @@ designed to help you manage tasks efficiently while keeping things chill.
 * Table of Contents
 {:toc}
 
---------------------------------------------------------------------------------------------------------------------
+<br>
+<br>
+<br>
 
+--------------------------------------------------------------------------------------------------------------------
 ## Quick start
 
 1. **Prerequisites**: Ensure you have Java 17 or later installed on your computer.
@@ -32,16 +36,20 @@ designed to help you manage tasks efficiently while keeping things chill.
 5. **Using ChillGuy**:
    - Type the command in the command box and press **Enter** or **Send button** to execute it.
    - **Example**: Typing `help` and pressing **Enter** will display available commands.
+<br>
+<br>
+<br>
 
 --------------------------------------------------------------------------------------------------------------------
-
 ## Features
 
 > ℹ️ **Notes about the command format**:
 > * Words in `UPPER_CASE` are the parameters to be supplied by the user.
 > * Extraneous parameters for commands that do not take in parameters (such as help, show tasks, bye) will be ignored. 
 > e.g. if the command specifies bye 123, it will be interpreted as bye.
-> * Command words are case-insensitive.<br>
+> * Command words are case-insensitive.
+<br>
+<br>
 
 ### Viewing help: `help`
 
@@ -79,6 +87,7 @@ help <command name>
 > Example: `help todo`
 > 
 > Chillguy replies with the details of specified command.
+<br>
 
 ### Adding a todo: `todo`
 
@@ -96,6 +105,7 @@ Gotcha... I've added this task:
 Now you have 1 task(s) in the list.
 But remember, you can always chill first.
 ```
+<br>
 
 ### Adding a deadline: `deadline`
 
@@ -113,6 +123,7 @@ Gotcha... I've added this task:
 Now you have 1 task(s) in the list.
 But remember, you can always chill first.
 ```
+<br>
 
 ### Adding an event: `event`
 
@@ -130,6 +141,7 @@ Gotcha... I've added this task:
 Now you have 1 task(s) in the list.
 But remember, you can always chill first.
 ```
+<br>
 
 ### Listing all tasks: `show tasks`
 
@@ -147,6 +159,7 @@ Anyways, here's what you have:
 1. [T][ ] study CS2103T 
 You have 1 task(s) in the list.
 ```
+<br>
 
 ### Listing tasks on specific date: `show tasks on`
 
@@ -166,6 +179,7 @@ Anyways, here's what you have:
 1. [D][ ] study CS2103T (by Feb 21 2025 4:00pm)
 You have 1 task(s) on Feb 21 2025.
 ```
+<br>
 
 ### Finding tasks with keyword: `find`
 
@@ -185,6 +199,7 @@ Anyways, here's what I found matching:
 1. [T][ ] study CS2103T
 You have 1 task(s) with keyword : CS2103T.
 ```
+<br>
 
 ### Reminding a specific type of task: `remind`
 
@@ -204,6 +219,7 @@ Anyways, here's what I found to remind you:
 1. [D][ ] study CS2103T (by Feb 21 2025 4:00pm)
 You have 1 reminder(s) with DEADLINE.
 ```
+<br>
 
 ### Marking a task: `mark`
 
@@ -220,6 +236,7 @@ Nice... I've marked this task as done:
 [T][X] study CS2103T
 Think you can chill a bit now.
 ```
+<br>
 
 ### Unmarking a task: `unmark`
 
@@ -237,6 +254,7 @@ Ok... I've marked this task as not done yet:
 But no worries,
 you are always welcome to just chill.
 ```
+<br>
 
 ### Deleting a task: `delete`
 
@@ -255,6 +273,7 @@ Now you have 0 task(s) in the list.
 You know what, I also thought
 we didn't really need that.
 ```
+<br>
 
 ### Exiting the chatbot: `bye`
 
@@ -268,23 +287,28 @@ ChillGuy replies with the following message.
 Bye...
 Hope to see you and chill together again soon...
 ```
+<br>
 
 ### Saving the data
 
 ChillGuy data are saved in the hard disk automatically after any command that changes the data.  
 There is no need to save manually.
+<br>
 
 ### Editing the data
 
 ChillGuy data are saved automatically as a text file `chillguy.txt`.  
 Advanced users are welcome to update data directly by editing that data file.
+<br>
 
 > ⚠️ **Warning**  
 > If your changes to the data file makes its format invalid, ChillGuy will discard invalid lines 
 > and start with valid lines only. Hence, it is recommended to take a backup of the tile before editing it.
+<br>
+<br>
+<br>
 
 --------------------------------------------------------------------------------------------------------------------
-
 ## Command summary
 
 | Command                               | Format, Example                                                                                                                        |
@@ -300,3 +324,7 @@ Advanced users are welcome to update data directly by editing that data file.
 | **Unmarking a task**                  | `unmark TASK_NUMBER` <br> e.g., `unmark 1`                                                                                             |
 | **Deleting a task**                   | `delete TASK_NUMBER` <br> e.g., `delete 1`                                                                                             |
 | **Viewing help**                      | `help`                                                                                                                                 |
+<br>
+<br>
+<br>
+
