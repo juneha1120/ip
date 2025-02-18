@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
@@ -41,6 +42,7 @@ public class MainWindow extends AnchorPane {
     @FXML
     public void initialize() {
         this.scrollPane.vvalueProperty().bind(this.dialogContainer.heightProperty());
+        this.scrollPane.addEventFilter(ScrollEvent.SCROLL, event -> scrollPane.vvalueProperty().unbind());
     }
 
     /** Injects the Chill Guy instance */
@@ -76,6 +78,8 @@ public class MainWindow extends AnchorPane {
                 DialogBox.getUserDialog(input),
                 DialogBox.getChillGuyDialog(response, chillGuyImage)
         );
+
+        this.scrollPane.vvalueProperty().bind(this.dialogContainer.heightProperty());
 
         String[] exitCheck = input.split(" ", 2);
         if (exitCheck[0].equalsIgnoreCase(ExitCommand.COMMAND_WORD)) {
