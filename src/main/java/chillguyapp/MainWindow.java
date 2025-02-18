@@ -76,6 +76,7 @@ public class MainWindow extends AnchorPane {
         if (input.isEmpty()) {
             return;
         }
+        userInput.clear();
 
         String response = this.chillGuy.getResponseWithGUi(input);
         dialogContainer.getChildren().addAll(
@@ -92,7 +93,5 @@ public class MainWindow extends AnchorPane {
             delay.play();
             return;
         }
-
-        userInput.clear();
     }
 }
