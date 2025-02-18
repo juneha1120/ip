@@ -42,7 +42,11 @@ public class MainWindow extends AnchorPane {
     @FXML
     public void initialize() {
         this.scrollPane.vvalueProperty().bind(this.dialogContainer.heightProperty());
+
+        //@@author samuelneo-reused
+        //Reused from https://github.com/samuelneo/ip/commit/a4318795662647afe657d1e5047e1c433c283896
         this.scrollPane.addEventFilter(ScrollEvent.SCROLL, event -> scrollPane.vvalueProperty().unbind());
+        //@@author
     }
 
     /** Injects the Chill Guy instance */
