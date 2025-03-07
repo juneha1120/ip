@@ -8,9 +8,6 @@ ChillGuy is here to just chill most of the time but also take care of things you
 
 ChillGuy is a **command-line optimized task manager desktop app** with a **chatbot-style Graphical User Interface (GUI)**,
 designed to help you manage tasks efficiently while keeping things chill.
-
-* Table of Contents
-{:toc}  
   
 <br>
 <br>
