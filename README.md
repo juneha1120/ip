@@ -1,6 +1,5 @@
 # ChillGuy User Guide
 
-<img src="Ui.png" width="400" alt="">
 <br>
 
 > "When your to-do list is full of overdue ones, but you are just a chill guy." - Chill Guy
